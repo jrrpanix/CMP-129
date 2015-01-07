@@ -5,8 +5,8 @@ public class StopWatch1 {
     private long stop_;
 
 
-    public long MICRO_PER_NANO = 1000;
-    public double SEC_PER_NANO = 1000000000.0;
+    final public long MICRO_PER_NANO = 1000;
+    final public double SEC_PER_NANO = 1000000000.0;
 
     StopWatch1() {
 	start_=stop_=0;
