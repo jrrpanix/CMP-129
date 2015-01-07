@@ -1,10 +1,5 @@
 // Course      : CMP-129
 // Chapter     : Lesson1 
-// Title       : Random Number Generator     
-// Instructor  : JReynolds
-
-// Course      : CMP-129
-// Chapter     : Lesson1 
 // Title       : Generate Arrays of Random numbers
 // Instructor  : JReynolds
 
