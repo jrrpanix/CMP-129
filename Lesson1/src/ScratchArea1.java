@@ -1,6 +1,17 @@
+// Course      : CMP-129
+// Chapter     : Lesson1 
+// Title       : ScratchArea1
+// Instructor  : JReynolds
+
+
 import java.util.Random;
 import java.util.Scanner;
-public class ArrayExamples {
+
+
+public class ScratchArea1 {
+    // Initial Experiementation class to put initial work
+    // Before finalizing into classes, like a scratch pad
+    // Proto type here 
 
     public int smallestIndex( int [] A , int pos) {
 	int m = pos;
@@ -189,7 +200,7 @@ public class ArrayExamples {
     
     public static void main(String[] args) {
 	// TODO Auto-generated method stub
-	ArrayExamples e = new ArrayExamples();
+	ScratchArea1 e = new ScratchArea1();
 	e.example1();
     }
 
