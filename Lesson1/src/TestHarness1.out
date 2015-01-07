@@ -1,9 +1,9 @@
 Test AsString
 1 2 3 
 Test Random
-665 957 397 394 8 222 470 630 729 880 830 771 650 229 661 
+40 733 721 674 183 27 61 997 608 999 61 874 960 847 981 
 Test Sort
-140 203 282 284 354 395 418 559 688 753 788 809 814 836 927 
+30 68 224 277 294 295 314 316 487 565 595 836 898 904 971 
 Test Search
 0 1 2 3 4 5 6 7 8 9 
 Algo=BinarySearch,SearchValue=5,Status=Found,pos=5
@@ -16,3 +16,7 @@ Algo=BinarySearch,SearchValue=-100,Status=NotFond,pos=-1
 Algo=LinearSearch,SearchValue=-100,Status=NotFond,pos=-1
 Algo=BinarySearch,SearchValue=100,Status=NotFond,pos=-1
 Algo=LinearSearch,SearchValue=100,Status=NotFond,pos=-1
+Time to create RandomIntArray of Size= 10000=3467 us
+Time to sort RandomIntArray of Size= 10000=70136 us
+Time to create SequentialIntArray of Size= 10000=334 us
+Time to sort SequentialIntArray of Size= 10000=59914 us
