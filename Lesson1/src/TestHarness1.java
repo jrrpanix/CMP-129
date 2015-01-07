@@ -59,10 +59,23 @@ public class TestHarness1 {
 	// Create an Array of Size 10 and fill with 0 to 9
 	int [] A = Random1.SequentialIntArray( 10 , 0 , 1 );
 	System.out.println(AsString(A));
-	int p,v;
-	v = 5;
-	p = Search1.binarySearch(A,v);
-	System.out.println("Searching for " + v + " found at pos=" + p + " value=" + A[p]);
+	SearchResult(A,5,true);
+	SearchResult(A,5,false);
+	SearchResult(A,0,true);
+	SearchResult(A,0,false);
+	SearchResult(A,9,true);
+	SearchResult(A,9,false);
+	SearchResult(A,-100,true);
+	SearchResult(A,-100,false);
+	SearchResult(A,100,true);
+	SearchResult(A,100,false);
+    }
+
+    public static void SearchResult( int [] A , int searchValue , boolean useBinary ) {
+	int pos = useBinary ? Search1.binarySearch(A,searchValue) : Search1.linearSearch(A,searchValue);
+	String algo = useBinary ? "BinarySearch" : "LinearSearch";
+	String status = pos >= 0 ? "Found" : "NotFond";
+	System.out.println("Algo="+algo + ",SearchValue=" + searchValue + ",Status=" + status + ",pos="  + pos);
     }
 
     //--------------------------------------------------------
