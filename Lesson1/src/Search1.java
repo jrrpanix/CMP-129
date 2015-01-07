@@ -1,6 +1,28 @@
+// Course      : CMP-129
+// Chapter     : Lesson1 
+// Title       : Binary Search
+// Instructor  : JReynolds
 
 public class Search1 {
 
+    // Implemnetation of binarySearch Algorithm
+    // Note : This algorithm requires that A be sorted!!!
+    // Inputs: 
+    // int [] A   : A sorted Array
+    // int value  : the value we are searching for
+    // Returns :
+    //     if i >=0  : this is the position of 'value'
+    //     if i ==-1 : then 'value' not found
+    //
+    // Algorithm 
+    //  Search range starts from [b=0,e=length-1] (b,begin) (e,end)
+    //  get the mid point i of b and e 
+    //  if A[i] == value return i
+
+    //  else if the A[i] is less than value then we know
+    //  the value is above index i so serach is now from b=i+1 to e
+    //  
+    //  else the value is in the bottom half so we ajdust e to i-1 
     // 
     public static int binarySearch( int [] A , int value ) {
 	int b = 0 , e = A.length-1;
@@ -13,32 +35,12 @@ public class Search1 {
 	return -1;
     }
 
-    public static void print( int [] A ) {
-	for( int a : A ) System.out.print( a + " " );
-	System.out.println( "");
-    }
 
-    public static void searchPrint( int [] A , int value ) {
-	int ix = binarySearch( A , value );
-	if ( ix == -1 )
-	    System.out.println( "unable to find value " + value );
-	else
-	    System.out.println( "searching value " + value + " found at " + ix + " value = " + A[ix] );
-    }
-
-    public static void testSearch() {
-	int [] A = Random1.createInt( 10 , 1000 );
-	Sort1.selectionSort(A);
-	print(A);
-	searchPrint(A,A[5]);
-	searchPrint(A,A[0]);
-	searchPrint(A,A[A.length-1]);
-	searchPrint(A,-1000);
-	searchPrint(A,20000);
-    }
-
-    public static void main( String[] args ) {
-	testSearch();
+    // search through array starting from 0 until value found
+    public static int linearSearch( int [] A , int value ) {
+	for( int i = 0; i < A.length ; i++ )
+	    if ( A[i] == value ) return i;
+	return -1;
     }
 
 }
