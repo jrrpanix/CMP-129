@@ -79,12 +79,40 @@ public class TestHarness1 {
     }
 
     //--------------------------------------------------------
+    // Timing Tests
+    //--------------------------------------------------------
+    public static void TimerTests() {
+	StopWatch1 watch = new StopWatch1();
+	watch.start();
+	int Big = 10000 , Range=10000;
+	int [] A = Random1.RandomIntArray(Big,Range);
+	watch.stop();
+	System.out.println( "Time to create RandomIntArray of Size= " + A.length + "=" + watch.timeus() + " us" );
+
+	watch.start();
+	Sort1.selectionSort(A);
+	watch.stop();
+	System.out.println( "Time to sort RandomIntArray of Size= " + A.length + "=" + watch.timeus() + " us" );
+
+	watch.start();
+	A = Random1.SequentialIntArray(Big,0,1);
+	watch.stop();
+	System.out.println( "Time to create SequentialIntArray of Size= " + A.length + "=" + watch.timeus() + " us" );
+	watch.start();
+	Sort1.selectionSort(A);
+	watch.stop();
+	System.out.println( "Time to sort SequentialIntArray of Size= " + A.length + "=" + watch.timeus() + " us" );   
+    }
+
+
+    //--------------------------------------------------------
     // main
     public static void main( String[] args ) {
 	TestAsString(); 
 	TestRandom();
 	TestSort();
 	TestSearch();
+	TimerTests();
    }
     
 }
