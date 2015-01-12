@@ -25,6 +25,23 @@ class Random1 {
 	return A;
     }
 
+
+    //
+    // Generate a Random String
+    // len = String Length
+    // Random Character Range starts at First and ends at Last
+    // For example First='A',Last='Z'
+    public static String RandomString( int len , char First , char Last ) {
+	int first = First > Last ? Last : First ;
+	int last = First > Last ? First : Last;
+	int range = last - first + 1;
+	Random gen = new Random();
+	char [] buffer = new char[len];
+	for( int i = 0; i < len ; i++ )
+	    buffer[i] = (char)( first + gen.nextInt(range) );
+	return new String( buffer );
+    }
+
     //
     // Create a Array of Sequential Integers (NonRandom)
     public static int [] SequentialIntArray( int Size , int Start , int Step ) {
@@ -33,6 +50,11 @@ class Random1 {
 	for(int i = 0,v=Start; i < A.length ; i++,v+=Step )
 	    A[i] = v;
 	return A;
+    }
+
+    public static void main( String [] args ) {
+	for( int i = 0; i < 10 ; i++ )
+	    System.out.println( RandomString( 6, 'A' , 'E' ) );
     }
 
 }
