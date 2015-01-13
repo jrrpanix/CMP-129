@@ -1,3 +1,7 @@
+// Course      : CMP-129
+// Title       : Examples of Java ArrayList
+// Instructor  : JReynolds
+
 import java.util.ArrayList;
 import java.util.Iterator;
 

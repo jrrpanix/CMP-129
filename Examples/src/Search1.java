@@ -1,5 +1,4 @@
 // Course      : CMP-129
-// Chapter     : Lesson1 
 // Title       : Binary Search
 // Instructor  : JReynolds
 

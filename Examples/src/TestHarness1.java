@@ -3,7 +3,7 @@
 // Title       : Test Harness
 // Instructor  : JReynolds
 
-
+import java.util.Arrays;
 
 public class TestHarness1 {
     // TestHarness of Code going from visual inspection to more robust testing methods
@@ -12,6 +12,13 @@ public class TestHarness1 {
     public static String AsString( int [] A ) {
 	String s = new String();
 	for( int a : A ) {s += a; s += " "; }
+	return s;
+    }
+
+    // Create a space delimited String from elementin in Array
+    public static String AsString( double [] A ) {
+	String s = new String();
+	for( double a : A ) {s += a; s += " "; }
 	return s;
     }
 
@@ -78,6 +85,17 @@ public class TestHarness1 {
 	System.out.println("Algo="+algo + ",SearchValue=" + searchValue + ",Status=" + status + ",pos="  + pos);
     }
 
+    // 4
+    // Doubles
+    public static void TestDouble() {
+	String TestName = "Test Random Double";
+	double [] A = Random1.RandomDoubleArray( 15 , 10 );
+	Arrays.sort(A);
+	System.out.println(TestName);
+	System.out.println(AsString(A));
+
+    }
+
     //--------------------------------------------------------
     // Timing Tests
     //--------------------------------------------------------
@@ -113,6 +131,7 @@ public class TestHarness1 {
 	TestSort();
 	TestSearch();
 	TimerTests();
+	TestDouble();
    }
     
 }

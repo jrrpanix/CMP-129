@@ -1,3 +1,7 @@
+// Course      : CMP-129
+// Title       : Examples of Java Arrays
+// Instructor  : JReynolds
+
 import java.util.Random;
 import java.util.Arrays;
 

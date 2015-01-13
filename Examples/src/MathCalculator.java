@@ -1,3 +1,7 @@
+// Course      : CMP-129
+// Title       : Interactive Calculator
+// Instructor  : JReynolds
+
 import java.util.Scanner;
 
 public class MathCalculator {

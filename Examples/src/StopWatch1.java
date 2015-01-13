@@ -1,3 +1,7 @@
+// Course      : CMP-129
+// Title       : Simple Stopwatch Class
+// Instructor  : JReynolds
+
 
 public class StopWatch1 {
     

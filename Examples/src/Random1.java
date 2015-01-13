@@ -1,5 +1,4 @@
 // Course      : CMP-129
-// Chapter     : Lesson1 
 // Title       : Generate Arrays of Random numbers
 // Instructor  : JReynolds
 
@@ -22,6 +21,24 @@ class Random1 {
 	Random gen = new Random();
 	for(int i = 0; i < A.length ; i++)
 	    A[i] = gen.nextInt(Range);
+	return A;
+    }
+
+
+    //
+    // Create a Array of Random Doubles
+    // Inputs:
+    //    int Size - the number of element in the array
+    //    int Range - randome number range [0 , Range-1]
+    // Output :
+    //    double [] - Randomly generated int Array of length=Size
+    //
+    public static double [] RandomDoubleArray( int Size , int Range ) {
+	if ( Size <= 0 ) return new double[0];
+	double [] A = new double[Size];
+	Random gen = new Random();
+	for(int i = 0; i < A.length ; i++)
+	    A[i] = Range * gen.nextDouble();
 	return A;
     }
 

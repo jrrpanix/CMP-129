@@ -1,6 +1,4 @@
-
 // Course      : CMP-129
-// Chapter     : Lesson1 
 // Title       : Sort Algorithms (Selection Sort)
 // Instructor  : JReynolds
 
