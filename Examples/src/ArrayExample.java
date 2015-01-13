@@ -60,6 +60,15 @@ class IntCalc {
 	return sum;
     }
 
+    // Dot Product
+    static public double dotProduct( double [] theta , double [] X ) {
+	double sum = 0;
+	for( int i = 0; i < theta.length ; i++ ) {
+	    sum += theta[i] * X[i];
+	}
+	return sum;
+    }
+
 
     static public int [] copyRange( int [] A , int startIndex , int endIndex ) {
 	int len = endIndex - startIndex + 1;
@@ -76,23 +85,65 @@ class IntCalc {
 
 }
 
+class MultiDim {
 
-class ArrayExample {
-
-    static public void testLeapYears() {
-	int [] testYears = {1800,1804,1900,1901,1904,1964,1965,1984,2000,2001};
-	for( int y : testYears ) {
-	    System.out.println( "Days in Month for " + "Feb/" + y + " = " + DateCalc.getDaysInMonth(2,y)); 
+    static public void print2D( double [] [] I ) {
+	for( int i = 0; i < I.length ; i++ ) {
+	    for( int j = 0; j < I[i].length; j++ )
+		System.out.print( " " + I[i][j] );
+	    System.out.println("");
 	}
     }
 
-    static public void testMonths() {
-	int [] months = { 3 , 5 , 11 , 13 };
-	for( int m : months )
-	    System.out.println( "month = " + m + " as string = " + DateCalc.getMonthAsString(m));
+    static public void print2D( String [] [] I ) {
+	for( int i = 0; i < I.length ; i++ ) {
+	    for( int j = 0; j < I[i].length; j++ )
+		System.out.print( " " + I[i][j] );
+	    System.out.println("");
+	}
     }
 
+    static public double [][]  twoByTwo() {
+	double [] [] I = { { 1 , 0 } , {0, 1 } };
+	return I;
+    }
+
+    static public double [][] create2D( int rows, int cols ) {
+	double [] [] M = new double[rows][cols];
+	return M;
+    }
+
+    static public double [][] createIdenity( int dim ) {
+	double [][] M = create2D( dim , dim );
+	for(int i = 0; i < dim ; i++ )
+	    M[i][i] = 1;
+	return M;
+    }
+
+    static public double [][] raggedDoubleArray( int [] colWidth ) {
+	double [][] M = new double [colWidth.length][];
+	for( int i = 0; i < colWidth.length ; i++ )
+	    M[i] = new double[colWidth[i]];
+	return M;
+    }
+
+    static public String [][] raggedString( int [] colWidth ) {
+	String [][] M = new String [colWidth.length][];
+	for( int i = 0; i < colWidth.length ; i++ )
+	    M[i] = new String[colWidth[i]];
+	return M;
+    }
+
+
+}
+
+
+class ArrayExample {
+    // Run Test Cases from the Above Classes
+
     static public void testOutOfBounds() {
+	System.out.println( "-----------------------------------------------" );
+	System.out.println( "Testing Array out of bounds will throw exception" );
 	try {
 	    // NOTE in Java an Array Can be declared as "int A[]" in addition to "int [] A"
 	    int A[] = { 0 , 1, 2 };
@@ -104,7 +155,27 @@ class ArrayExample {
 	}
     }
 
+    static public void testMonths() {
+	System.out.println( "-----------------------------------------------" );
+	System.out.println("Testing Months as Strings");
+	int [] months = { 3 , 5 , 11 , 13 };
+	for( int m : months )
+	    System.out.println( "month = " + m + " as string = " + DateCalc.getMonthAsString(m));
+    }
+
+
+    static public void testLeapYears() {
+	System.out.println( "-----------------------------------------------" );
+	System.out.println("Testing Leap Years" );
+	int [] testYears = {1800,1804,1900,1901,1904,1964,1965,1984,2000,2001};
+	for( int y : testYears ) {
+	    System.out.println( "Days in Month for " + "Feb/" + y + " = " + DateCalc.getDaysInMonth(2,y)); 
+	}
+    }
+
     static public void testSystemArrayFunctions() {
+	System.out.println( "-----------------------------------------------" );
+	System.out.println("Testing Java Built in Array Functions" );
 	// genrate array of size 10 of random numbers between 0 and 999
 	int [] D = Random1.RandomIntArray( 10 , 1000 ); 
 	Arrays.sort(D);
@@ -117,11 +188,34 @@ class ArrayExample {
     }
 
 
+    static public void testMultiDim() {
+	System.out.println( "-----------------------------------------------" );
+	System.out.println("Testing MultiDimenstion Arrays" );
+	MultiDim.print2D( MultiDim.twoByTwo());
+	System.out.println( "Creating 3x3 Idenity Matrix");
+	MultiDim.print2D( MultiDim.createIdenity(3));
+
+	System.out.println( "Ragged Array Example");
+	int [] cols = {  2, 3, 1 } ;
+	String [][] Seating = MultiDim.raggedString(cols);
+	Seating[0][0] = "Jessica" ;
+	Seating[0][1] = "Tony" ;
+
+	Seating[1][0] = "Bill" ;
+	Seating[1][1] = "Tracy" ;
+	Seating[1][2] = "Alex" ;
+
+	Seating[2][0] = "Pat";
+	MultiDim.print2D( Seating );
+	
+    }
+
     static public void main( String [] args ) {
 	testOutOfBounds();
 	testMonths();
 	testLeapYears();
 	testSystemArrayFunctions();
+	testMultiDim();
     }
 
 }
