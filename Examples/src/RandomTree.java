@@ -33,9 +33,24 @@ class RandomTree {
 	}
     }
 
+    public double paths() {
+	return Math.pow( 2, height_ - 1 );
+    }
+
+    public double yearsToCalculate() {
+	double p = paths();
+	double secPath = 1e-6;
+	double timeSec = p * secPath;
+	double secPerYear = 365*24*60*60;
+	return timeSec / secPerYear;
+    }
+
     static public void main( String [] args ) {
-	RandomTree tree = new RandomTree(25);
-	tree.print();
+	for ( int i = 1; i < 100 ; i++ ) {
+	    RandomTree tree = new RandomTree(i);
+	    //tree.print();
+	    System.out.println( i + " " + "paths = " + tree.paths() + " years to calculate " + tree.yearsToCalculate());
+	}
     }
 
 }
