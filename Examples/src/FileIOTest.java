@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.io.File;
 import java.util.Scanner;
 
-public class WriteTest {
+public class FileIOTest {
 
     public static void WriteStringArray( String file , String [] X) {
 	try {
