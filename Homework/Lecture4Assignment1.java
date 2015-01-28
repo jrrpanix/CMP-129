@@ -1,3 +1,8 @@
+// Class      : CMP-129
+// Assignment : Lecture4 Class Assignment 1
+// Due        : 1/26/2015
+// Instructor : JReynolds
+
 import java.util.Arrays;
 
 class Lecture4Assignment1 {   // Note we called this class MyName in the Lecture 
