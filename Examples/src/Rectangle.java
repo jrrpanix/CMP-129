@@ -46,6 +46,8 @@ public class Rectangle {
     }
     
     public boolean equals( Object o) {
+	// Note we check to see if Object is of type Rectangle.class
+	// before casting to a Rectangle
 	if ( o.getClass() != Rectangle.class ) return false;
 	return equals((Rectangle)o);
     }
