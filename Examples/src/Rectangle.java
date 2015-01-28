@@ -45,10 +45,11 @@ public class Rectangle {
 	// not necesary to override for this class!
     }
     
-    public boolean equals( Rectangle r) {
-	return this.len_ == r.len_ && this.width_ == r.width_;
+    public boolean equals( Object o) {
+	if ( o.getClass() != Rectangle.class ) return false;
+	return equals((Rectangle)o);
     }
-    
+
 
     public int hashCode() {
 	// do "^" operation aka "Exclusive OR"
@@ -69,6 +70,10 @@ public class Rectangle {
 
     public double getWidth() {
 	return width_;
+    }
+
+    public boolean equals( Rectangle r) {
+	return this.len_ == r.len_ && this.width_ == r.width_;
     }
 
     //-------------------------------------------
@@ -121,6 +126,8 @@ public class Rectangle {
 
 	System.out.println( "\nInstance Count = " + Rectangle.getInstanceCount() );
 	System.out.println( R3.getInstanceCount() + " = "  + R1.getInstanceCount() );
+	System.out.println( "Calling equals(Object) " + R0.equals((Object)R1) );
+
     }
     
     //-------------------------------------------
