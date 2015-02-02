@@ -134,9 +134,9 @@ class EnumTest {
 	printStatus(bMonth);
 	printStatus(Months.valueOf("Aug"));
 
-	// Demonstrate what happens when we give a String thats not a month
+	// Demonstrate what happens when we give a String that's not a month
 	try {
-	    System.out.println( "\nwhat happens when we give a String thats not a month ...");
+	    System.out.println( "\nwhat happens when we give a String that\'s not a month ...");
 	    printStatus(Months.valueOf("ARandomStringThatsNotaMonth"));
 	}
 	catch ( java.lang.IllegalArgumentException ex ) {
