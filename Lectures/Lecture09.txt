@@ -32,7 +32,7 @@ public class Rectangle extends Shape {  // This is a subclass of Shape
        }
 
        public double area() {
-          return len_ * witdth_;
+          return len_ * width_;
        }
 
        public double getLength() {
@@ -49,15 +49,15 @@ public class Circle extends Shape { // This is a subclass of Shape
        private double radius_;
 
        public Circle( double radius ) {
-       radius_ = radius;
+          radius_ = radius;
        }
 
        public double area() {
-       return Math.PI * radius_ * radius_;
+          return Math.PI * radius_ * radius_;
        }
 
        public double getRadius() {
-       return radius_;
+          return radius_;
        }
 
 }
