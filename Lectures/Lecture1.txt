@@ -1,0 +1,89 @@
+About Eclipse
+
+Eclipse is an IDE (Integrated Development Environment)
+code organization
+code editing
+compiling, building, debugging, runtime environment configuration
+execution
+linking projects
+ability to work on large numbers of projects from a single point
+links to source code control systems such as (git,svn,cvs)
+Some useful Features of Eclipse
+
+Code Editing (which points out syntax errors during editing)
+Easy to reference entire JDK
+Completion list for class methods
+Built in code debugging
+Integrated run time envrionment
+
+CMP-129 First Project in Eclipse
+
+Step1 : Create the Project and Choose Project Options
+
+Start Eclispe by double clicking on the desktop icon "Eclipse"
+Wait for Eclipse to come up
+Change the "Prespective" to "Java" :  Select "Window"  then "Open Perspective"  then Select "Java" (  "Window" / "Open Perspective" /  "Java" )
+Create a "Java" Project :   "File" / "New" / "Java Project" (this will cause a new window to appear)
+Enter a 'Project Name' : (pick something like "FirstProject" )
+Select the 'JRE' (Java Runtime Enviornment, we want SE 1.6 or higher ) 
+Choose 'Project Layout' (select  'Create separate folders for sources and class files')
+'Working Sets' (not necessary now, this option  becomes useful as the number of projects in Eclipse grows working software developers can literally have dozens of projects they have access to  workings sets is a way to group subsets of projects together so as not to have the to scroll through dozens of projects all from a single point.  It also contains links to code repositories such as GIT, SVN , CVS, so that code can be "cloned" , "checked out" , "checked in" , "merged" , "diffed".
+click 'Finish' : your first project is now created!
+
+Step2 : Add Java source file to the project
+
+Create a New Java Class  : "File"/ "New"/ "Class" 
+A window Java Class Appears
+Name the class "CmdArgs" (for "command line arguments" )
+Select the option to generate code to include 'public static void main'
+Press 'Finish'
+The Java shource file 'CmdArgs' will appear in the eclipse editor
+Step 3: Add some source code 
+
+In main we will add the lines
+System.out.println("Starting CmdArgs ...." );
+System.out.println( "The number of command line args =" + 
+CODE COMPLETION FEATURE OF ECLIPSE
+now type "args."
+after the "." is typed in this should bring up the "Code Completion List" of all the valid options you can type after "."'
+select 'length' this will fill the completion to args.
+complete line by adding ");"
+Add in remainder of code
+for( String a : args )
+    System.out.println("printing arg " + a );
+System.out.println("Stopping CmdArgs ... ");
+Note : sending output to stdout via System.out.println() will cause the "Console" to come up when you run this is helpful so you con't have to go seraching for it when running something as a "Java applicaiton"
+Step 4: Run 
+
+Add some command line arguments "Run/RunConfigurations ...."
+A "Run Configurations" window will appear
+Select on "(x) = arguments"
+In the space called "Program Arguments" type in
+FirstArg SecondArg ThirdArg
+Press "Apply" and "Close"
+Note : theres another place for VM arguments, that we will address in later lectures
+We are now ready to run
+Select "Run/Run"
+A console window will appear with the following output
+Program Output ...
+
+Starting CmdArgs...
+The number of args =3
+FirstArg
+SecondArg
+ThirdArg
+Stopping CmdArgs ...
+
+A Quick Look A Git
+
+On the Lab PC's is a program called "GitBash" which brings up a "bash shell" on WIndows that allows running of Git from the command line
+
+
+Open "GitBash" by double clicking on the icon.
+We are going to get some soruce code so tpye in the following line ...
+git clone http://www.github.com/jrrpanix/CMP-129
+
+This will clone the repository "CMP-129" located on the github server
+To view this repository via a web browser type in the following url
+http://www.github.com/jrrpanix/CMP-129
+

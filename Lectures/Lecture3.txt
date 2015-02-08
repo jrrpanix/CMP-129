@@ -1,0 +1,38 @@
+One of the major goals of this course is to gain profiency in developing software in Java.  The best way to learn is by doing and repeating over and over. Today we are going to spend the lecture time working on a number of software development examples.  In this course so far you have been introduced to the following :
+
+Eclipse ( Creating a Java Project, creating a Java Source File, Running an Application)
+Some basic editing skills (ctrl-c (copy), ctrl-x(cut), ctrl-v (paste))
+Coding a "public static void main(String [] args)" into a .java file adding functions
+Coding additional "static" functions 
+Git ( dowloading code from an existing project)
+Random Number Generators
+System.nanoTime() and using it to create a StopWatch class
+Getting input from the keyboard using Scanner class
+Array ( delcaring, accessing elements, passing as a parameter, traversing through with a for loop)
+java.util.Arrays which has utility functions for sorting, binary search, filling declared Array types
+
+You should have been introduced to the following concepts in the first class
+
+Creating a "file" and writing data to it
+Opening a "file" and reading data from it
+Accessing arguments from the command line
+for, while loops
+creating a function and passing arguments to it
+creating functions and passing them arguments and have the return different types
+We are going to review all of these concepts by programming some examples in class today.  You should be able to program the examples and get the running and send me the output.  Its very important when developing code and putting code into a .java file to be neat , organized and systematic so that the code can be logically followed and easy to read.  Readability is extrmely important when developing software. When you create code , it will be read by others (including yourself) and its important to be able to follow what the code is accomplishing.
+
+The Job Interview Question (100 pts, to be completed during class today)
+
+A tech startup I interviewed with several years back gave me the following programming problem that they wanted written in Java.  The assignment is as follows: Write a program in Java, that can count the number of distinct words in a text file and then order the occurrences from the most frequently found word to the least, ignoring the case (upper and lower case counts the same so "The" and "the" are the same word).  For now we will treat plural forms as different word. For our assignment we will use the State of the Union Speech given last night as input  (we are computer scientists so analyzing this speech is not an endorsement or a detraction of the speech, its just input to us). During class today you will write code which will read in this file in, strip any punctuation from a word such as periods "." or commas ",",  or colons ":" or semi-colons";" and then keep track of the number of occurrences of that word.  When you are done reading the file the output will be the most occurring word and the number of times it was found to the least occurring word.
+
+For example: if the input file contains the following text:
+
+"Dog. Big dog. Little dog. Big and Little dogs."
+
+dog 3
+big 2
+little 2
+and 1
+dogs 1
+
+This problem is not easy so it will push your programming skills.  The state of the union address is checked into the class git hub which you can download using gitbash or find it on
