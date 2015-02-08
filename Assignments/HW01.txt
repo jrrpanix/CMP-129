@@ -1,0 +1,20 @@
+Lecture 1 Review (Lecture on 1/12/2014)
+1) What is Eclipse?
+
+
+2) Describe some of the functionality in Eclipse.
+
+
+3) What is git/github?  What.s the git command to get the code?
+
+
+4) Write the import statement needed to generate Random Integers in Java.
+
+
+5) Write the code to generate a random number between 0 and 9.
+
+
+6) What units do computers keep time in?  What is the Epoch?
+
+
+7) What.s the call in Java to get the current time in nanoseconds ? 
