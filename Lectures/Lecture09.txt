@@ -1,0 +1,105 @@
+---------------------------------------------------
+Inheritence
+---------------------------------------------------
+
+Inheritence - allows a new class to extend an existing class.
+              the new class automatically gets all of the members of
+	      the class it extends.
+
+
+For example from our previous lectures we created a 
+Rectangle,Triangle and Circle classes.  Suppose we create
+a super class called Shape and then have each of these
+classes inherit from Shape and lets say for each shape
+created we wante to give it an id.
+
+
+public class Shape { // This is the SuperClass
+       public int id;
+
+       public double area() {
+          return -987654321.0; // Not implemented
+       }
+}
+
+public class Rectangle extends Shape {  // This is a subclass of Shape
+       private double len_;
+       private double width_;
+
+       public Rectangle( double len , double width ) {
+       len_=len;
+       width_=width;
+       }
+
+       public double area() {
+          return len_ * witdth_;
+       }
+
+       public double getLength() {
+          return len_;
+       }
+
+       public double getWidth() {
+          return width_;
+       }
+
+}
+
+public class Circle extends Shape { // This is a subclass of Shape
+       private double radius_;
+
+       public Circle( double radius ) {
+       radius_ = radius;
+       }
+
+       public double area() {
+       return Math.PI * radius_ * radius_;
+       }
+
+       public double getRadius() {
+       return radius_;
+       }
+
+}
+
+------------------------------------------------
+The advantage of using the "Super" class Shape
+-------------------------------------------------
+
+Suppose we are given a 1000 different types of shapes and
+watned to calculate the area of the shapes the if we 
+have the concept of a shape we can do this
+
+   public double totalArea( Shape [] shapes ) {
+     double total = 0;
+     for( Shape s : shapes ) total += s.area();
+     return total
+   }
+
+
+if we didn't have this Super class then we would have to do this ...
+
+   public double totalArea( Object [] objects ) {
+     double total = 0;
+     for( Object o : objects ) {
+        if ( o.getClass() == Circle.Class ) {
+	     total += ((Cirlce)o).area();
+	}
+	else if ( o.getClass() == Rectangle.Class ) {
+	     total += ((Rectangle)o).area();
+	}
+     }
+   }
+
+
+-------------------------------------------------
+Note the subclass inherits from the super class but the 
+superclass does not inherit from the subclass
+-------------------------------------------------
+So Shape does not know about Rectangle's len_ or witdh_
+Nor does shape know about Circl's radius_
+
+But Rectangle and Circle inherit the memeber id from Shape   
+
+
+
