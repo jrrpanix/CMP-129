@@ -2,16 +2,14 @@ In the previous lecture we introduce the concept of Inheritence using the exampl
 
 Our code outline was as follows
 
-                                                          public class Shape {
-
-                                                              public double area() { return 0; }
-
-                                                         }
+public class Shape {
+    public double area() { return 0; }
+}
 
 
-public class Rectangle extends Shape {                            public class Circle extends Shape {
+public class Rectangle extends Shape {           public class Circle extends Shape {
 
-}                                                                                  }
+}                                                }
 
 
 Rectangle and Circle will take on the properties of Shape and then can be used to modify the properities of Shape.  The opposite direction does not work, Shape does not take on the properities of Rectangle or Circle.  Extending classes brings about the concept of the "Is-A" relationship.  In this example a Rectangle "is a" Shape and a Circle "is a" Shape but the opposite may not hold.  For example a Shape does not have to be a Rectangle nor does a shape have to be a Cricle.
@@ -20,30 +18,30 @@ Rectangle and Circle will take on the properties of Shape and then can be used t
 WE can now override the property of area in both Cricle and Rectangle by implementing our own area calculations.
 
 
-public class Rectangle extends Shape {                                          public class Cirlcde extends Shape {
+public class Rectangle extends Shape {               public class Cirlcde extends Shape {
 
-private double len_;                                                                           private dobule radius_;
+private double len_;                                   private dobule radius_;
 
 private  double width_;
 
-public Rectangle( double l , double w ) {                                              public Cirlce( double r ) {
+public Rectangle( double l , double w ) {               public Cirlce( double r ) {
 
-len_=l; width_=w;                                                                                   radius_=r;
+len_=l; width_=w;                                          radius_=r;
 
-}                                                                                                      }
+}                                                       }
 
-public double area() {                                                                         public double area() {
+public double area() {                                  public double area() {
 
-    return len_ *width_;                                                                            return Math.PI *radius_ * radius_;
+    return len_ *width_;                                    return Math.PI *radius_ * radius_;
 
-}                                                                                                      }
+}                                                        }
 
-public double getLen() { return len_; }                                                 public double getRadius() { return radius_; }
+public double getLen() { return len_; }               public double getRadius() { return radius_; }
 
 public double getWidth() {return width_;}
 
 
-}                                                                                                   }
+}                                                     }
 
 
 we can also do this in our code:
