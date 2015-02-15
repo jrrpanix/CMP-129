@@ -1,0 +1,50 @@
+
+---------------------------------------------
+From Gaddis Chapter 8, Algorithm Workbench
+---------------------------------------------
+
+Chapter 8 , Pg. 554, Problem 2 (a,b,c,d,e)
+
+Consider the following class declaration:
+
+   public class Thing {
+     private int x;
+     private int y;
+     private static int z=10;
+   
+     public Thing() {
+       x=z;
+       y=z;
+     }
+   
+     static void putThing(int a ) {
+       z=a;
+     }
+   }
+
+Assume aprogram containing the class defins three Thing objects with
+the following statements:
+
+   Thing one = new Thing();
+   Thing two = new Thing();
+   Thing three = new Thing();
+   
+a. How many separate instances of the x member exist ?
+
+   answer : 3 ( one.x,two.x,three.x)
+
+b. How many separate instances of the y member exist ?
+
+   answer : 3 ( one.y,two.y,three.y)
+
+c. How many separate instances of the z member exist ?
+
+   answer : 1 ( Thing.z , z is static so by definition only 1 exists!)
+
+d. What value will be stored in the x and y members of each object?
+
+   answer: the current value of z, which in the above code example is 10
+
+e. Write a statement that will call the putThing method.
+
+   answer: Thing.putThing(100);
