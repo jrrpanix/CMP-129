@@ -1,3 +1,7 @@
+// Course      : CMP-129
+// Title       : class Circle extends Shape
+// Instructor  : JReynolds
+
 public class Circle extends Shape {
     private double radius_;
 

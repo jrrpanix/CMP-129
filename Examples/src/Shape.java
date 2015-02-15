@@ -1,3 +1,7 @@
+// Course      : CMP-129
+// Title       : abstract class Shape
+// Instructor  : JReynolds
+
 public abstract class Shape {
 
     protected long id_;
