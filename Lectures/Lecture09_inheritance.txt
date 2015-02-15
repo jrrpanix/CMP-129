@@ -89,4 +89,4 @@ For example
 Cirlce aCricle = (Circle)aShape0; // This will throw an Exception !!!
 
 
-This line will throw a java.lang.ClassCastExceptino because Shape0 was created as a Rectangle not a Circle!
+This line will throw a java.lang.ClassCastException because Shape0 was created as a Rectangle not a Circle!
