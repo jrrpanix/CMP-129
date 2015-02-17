@@ -3,7 +3,7 @@
 // Instructor  : JReynolds
 
 
-public class Rectangle {
+public class Rectangle extends Shape {
 
     
     //-----------------------------------------
@@ -64,6 +64,10 @@ public class Rectangle {
 
     public double area() {
 	return len_*width_;
+    }
+
+    public double perimeter() {
+	return 2*len_ + 2*width_;
     }
 
     public double getLen() {

@@ -2,6 +2,8 @@
 // Title       : abstract class Shape
 // Instructor  : JReynolds
 
+import java.util.Random;
+
 public abstract class Shape {
 
     protected long id_;
@@ -20,11 +22,5 @@ public abstract class Shape {
 
     public abstract double area();
     public abstract double perimeter();
-
-    // Test 
-    public static void main( String [] args ) {
-	//Shape s = new Shape();
-    }
-
 
 }

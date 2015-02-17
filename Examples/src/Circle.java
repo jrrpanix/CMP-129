@@ -14,6 +14,10 @@ public class Circle extends Shape {
 	radius_=r;
     }
 
+    public Circle( double r  ) {
+	radius_=r;
+    }
+
     public Circle( Circle c ) {
 	super(c);
 	radius_=c.radius_;
