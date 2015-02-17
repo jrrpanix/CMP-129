@@ -1,25 +1,25 @@
 // Course      : CMP-129
-// Title       : Carpet Cleaner , Example of Aggregation 
+// Title       : Floor Cleaner , Example of Aggregation 
 // Instructor  : JReynolds
 
-public class CarpetCleaner {
+public class FloorCleaner {
 
     private String    customer_;
     private Rectangle room_;
     private FloorType floor_;
 	
     
-    public CarpetCleaner() {
+    public FloorCleaner() {
     }
 
-    public CarpetCleaner( String cust , Rectangle room , FloorType floor ) {
+    public FloorCleaner( String cust , Rectangle room , FloorType floor ) {
 	customer_=cust;
 	room_=room;
 	floor_=floor;
     }
 
     public String toString() {
-	return new String( "CarpetCleaner:customer=" + customer_ + ":room="+room_.getLen()+"x"+room_.getWidth()+":floor="+floor_);
+	return new String( "FloorCleaner:customer=" + customer_ + ":room="+room_.getLen()+"x"+room_.getWidth()+":floor="+floor_);
     }
     
     public double getCostPerSqFt() {
@@ -53,7 +53,7 @@ public class CarpetCleaner {
     // test 
     //---------------------------------------------------------
     public static void main( String []  args ) {
-	CarpetCleaner c = new CarpetCleaner( "CCM", new Rectangle(10,10), FloorType.Tile );
+	FloorCleaner c = new FloorCleaner( "CCM", new Rectangle(10,10), FloorType.Tile );
 	System.out.println( c + ":cost=" + c.calculateCost());
     }
 
