@@ -1,0 +1,46 @@
+
+-------------------------------------------
+Review of Object Oriented Concepts Covered 
+As of 2/16/2015 Lecture 10
+-------------------------------------------
+
+
+--------------------------------------------
+Concepts Covered
+Chapters 8 & 10 in Gaddis
+--------------------------------------------
+
+* All classes in Java are SubClasses of Object
+* Methods inherited from Object include 
+     bool equals(Object)
+     String toString()
+     int hashCode()
+     Class<> getClass()
+* overriding the toString and hashCode methods
+* overloading the equals method
+* the key word "this"
+* instance member variables
+* satic member variables
+* instance methods
+* static methods
+* different types of constructors Defalut,Copy,Class Specific
+* Aggregation
+* Enums
+* built in methods from enums
+     int ordinal()
+     int compareTo()
+     values() - returns array of all Enums
+* Super Classes 
+* Sub Classes
+* the keyword "extends"
+* the Is-A relationship
+* overriding methods from the Super class in the SubClass
+* polymorphism
+* the keyword "super"
+* the order of construction between Super and SubClass
+* calling different Super class constructors from the SubClass
+* Abstract Classes 
+* Abstract methods
+* the keyword "abstract"
+
+   
