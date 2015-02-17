@@ -32,15 +32,20 @@ Chapters 8 & 10 in Gaddis
      values() - returns array of all Enums
 * Super Classes 
 * Sub Classes
+* inheritance
 * the keyword "extends"
 * the Is-A relationship
 * overriding methods from the Super class in the SubClass
 * polymorphism
+* casting
+* java.lang.ClassCastException
 * the keyword "super"
 * the order of construction between Super and SubClass
 * calling different Super class constructors from the SubClass
 * Abstract Classes 
 * Abstract methods
 * the keyword "abstract"
+
+
 
    
