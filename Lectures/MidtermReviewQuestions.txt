@@ -79,7 +79,7 @@ Concepts:
     overload the equals method by creating one which takes Item as an argument
 
 
-(5) For the following class below idenify what's wrong with the code or is it correct?
+(5) For the following class below identify what's wrong with the code or is it correct?
 
     public class AProblem {
        public int x;
