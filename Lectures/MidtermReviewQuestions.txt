@@ -48,7 +48,7 @@ overriding methods from Object
 (2) What's the difference between a class and an instance of a class ?
     (from Gaddis Ch 6 p399)
 
-(2b) True of False. An instaance of a class is also called an Object ?
+(2b) True of False. An instance of a class is also called an Object ?
 
 (3) What's the purpose of the keyword "new" ?
     (from Gaddis Ch 6 p399)
