@@ -1,0 +1,154 @@
+
+--------------------------------------------------------------
+A. class Basics
+covers Gaddis ch 8 (the primer is ch 6)
+
+concepts
+instance
+keywords new,static,public,private,this
+constructors default, copy constructor
+inherited methods from object
+overriding methods from Object
+
+--------------------------------------------------------------
+
+(1) For the following class 
+
+    public class Point {
+       public int x;
+       public int y;
+       public static int z;
+
+     public Point() {
+         x=0;
+	 y=0;
+	 z++;
+       }
+
+     public Point( int x , int y ) {
+        this.x=x;
+	this.y=y
+	z++;
+     }
+       
+     public static void setZ(int p ) {
+        z=p;
+     }
+
+    }
+
+
+(a) create an instance of Point calling the default constructor
+(b) create an instance of Point with x=11,y=3
+(c) write the code to call setZ with p=100
+(d) assuming z starts as z=0, if point is instantiated three times
+    what's the value of z?
+
+
+(2) What's the difference between a class and an instance of a class ?
+    (from Gaddis Ch 6 p399)
+
+(2b) True of False. An instaance of a class is also called an Object ?
+
+(3) What's the purpose of the keyword "new" ?
+    (from Gaddis Ch 6 p399)
+
+
+(4) Wite a class called Item which holds 3 fields 
+    1) description 
+    2) units on hand 
+    3) price
+    
+    the class should contain a default constructor and a constructor which
+    sets the three fields. 
+    
+    override the toString() method creating a string which lists the 3 values of the field
+    
+    override the equals(Object) method 
+    
+    overload the equals method by creating one which takes Item as an argument
+
+(5) For the following class below idenify what's wrong with the code
+
+    public class AProblem {
+       public int x;
+
+       public int increase() {
+         x++;
+       }
+
+       static public void assignX( int p ) {
+          x=p;
+       }
+
+    }
+
+(6) enum Color { Red , Yellow, Blue , Green };
+
+ 
+a)  write the code to assign a variable of type color to Blue
+
+b) what's the output of 
+
+   System.out.println(Color.Green.ordinal());
+
+c) What's the output of 
+
+   System.out.println(Color.Blue.toString());
+
+
+(7) list at least 4 methods that a class inherits from Java SuperClass Object.
+
+
+(8) What's wrong with the following code ?
+
+    class AnotherProblmem {
+    
+       private int x;
+
+       public int AnotherProblem() {
+          x=5;
+	  return x;
+       }
+
+    }
+    
+(9) The name of a reference variable that's always available to an instance method ?
+
+
+(10) What's wrong with the following code, or is it all correct ?
+
+     public class Fruit {
+        private String name_;
+
+        public void setName( String name ) {
+	   name_=name;
+	}
+	
+	public static void print( Fruit f ) {	
+	  System.out.println(f);
+	}
+
+	public static void main( String [] args ) {
+	  Fruit.setName("Banana");
+	}
+     }
+
+(11) What's the output if main is called in the following code ?
+
+     public class Circle {    
+         private double r_;
+
+	 public Circle( double r ) {
+	   r_=r;
+	 }     
+
+	 public String toString() {
+	   return new String("Circle:r_");
+	 }
+	 
+	 public static void main( String [] args ) {
+	    System.out.println( new Circle(4));
+	 }
+     }
+
