@@ -41,7 +41,7 @@ overriding methods from Object
 (a) create an instance of Point calling the default constructor
 (b) create an instance of Point with x=11,y=3
 (c) write the code to call setZ with p=100
-(d) assuming z starts as z=0, if point is instantiated three times
+(d) assuming z starts as z=0, if clas Point is instantiated three times
     what's the value of z?
 
 
@@ -86,7 +86,7 @@ overriding methods from Object
 (6) enum Color { Red , Yellow, Blue , Green };
 
  
-a)  write the code to assign a variable of type color to Blue
+a)  write the code to assign a variable of type Color to Blue
 
 b) what's the output of 
 
