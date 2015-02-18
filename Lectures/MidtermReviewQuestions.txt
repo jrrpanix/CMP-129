@@ -49,6 +49,8 @@ Concepts:
    (d) assuming z starts as z=0, if clas Point is instantiated three times
        what's the value of z?
 
+   (e) implement the copy constructor    
+
 
 (2) What's the difference between a class and an instance of a class ? (from Gaddis Ch 6 p399)
     
@@ -77,7 +79,7 @@ Concepts:
     overload the equals method by creating one which takes Item as an argument
 
 
-(5) For the following class below idenify what's wrong with the code
+(5) For the following class below idenify what's wrong with the code or is it correct?
 
     public class AProblem {
        public int x;
@@ -109,7 +111,7 @@ Concepts:
 (7) list at least 4 methods that a class inherits from Java SuperClass Object.
 
 
-(8) What's wrong with the following code ?
+(8) What's wrong with the following code or is it correct?
 
     class AnotherProblmem {
     
@@ -187,4 +189,62 @@ Concepts:
 	   addItem(anItem);
        }
 
+     }
+
+
+(14) What's wrong the the following code or is it correct?
+
+     public class Item {
+        private int X;
+
+	public Item( int a ) {
+	   X=a;
+	}
+     }
+
+     public class ItemCalc {
+         
+       public static void addItem( Item anItem ) {
+          anItem.X += 1;
+       }               
+
+     }
+
+
+(15) Given the following code fill in the rest of code for 
+     the call to the constructor RoomCleaner in main
+     assuming the Room Dimensions are length=10, width=20
+     and the costPerSqFt = 1.25
+     
+     public class Room {
+        public double len;	
+	public double width;
+
+	public Room( double l, double w ) {
+	  len=l;
+	  width=w;
+	}
+
+	public double area() {
+	  return len*width;
+	}
+
+     }
+
+     public class RoomCleaner {
+         public Room    aRoom;
+	 public double  costPerSqFt;
+        
+	 public RoomCleaner( Room r, double cost ) {
+	   aRoom=r:
+	   costPerSqFt=cost;
+	 }
+
+	 public double totalCost() {
+	   return aRoom.area() * costPerSqFt;
+	 }
+
+	 public static void main( String [] args ){
+	    RoomCleaner roomC = new RoomCleaner
+	 }
      }
