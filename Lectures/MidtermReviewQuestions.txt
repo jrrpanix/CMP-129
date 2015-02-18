@@ -1,15 +1,17 @@
 
 --------------------------------------------------------------
-A. class Basics
-covers Gaddis ch 8 (the primer is ch 6)
+Part I: A Second Look at Classes and Objects
+(Covers Gaddis Ch 8, pre-requsite Gaddis Ch6)
 
-concepts
-instance
-keywords new,static,public,private,this
-constructors default, copy constructor
-inherited methods from object
-overriding methods from Object
-
+Concepts:
+* instance
+* keywords: new,static,public,private,this
+* constructors: default, copy constructor, class specific
+* passing to and retruning Objects from methods
+* overriding methods from Object
+* enums
+* class destruction - Gargage Collection, finanize
+* aggregation
 --------------------------------------------------------------
 
 (1) For the following class 
@@ -38,20 +40,26 @@ overriding methods from Object
     }
 
 
-(a) create an instance of Point calling the default constructor
-(b) create an instance of Point with x=11,y=3
-(c) write the code to call setZ with p=100
-(d) assuming z starts as z=0, if clas Point is instantiated three times
-    what's the value of z?
+   (a) create an instance of Point calling the default constructor
+
+   (b) create an instance of Point with x=11,y=3
+
+   (c) write the code to call setZ with p=100
+
+   (d) assuming z starts as z=0, if clas Point is instantiated three times
+       what's the value of z?
 
 
-(2) What's the difference between a class and an instance of a class ?
-    (from Gaddis Ch 6 p399)
+(2) What's the difference between a class and an instance of a class ? (from Gaddis Ch 6 p399)
+    
 
 (2b) True of False. An instance of a class is also called an Object ?
 
-(3) What's the purpose of the keyword "new" ?
-    (from Gaddis Ch 6 p399)
+(2c) What value does Java automatically store in uninitialized static variables ?
+
+
+(3) What's the purpose of the keyword "new" ? (from Gaddis Ch 6 p399)
+    
 
 
 (4) Wite a class called Item which holds 3 fields 
@@ -67,6 +75,7 @@ overriding methods from Object
     override the equals(Object) method 
     
     overload the equals method by creating one which takes Item as an argument
+
 
 (5) For the following class below idenify what's wrong with the code
 
@@ -86,15 +95,15 @@ overriding methods from Object
 (6) enum Color { Red , Yellow, Blue , Green };
 
  
-a)  write the code to assign a variable of type Color to Blue
+    a)  write the code to assign a variable of type Color to Blue
 
-b) what's the output of 
+    b) what's the output of 
 
-   System.out.println(Color.Green.ordinal());
+       System.out.println(Color.Green.ordinal());
 
-c) What's the output of 
+   c) What's the output of 
 
-   System.out.println(Color.Blue.toString());
+       System.out.println(Color.Blue.toString());
 
 
 (7) list at least 4 methods that a class inherits from Java SuperClass Object.
@@ -152,3 +161,30 @@ c) What's the output of
 	 }
      }
 
+(12)  What is Garbage Collection ?
+
+(12b) If an object has this method what does the JVM call right before an instance 
+      of the class is destroyed?
+
+(13) What's the value of X in the following code sequence if main is called from ItemCalc ?
+
+     public class Item {
+        public int X;
+
+	public Item( int a ) {
+	   X=a;
+	}
+     }
+
+     public class ItemCalc {
+         
+       public static void addItem( Item anItem ) {
+          anItem.X += 1;
+       }               
+
+       public static void main( String [] args ) {
+           Item anItem = new Item(10);
+	   addItem(anItem);
+       }
+
+     }
