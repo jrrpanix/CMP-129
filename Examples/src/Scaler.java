@@ -1,5 +1,5 @@
 public interface Scaler {
 
-    public void shrink(double x);
-    public void grow(double x);
+    public void decrease(double x);
+    public void increase(double x);
 }

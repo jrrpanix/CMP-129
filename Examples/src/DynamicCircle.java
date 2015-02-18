@@ -6,11 +6,11 @@ class DynamicCircle extends Shape implements Scaler {
 	r_=r;
     }
 
-    public void shrink(double s) {
+    public void decrease(double s) {
 	r_ *= (1.0 - s);
     }
 
-    public void grow(double s ) {
+    public void increase(double s ) {
 	r_ *= (1.0 + s );
     }
     
@@ -29,9 +29,9 @@ class DynamicCircle extends Shape implements Scaler {
     public static void main( String [] args ) {
 	DynamicCircle c = new DynamicCircle(10);
 	print(c.area());
-	c.shrink(.1);
+	c.decrease(.1);
 	print(c.area());
-	c.grow(.1);
+	c.increase(.1);
 	print(c.area());
 	
     }
