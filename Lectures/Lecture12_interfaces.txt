@@ -16,6 +16,13 @@ There are some very common interfaces in real life.
 5) Bank ATM
 
 
+A common use of interfaces in computer science is for "message passing" and "notification"
+
+For example if you have a class and it want to get communications for a message passer
+that passes media files in the .mp4 format you could imeplemnt an interface for MP4, or
+if it passed files in .wav format you would implmement an interface for that.
+
+
 -----------------------------------------------
 interface delcaration example
 -----------------------------------------------
