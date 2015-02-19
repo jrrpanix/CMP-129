@@ -1,0 +1,74 @@
+--------------------------------------------------------------
+// Course      : CMP-129
+// Title       : Midterm Review Questions, Chapter 10
+// Instructor  : JReynolds
+--------------------------------------------------------------
+--------------------------------------------------------------
+Inheritance
+(Covers Gaddis Ch 10, pre-requsites Gaddis Ch6,Ch8)
+--------------------------------------------------------------
+
+Concepts:
+* inheritance
+* superclass
+* subclass
+* public, private, protected
+* chains of inheritance
+* polymorphism
+* abstract classes, abstract methods
+* interfaces
+--------------------------------------------------------------
+
+(1)  What is inheritance ?
+
+
+(1a) What is the Java keyword use to inherit one class from another?
+
+
+(2)  Given the following code which is the SuperClass and which is
+     the SubClass ?
+
+     public class Rectangle extends Shape {
+     }
+
+
+(3) For the following class definitions determine which statements
+    in main are ok and which are not.
+
+    public class Person {
+
+       public String firstName;
+       public String lastName;
+
+       public Person( String fname , String lname ) {
+          this.firstName=fname;
+	  this.lastName=lname;
+       }
+    }
+
+
+    public class Teacher extends Person {
+         public String department;
+	 public String school;
+    
+       public Teacher( String fname, String lname, String dept, String school ) {
+           super(fname,lname);
+	   this.department=dept;
+	   this.school=school;
+       }
+
+       public static void main( String [] args ) {
+           Person p0 = new Teacher( "Mary" , "Poppins" , "Physics" , "CalTech");
+	   Person p1 = new Person( "Lou" , "Pizzaman" );
+	   Teacher t1 = p0;
+	   Teacher t2 = new Person( "Alice" , "Wonderland" );
+	   Teacher t3 = new Teacher( "Albert", "Einstein", "Physics" , "Princeton");
+	   Person p2 = t3;
+	   System.out.println( "LastName=" + p2.lastName + " Department=" + p2.Department );
+	   System.out.println( "LastName=" + t3.lastName + " Department=" + t3.Department );
+       }
+
+    }
+
+
+
