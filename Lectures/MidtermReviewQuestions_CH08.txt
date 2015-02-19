@@ -15,7 +15,7 @@ Concepts:
 * passing to and retruning Objects from methods
 * overriding methods from Object
 * enums
-* class destruction - Gargage Collection, finanize
+* class destruction - Gargage Collection, finalize
 * aggregation
 --------------------------------------------------------------
 
