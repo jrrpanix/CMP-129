@@ -1,7 +1,12 @@
-
+--------------------------------------------------------------
+// Course      : CMP-129
+// Title       : Midterm Review Questions, Chapter 8
+// Instructor  : JReynolds
+--------------------------------------------------------------
 --------------------------------------------------------------
 Part I: A Second Look at Classes and Objects
 (Covers Gaddis Ch 8, pre-requsite Gaddis Ch6)
+--------------------------------------------------------------
 
 Concepts:
 * instance
