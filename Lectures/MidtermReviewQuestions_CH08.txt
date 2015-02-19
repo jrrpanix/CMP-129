@@ -245,6 +245,6 @@ Concepts:
 	 }
 
 	 public static void main( String [] args ){
-	    RoomCleaner roomC = new RoomCleaner
+	    RoomCleaner roomC = new RoomCleaner   <- Complete the code here so the call to RoomCleaner is correct!
 	 }
      }
