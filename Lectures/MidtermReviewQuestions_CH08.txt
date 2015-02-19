@@ -46,7 +46,7 @@ Concepts:
 
    (c) write the code to call setZ with p=100
 
-   (d) assuming z starts as z=0, if clas Point is instantiated three times
+   (d) assuming z starts as z=0, if the class Point is instantiated three times
        what's the value of z?
 
    (e) implement the copy constructor    
