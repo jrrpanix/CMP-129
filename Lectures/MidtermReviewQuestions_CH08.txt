@@ -37,6 +37,12 @@ Concepts:
         z=p;
      }
 
+     public static void main(String [] args ){
+        new Point();
+	new Point();
+	new Point();
+     }
+
     }
 
 
@@ -46,8 +52,15 @@ Concepts:
 
    (c) write the code to call setZ with p=100
 
-   (d) assuming z starts as z=0, if the class Point is instantiated three times
-       what's the value of z?
+   (d) if main is called in the above code:
+
+         (i)   How many instances of z are there?
+
+	 (ii)  What is(are) the value(s) of z?
+
+	 (iii) How many instances of x are there?
+
+	 (iv)  What is(are) the value(s) of x?
 
    (e) implement the copy constructor    
 
@@ -56,6 +69,7 @@ Concepts:
     
 
 (2b) True of False. An instance of a class is also called an Object ?
+
 
 (2c) What value does Java automatically store in uninitialized static variables ?
 
@@ -94,6 +108,7 @@ Concepts:
 
     }
 
+
 (6) enum Color { Red , Yellow, Blue , Green };
 
  
@@ -123,6 +138,7 @@ Concepts:
        }
 
     }
+
     
 (9) The name of a reference variable that's always available to an instance method ?
 
@@ -145,6 +161,7 @@ Concepts:
 	}
      }
 
+
 (11) What's the output if main is called in the following code ?
 
      public class Circle {    
@@ -163,10 +180,13 @@ Concepts:
 	 }
      }
 
+
 (12)  What is Garbage Collection ?
+
 
 (12b) If an object has this method what does the JVM call right before an instance 
       of the class is destroyed?
+
 
 (13) What's the value of X in the following code sequence if main is called from ItemCalc ?
 
