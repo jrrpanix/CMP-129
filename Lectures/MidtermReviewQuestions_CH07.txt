@@ -1,0 +1,183 @@
+--------------------------------------------------------------
+// Course      : CMP-129
+// Title       : Midterm Review Questions, Chapter 7
+// Instructor  : JReynolds
+--------------------------------------------------------------
+--------------------------------------------------------------
+Covers Gaddis Ch 7, excludes section 7.11 and variable arg list
+--------------------------------------------------------------
+
+Concepts:
+* declaring an array
+* initializing an array
+* accessing array elements
+* for loop and "enchanced" for loop
+* modifying array elements
+* passing an array as an argument to a method
+* two dimensional arrays
+* ArrayList
+--------------------------------------------------------------
+(1) What is an array ?
+
+
+(1a) What's the value of Y after the last Java instruction is executed?
+     int [] X = {3,4,5};
+     int Y = X[1];
+
+
+(1b) What does X.length equal in the following code sequence?
+     int [] X = {0,1};
+
+
+(1c) What does X.length equal in the following code sequence?
+     String [] X = {"Apple","Banana","Peach"};
+
+
+(1d) What does X.length equal in the following code sequence?
+     double [] X = new double[1000];
+
+
+(1e) What's the value of Y after the last Java instruction is executed?
+     String [] Fruit = {"Apple","Banana","Peach"};
+     String Y = Fruit[Fruit.length-1];
+
+
+(2) Create an array of String that can hold 10 elements.
+
+
+(3) Write the statement that creates an array of int an initializes it to 1,2,3,4.
+
+
+(4) What's the value of X after the last Java instruction is executed ?
+
+    int [] A = {5,10,15,20,25,30};
+
+    int X = A[2] + A[A.length-1] + A[0];
+
+
+(5) Write a static function that finds the maximum value in an int array.
+
+
+(6) Given the definition of Fruits below , write an "enhanced" for loop
+    to print each element of the array on a separate line.
+
+    String [] Fruit = {"Apple","Banana","Peach"};
+
+
+(7) What's the value of X and Y after the following code is executed from main?
+
+    public static void Swap( int X, int Y ) {
+       int tmp = X;
+       X = Y;
+       Y = tmp;
+    }
+
+    public static void main( String [] args ) {
+        int X=10;
+	int Y=20;
+	Swap(X,Y);
+	
+    }
+
+
+(8) Write a static function "Swap" that switches int array
+    values at position i and j .
+
+
+
+(9) What's wrong with the following code or is it correct?
+
+    static void printAllElements( int [] A ) {
+       int N = A.length;
+       for( int i = 0; i < N ;i++ )
+         System.out.println(A[i]);
+    }
+
+(9a) What about this code is it correct?
+
+    static void printAllElements( int [] A ) {
+       int N = A.length;
+       for( int i = 0; i <= N ;i++ )
+         System.out.println(A[i]);
+    }
+
+(10) What's the output of the following code sequence ?
+
+	int [] Z = {1,2,3,4,5};
+	int i = 0;
+	System.out.println( Z[++i] );
+	System.out.println( Z[i++] );
+	System.out.println( Z[--i] );
+
+(11) What's the value of Z[3] after the following code sequence is executed?
+
+	int [] Z = {1,2,3,4,5};
+	Z[3]++;
+	Z[3] += Z[4];
+
+
+(12) What's the value of Z[3] after the following code sequence is executed?
+
+	int [] Z = {1,2,3,4,5};
+	int [] X = Z;
+	X[3]=0;
+
+
+(13) What's the value of Z[3] after the following code sequence is executed from main?
+
+
+     public static void append( String [] X , String extra ) {
+        for( int i =0; i < X.length; i++ )
+	   X[i] += extra;
+     }
+
+     public static void main( String [] args ) {
+        String [] Z= {"John","Mary","Alex","Patty"};
+	append( Z, ":Instructor");
+     }
+
+
+(14) What's wrong with the following code or is it correct? 
+
+     String [] X = new String[100];
+     int y = X[5].hashCode();
+     System.out.println(y);
+
+
+(14a) What's about this , is it ok? 
+
+     int [] X = new int[100];
+     int y = X[5];
+     System.out.println(y);
+
+
+(15) What is Z.length and Z[0].length in the code below ?
+
+     int [][] Z = { {1,2,3},{4,5,6} };
+
+
+(16) Write code to print the sum of each row for Z.
+
+     int [][] Z = { {1,2,3},{4,5,6},{7,8,9} };
+
+
+(17) Create an ArrayList of String called "nameList" and add the names
+     "James","Catherine","Bill" to the list. (Gaddis p477 ch 7)
+
+
+(17a) Write an enchaced for loop to print out the values in Arraylist
+      (Gaddis p 479 ch 7)
+
+
+(17b) Replace nameList element 1 with the name "Becky"
+      (Gaddis p 482 ch 7)
+
+
+(17c) What call can be name of nameList to find the number of elements in it?
+
+
+(17d) Write the code to print the second element in nameList.
+
+
+
+
