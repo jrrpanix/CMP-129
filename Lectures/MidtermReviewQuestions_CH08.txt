@@ -155,7 +155,7 @@ Concepts:
 	 }     
 
 	 public String toString() {
-	   return new String("Circle:r_");
+	   return new String("Circle:r_"+r_);
 	 }
 	 
 	 public static void main( String [] args ) {
