@@ -51,11 +51,13 @@ Concepts:
          public String department;
 	 public String school;
     
+
        public Teacher( String fname, String lname, String dept, String school ) {
            super(fname,lname);
 	   this.department=dept;
 	   this.school=school;
        }
+
 
        public static void main( String [] args ) {
            Person p0 = new Teacher( "Mary" , "Poppins" , "Physics" , "CalTech");
@@ -70,5 +72,71 @@ Concepts:
 
     }
 
+(4) For the method called "result" in class Level1 determine what if 
+    anything is wrong with the code.
+
+    public class Base {
+
+       private    int b0_;
+       protected  int b1_;
+       public     int b2_;
+
+       public Base( int b0 , int b1 , int b2 ) {
+         b0_=b0;
+	 b1_=b1;
+	 b2_=b2;
+       }
+
+    }
+
+    public class Level1 extends Base {
+
+       private int l1_;
+       public  int l2_;
+
+       public Level1( int l1 , int l2 , int b0 , int b1 , int b2 ) {
+         super(b0,b1,b2);
+	 l1_=l1;
+	 l2_=l2;
+       }
+
+       public double result( double m1 , double m2 ) {
+          double r0 = super.b0_ ;
+	  double r1 = super.b1_*m1 + l1*m1;
+	  double r2 = super.b2_*m2 + l2*m2;
+	  return r0 + r1 + r2;
+       }  
 
 
+    }
+
+(5) For the code below complete the following contructors for Square
+     a) A square that's constructed with (side,xpos,ypos)
+     b) A square that'c constructed with (size,xpos,ypos,color)
+
+
+    public class Shape {
+       protected int   xPos_;
+       protected int   yPos_;
+       protected Color color_;
+
+
+       public Shape( int x , int y, Color c ) {
+         xPos_=x;
+	 yPos_=y;
+	 color_=c;
+       }
+
+       public Shape( int x , int y ) {
+         xPos_=x;
+	 yPos_=y;
+	 color_=Color.Purple;
+       }
+
+    }
+
+
+    public class Square extends Shape {
+       private double side_;
+       
+    }
