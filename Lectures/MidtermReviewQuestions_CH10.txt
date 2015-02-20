@@ -62,11 +62,12 @@ Concepts:
        public static void main( String [] args ) {
            Person p0 = new Teacher( "Mary" , "Poppins" , "Physics" , "CalTech");
 	   Person p1 = new Person( "Lou" , "Pizzaman" );
+	   Teacher t0 = p1;
 	   Teacher t1 = p0;
 	   Teacher t2 = new Person( "Alice" , "Wonderland" );
 	   Teacher t3 = new Teacher( "Albert", "Einstein", "Physics" , "Princeton");
-	   Person p2 = t3;
-	   System.out.println( "LastName=" + p2.lastName + " Department=" + p2.Department );
+	   Person p3 = t3;
+	   System.out.println( "LastName=" + p3.lastName + " Department=" + p3.Department );
 	   System.out.println( "LastName=" + t3.lastName + " Department=" + t3.Department );
        }
 
