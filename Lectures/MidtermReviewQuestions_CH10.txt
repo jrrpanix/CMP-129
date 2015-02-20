@@ -22,7 +22,7 @@ Concepts:
 (1)  What is inheritance ?
 
 
-(1a) What is the Java keyword use to inherit one class from another?
+(1a) What is the Java keyword which allowd one class to inherit another?
 
 
 (2)  Given the following code which is the SuperClass and which is
@@ -112,7 +112,7 @@ Concepts:
 
 (5) For the code below complete the following contructors for Square
      a) A square that's constructed with (side,xpos,ypos)
-     b) A square that'c constructed with (size,xpos,ypos,color)
+     b) A square that's constructed with (size,xpos,ypos,color)
 
 
     public class Shape {
@@ -140,3 +140,55 @@ Concepts:
        private double side_;
        
     }
+
+
+(6) What's the output in main for the following class hierachry ?
+
+    public abstract class Design {
+    
+        public abstract String makePattern( String s , String pattern );
+    }
+    
+    public class InFront extends Design {
+        
+        public String makePattern( String s, String pattern ) {
+    	   return new String( pattern + s );
+        }
+    }
+    
+    public class InBack extends Design {
+    
+        public String makePattern( String s, String pattern ) {
+    	   return new String( s + pattern );
+        }
+    }
+    
+    public class TwoBack extends InBack {
+        
+        public String makePattern( String s, String pattern ) {
+    	   return super.makePattern(s,pattern) + pattern;
+        }
+        
+    }
+
+    public class DesignTest {
+        
+        public static void main( String [] args ) {
+    	
+    	Design [] D = new Design[3];
+    	int i =0;
+    	D[i++] = new InBack();
+    	D[i++] = new TwoBack();
+    	D[i++] = new InFront();
+    	
+    	String s = new String("X");
+    	String [] P = {"A","B","C"};
+    	for( i = 0; i < 3 ; i++ ) {
+    	    s = D[i].makePattern(s,P[i]);
+	}
+	System.out.println(s);
+    }
+  }
+
+    
+    
