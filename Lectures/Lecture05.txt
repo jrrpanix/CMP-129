@@ -1,7 +1,13 @@
-For today's lecture we are going follow the coding example for the "Java Class" Rectangle 
 
-which can be found in the file  Examples/Rectangle.javaa a number of concepts in this lecture 
-are also in Chapter 8 of Gaddis
+-----------------------------------------------------------------------------
+A Second Look At Classes
+Gaddis Chapter 8
+
+For today's lecture we are going follow the coding example for the "Java Class" Rectangle 
+which can be found in the file  Examples/Rectangle.java are also in Chapter 8 of Gaddis
+
+-----------------------------------------------------------------------------
+
 
 (1) Create the outline of the class 
 
