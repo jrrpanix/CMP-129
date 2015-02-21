@@ -1,51 +1,52 @@
-Text Reference : Gaddis Chapter 7
 
+----------------------------------------------------------------------
 ARRAYS
+Text Reference : Gaddis Chapter 7
+----------------------------------------------------------------------
 
-Link
 
 
-Motivation : have a contiguous block of memory to hold multiple values of the same data typesaccess by a single variable name.   The access of a Array can be Sequential or Random 
+Motivation : Have a contiguous block of memory to hold multiple values of the same data types accessed by a 
+             single variable name.   The access of a Array can be Sequential or Random 
 
-Sequential Access - start a beginning and then get the next element   
-Random Access - get ith element
-Allows for development of  powerful algorithms (looping,sorting,searching,conditional copying,analytics)
+(*) Sequential Access - start a beginning and then get the next element   
+(*) Random Access - get ith element
+(*) Allows for development of  powerful algorithms (looping,sorting,searching,conditional copying,analytics)
 
 Without an Array : code would be extremely cumbersome and unscalable
 
-example code without array to find greatest value
+---------------------------------------------------
+Example code without array to find greatest value:
+---------------------------------------------------
 
-public static int findGreatest( int x0 , int x1, int x2 ) {
+   public static int findGreatest( int x0 , int x1, int x2 ) {
+      if ( x0 >= x1 && x0 >= x2 ) return x0
+      if ( x1 >= x0 && x1 >= x2 ) return x1;
+      return x2;
+   }
 
-if ( x0 >= x1 && x0 >= x2 ) return x0
-
-if ( x1 >= x0 && x1 >= x2 ) return x1;
-
-return x2;
-
-}
-
-if we added an X3 then all code would have to be modified ...
+if we added an X3 then all code would have to be modified :
 
 
-Array Basics :
+---------------------------------------------------
+Array Basics
+---------------------------------------------------
 
 
 1) Creation & Access
 
-int [] A = { 1, 2, 3 , 4 };
+   int [] A = { 1, 2, 3 , 4 };
+   int [] A = new int[1000];
+   String[] DaysOfWeek = { "Sunday", "Monday", "Tuesday" , "Wednesday" ,"Thrusday", "Friday", "Saturday" };
 
-int [] A = new int[1000];
+   Access/Indexing
 
-String[] DaysOfWeek = { "Sunday", "Monday", "Tuesday" , "Wednesday" ,"Thrusday", "Friday", "Saturday" };
+   Array elements are accessed  via the [<index>] operation  where the beginning 
+   of the Array is index 0
 
-Access/Indexing
+    Example :
 
-Array elements are accessed  via the [<index>] operation  where the beginning of the Array is index 0
-
-Example
-
-    // index            0       ,    1       ,   2  
+    // index            0,   1    ,   2  
 
     String [] X = {"Apple","Orange","Pear" };
 
@@ -53,258 +54,218 @@ Example
 
       
 
-     We can use a for loop to access all the elements in the array
+  We can use a for loop to access all the elements in the array
 
       for (int i =0; i < 3 ; i++ )
-
             System.out.println(X[i]);
 
       The output will be
 
           Apple
-
           Orange
-
-           Pear
+          Pear
 
 
 2) Length
 
-the length of an array is built in ... by accessing the variable "length"
+  the length of an array is built in ... by accessing the variable "length"
 
     int [] A = new int[100];
-
     for( int i = 0; i < A.length ; i++)
-
-           A[i]=i; // set Array Elements to i
+       A[i]=i; // set Array Elements to i
 
      
 
-     The Array valid indicies are from "0" to "A.length -1"
+    The Array valid indicies are from "0" to "A.length-1"
 
       int firstElement = A[0];
-
       int lastElement = A[A.length-1];
 
- 
-
-      Note index "-1" and index "A.length" are out of bounds and if a program attempts to access them an Exception will be thrown
-
-
+      Note index "-1" and index "A.length" are out of bounds and if a program attempts to access them 
+      an Exception will be thrown
 
 
 3) Looping over Arrays
 
    a) conventional for loop
 
-       int sum = 0;
-
+      int sum = 0;
       for( int i = 0; i < A.length ; i++ ) sum +=A[i] ;
 
    b) enchaced for loop aka foreach loop 
 
      int sum = 0;
-
      for( int x : A ) sum +=x; 
 
 
 4) Parameter Passing 
 
 
-Arrays are passed by "reference" not by "value" like primitive types
+    Arrays are passed by "reference" not by "value" like primitive types
 
-For  Example supposed we have the "swap" method to swap array locations i and j 
+    For  Example supposed we have the "swap" method to swap array locations i and j 
 
-// Swap the values in locations i and j
+    //-----------------------------------------
+    // Swap the values in locations i and j
+    //-----------------------------------------
 
-static public void swap( int [] A , int i , int j ) {
+    static public void swap( int [] A , int i , int j ) {
 
-
-   int tmp = A[i];
-
-   A[i] = A[j];
-
-   A[j] = tmp;
-
-}
-
-// sample code sequence 
-
-int [] A = {0,1,2} ; // A[0] = 0 and A[1] = 1
-
-swap( A , 0 , 1 )
-
-System.out.println( "A[0]=" + A[0] + ",A[1]=" + A[1] );
-
-output:
-
-    A[0] = 1 and A[1] = 0
+       int tmp = A[i];
+       A[i] = A[j];
+       A[j] = tmp;
+    }
 
 
-Note : primitive types are passed by "value"
+     Sample code sequence 
 
-static public void swap( int A , int B ) {
+     int [] A = {0,1,2} ; // A[0] = 0 and A[1] = 1
+     swap( A , 0 , 1 )
+     System.out.println( "A[0]=" + A[0] + ",A[1]=" + A[1] );
 
-  int tmp = A;
+output --->    A[0] = 1 and A[1] = 0
 
-  A = B;
 
-  B = A;
+    Note : primitive types are passed by "value"
 
-}
+    static public void swap( int A , int B ) {
 
-int A = 0, B =1;
+     int tmp = A;
+     A = B;
+     B = A;
+   }
 
-swap(A,B);
+   int A = 0, B =1;
+   swap(A,B);
 
-// A will still = 0 and B will still = 1
+--->   A will still = 0 and B will still = 1
 
 
 
 5) Array Assignment / Modification / Copy
 
 
-If one Array is set equal to another array they reference the same array
+(*) If one Array is set equal to another array they reference the same array
 
-For Example :
+    For Example :
 
-int [] A = { 0 , 1, 2 , 4 };
+    int [] A = { 0 , 1, 2 , 4 };
+    int [] B = A;
+    B[0] = 11;
+    System.out.println( "A[0]=" + A[0]);
 
-int [] B = A;
-
-B[0] = 11;
-
-System.out.println( "A[0]=" + A[0]);
-
-output:
-
-A[0] = 11
+output --->    A[0] = 11
 
 
-Post/Pre Increment/Decrement operators will modify the contents of an array!
+(*) Post/Pre Increment/Decrement operators will modify the contents of an array!
 
-example
+     Example:
 
-int A[] = {0,1,2};
+     int A[] = {0,1,2};
+     A[0]++;
+     System.out.println("A[0]=" + A[0]);
 
-A[0]++;
-
-System.out.println("A[0]=" + A[0]);
-
-output:
-
-A[0]=1
+output ---> A[0]=1
 
 
 
-To make a "separate copy" of an array A, a new array has to be created and the values transferred 
+    To make a "separate copy" of an array A, a new array has to be created and the values transferred 
 
-// Example method to copy an array (note its not recommended to copy arrays this way)
-int [] copyArray( int [] A ) {
-    int [] B = new int [ A.length];
+    Example method to copy an array (note its not recommended to copy arrays this way)
 
-    for( int i = 0; i < A.length; i++ ) B[i] = A[i];
-
-    return B;
-
-}
+   int [] copyArray( int [] A ) {
+       int [] B = new int [ A.length];
+       for( int i = 0; i < A.length; i++ ) B[i] = A[i];
+       return B;
+   }
 
 
-Making an Array Copy via a System Call
+   Making an Array Copy via a System Call
 
-int [] B = new int[A.length];
+   int [] B = new int[A.length];
+   System.arraycopy(A,0,B,0,B.length); // Copy the contents of "A" to "B"
 
-System.arraycopy(A,0,B,0,B.length); // Copy the contents of "A" to "B"
+   or
 
-or
-
-import java.util.Arrays;
-
-int [] B = Arrays.copyOf(A,A.length) ; // copyOf can copy all or a portion of the array depends on the length
+   import java.util.Arrays;
+   int [] B = Arrays.copyOf(A,A.length) ; // copyOf can copy all or a portion of the array 
+                                          // depends on the length
 
 
 
 6) Algorithms in java.util.Arrays
 
 
-The class "Arrays" located in java.util.Arrays contains a number of "algorithms" available on arrays , such as sorting , searching , copying a Range and fill.  The Arrays method signatures are specified for the "primitive" types and for type Object.
+The class "Arrays" located in java.util.Arrays contains a number of "algorithms" 
+available on arrays , such as sorting , searching , copying a Range and fill.  The Arrays 
+method signatures are specified for the "primitive" types and for type Object.
 
-import java.util.Arrays;
-
-int [] A ;
-
-Arrays.sort(A); // sort Array A
-
-int pos = Arrays.binarySearch(A,5); // search for the value 5, Note: Binary Search only works on sorted Arrays!!!
-
-int [] B = Arrays.copyofRange(A,1,6); // copy elements 1 through 6 from A into B
+  import java.util.Arrays;
+  int [] A ;
+  Arrays.sort(A); // sort Array A
+  int pos = Arrays.binarySearch(A,5);   // search for the value 5, Note: Binary Search only 
+                                        // works on sorted Arrays!!!
+  int [] B = Arrays.copyofRange(A,1,6); // copy elements 1 through 6 from A into B
 
 
 
 7) Array Access Exceptions
 
 
-Java contains a builtin exception if an attempt is made to access an Array element that does not exist.  Array elements are not defined at "negative" indicies or and index value greater than or equal to its length.  
+Java contains a builtin exception if an attempt is made to access an Array element that does 
+not exist.  Array elements are not defined at "negative" indicies or and index value greater 
+than or equal to its length.  
 
-Will throw 
+  Will throw 
 
- java.lang.ArrayIndexOutOfBoundsException
+    java.lang.ArrayIndexOutOfBoundsException
 
 
-Example:
+  Example:
 
-int [] A = {0,1,2};
-
-int x = A[0]; // ok
-
-int y = A[A.length]; // NOT OK , with throw an  java.lang.ArrayIndexOutOfBoundsException
-
-int z = A[-1]; //  NOT OK , with throw an  java.lang.ArrayIndexOutOfBoundsException
+   int [] A = {0,1,2};
+   int x = A[0]; // ok
+   int y = A[A.length]; // NOT OK , with throw an  java.lang.ArrayIndexOutOfBoundsException
+   int z = A[-1]; //  NOT OK , with throw an  java.lang.ArrayIndexOutOfBoundsException
 
 
 8) MultiDimensional Arrays
 
-Java Supports MultiDimensional Arrays
+   Java Supports MultiDimensional Arrays
 
-The Arrays can be initalized with fixed values such as 
+   The Arrays can be initalized with fixed values such as 
+
         int [][] X = { {1,0} , { 0,1} }; // 2x2 Idenity Matirx 
 
         where Each {} represents a row
 
 
 The Arrays can be created by specifying the length of each dimension
-       int [][] Y = new int[4][3] ; // A Matrix with 4Rows and 3 Columns 
 
+       int [][] Y = new int[4][3] ; // A Matrix with 4Rows and 3 Columns 
        int [] [] X = new int[NRows][NCols]; // Rows and Columns as Variables
 
 
 The Arrays can be "Ragged" where there are a different number of columms for each Row
+
        String [][] Seating = new String[4][]; // Columns will be created in a separate col
 
        for example suppose the seating had 2 people in row 0 , 3 in row 1 , 1  in row  2 and 5 in row 2
 
        int [] NPerRow = { 2,3,1,5};
-
        for( int i = 0; i < NPerRow.length; i++ )
-
               Seating[i] = new String[NPerRow[i]];
 
 
 
 
-Traversing through an Array
-
+Traversing through a 2D Array
 
       public static void print2D( int [] [] X ) {
            for( int i = 0; i < X.length ; i++ ) {
-
                 for( int j =0; j < X[i].length ; j++ ) 
-
                    System.out.print( X[i][j] + " ");
-
                System.out.println("");
-
             }
-
        }
 
