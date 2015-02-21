@@ -1,16 +1,21 @@
+
+-----------------------------------
 ArrayList<>
+-----------------------------------
 
-
-Array list is a way to encapsulate Java Specific Classes into an Array Framework providing more functionality than a straight array.  
+Array list is a way to encapsulate Java Specific Classes into an Array Framework 
+providing more  functionality than a straight array.  
 
 Some things that can be done with ArrayList :
 
-Add Elements to the Array (grow dynamically)
-Remove Elements from the Array(shrink dynamically)
-Create Iterators 
-Note its necessary to import java.util.ArrayList;
+(*) Add Elements to the Array (grow dynamically)
+(*) Remove Elements from the Array(shrink dynamically)
+(*) Create Iterators 
+(*) Note its necessary to import java.util.ArrayList;
 
+-----------------------------------
 Example Creation of ArrayList
+-----------------------------------
 
     ArrayList<String> sList = new ArrayList<String>();
 
@@ -23,55 +28,71 @@ Example Creation of ArrayList
     sList.size() == 3;
 
 
+-----------------------------------
 For loops work similiar to Array
+-----------------------------------
 
     for( int i = 0; i < sList.size() ; i++ ) System.out.println( sLIst.get(i));
 
     for( String s : sList ) System.out.println(s); 
 
 
+-----------------------------------
 Code Sequence Example
+-----------------------------------
 
 import java.util.ArrayList;
 
-ArrayList<String> A = new ArrayList<String>();
-A.add("One");
-A.add("Two");
-A.add("Three");
-System.out.println(A.toString());
-// output [One,Two,Three]
-A.add("Three");
-System.out.println(A.toString());
-// output [One,Two,Three,Three]
-A.remove("Three"); // will only remove the first occurre of Three
-System.out.println(A.toString());
-// output[One,Two,Three]
-A.remove(1); // remove element at index 1
-System.out.println(A.toString());
-// output[One,Three]
+   ArrayList<String> A = new ArrayList<String>();
+   A.add("One");
+   A.add("Two");
+   A.add("Three");
+   System.out.println(A.toString());
 
+
+output --->  [One,Two,Three]
+
+
+   A.add("Three");
+   System.out.println(A.toString());
+
+output --->  [One,Two,Three,Three]
+
+   A.remove("Three"); // will only remove the first occurre of Three
+   System.out.println(A.toString());
+
+output --->  output[One,Two,Three]
+
+
+   A.remove(1); // remove element at index 1
+   System.out.println(A.toString());
+
+output --->  output[One,Three]
+
+
+-----------------------------------
 Generic Iterator
+-----------------------------------
 
 Generic iterator is a way to traverse the list one unit at a time only going forward
 
 import java.util.Iterator;
 
-   Iterator<String> it = al.iterator();
-
-   while( it.hasNext() )
-
+  Iterator<String> it = al.iterator();
+  while( it.hasNext() )
        System.out.println( it.next());
 
 
+-----------------------------------
 ListIterator
+-----------------------------------
 
-List iterator is a bidirectional way to traverse a list
+   List iterator is a bidirectional way to traverse a list
 
-    import java.util.ListIterator;
+   import java.util.ListIterator;
 
-    ListIterator<String> li = al.listIterator();
+   ListIterator<String> li = al.listIterator();
 
-    if ( li.hasNext() ) li.next() ; // go forward
-
+   if ( li.hasNext() ) li.next() ;        // go forward
    if ( li.hasPrevious()) li.previous() ; // go backward
 
