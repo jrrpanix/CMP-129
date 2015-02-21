@@ -1,92 +1,106 @@
-In the previous lecture we introduce the concept of Inheritence using the example of a Shape as the Super Class and Rectangle and Circle as SubClasses.  In object oriented programming terminology the Super class is also referred to as the Base Class and the SubClass is aslo referred to as the Derived Class.
+------------------------------------------------------------
+Lecture 09
+Inheritance continued
+Follows Gaddis Chapter 10
+------------------------------------------------------------
+
+In the previous lecture we introduce the concept of Inheritence using the example of a 
+Shape as the Super Class and Rectangle and Circle as SubClasses.  In object oriented programming 
+terminology the Super class is also referred to as the Base Class and the SubClass is also 
+referred to as the Derived Class.
 
 Our code outline was as follows
 
-public class Shape {
-    public double area() { return 0; }
-}
+   public class Shape {
+       public double area() { return 0; }
+    }
 
 
-public class Rectangle extends Shape {           public class Circle extends Shape {
+   public class Rectangle extends Shape {  
 
-}                                                }
+    }                                                }
 
-
-Rectangle and Circle will take on the properties of Shape and then can be used to modify the properities of Shape.  The opposite direction does not work, Shape does not take on the properities of Rectangle or Circle.  Extending classes brings about the concept of the "Is-A" relationship.  In this example a Rectangle "is a" Shape and a Circle "is a" Shape but the opposite may not hold.  For example a Shape does not have to be a Rectangle nor does a shape have to be a Cricle.
-
-
-WE can now override the property of area in both Cricle and Rectangle by implementing our own area calculations.
+   public class Circle extends Shape {
+   }
 
 
-public class Rectangle extends Shape {               public class Cirlcde extends Shape {
-
-private double len_;                                   private dobule radius_;
-
-private  double width_;
-
-public Rectangle( double l , double w ) {               public Cirlce( double r ) {
-
-len_=l; width_=w;                                          radius_=r;
-
-}                                                       }
-
-public double area() {                                  public double area() {
-
-    return len_ *width_;                                    return Math.PI *radius_ * radius_;
-
-}                                                        }
-
-public double getLen() { return len_; }               public double getRadius() { return radius_; }
-
-public double getWidth() {return width_;}
+Rectangle and Circle will take on the properties of Shape and then can be used to modify the 
+properities of Shape.  The opposite direction does not work, Shape does not take on the properities 
+of Rectangle or Circle.  Extending classes brings about the concept of the "Is-A" relationship.  In 
+this example a Rectangle "is a" Shape and a Circle "is a" Shape but the opposite may not hold.  
+For example a Shape does not have to be a Rectangle nor does a shape have to be a Cricle.
 
 
-}                                                     }
+We can now override the property of area in both Cricle and Rectangle by implementing our 
+own area calculations.
+
+
+   public class Rectangle extends Shape {               public class Cirlcde extends Shape {
+
+    private double len_;                                   private dobule radius_;
+    private  double width_;
+
+     public Rectangle( double l , double w ) {             public Cirlce( double r ) {
+       len_=l; width_=w;                                       radius_=r;
+
+     }                                                     }
+
+    public double area() {                                 public double area() {
+       return len_ *width_;                                    return Math.PI *radius_ * radius_;
+
+    }                                                      }
+
+     public double getLen() { return len_; }               public double getRadius() { return radius_; }
+     public double getWidth() {return width_;}
+   }                                                     }
 
 
 we can also do this in our code:
 
-Shape aShape0= new Rectangle( 10,20);
-
-Shape aShape1 = new Circle(5);
+   Shape aShape0= new Rectangle( 10,20);
+   Shape aShape1 = new Circle(5);
 
 
 because Rectangle and Circle are SubClasses / Derived from Shape, they are also Shapes.
 
 if we call 
 
-aShape0.area() - this will  end up calling Rectangle's area()
+  aShape0.area() - this will  end up calling Rectangle's area()
+   aShape1.area() - this will end up calling Cirlces area() 
 
-aShape1.area() - this will end up calling Cirlces area() 
+because we created a Shape with the properities of a Rectangle in the first case and a 
+Circle in the second case and overrode the method area.
 
-because we created a Shape with the properities of a Rectangle in the first case and a Circle in the second case and overrode the method area.
+We can do this because "area" is a method of Shape and in our implementation of Cricle 
+we overrode the behavior.  "area" is a property of shape.
 
-We can do this because "area" is a method of Shape and in our implementation of Cricle we overrode the behavior.  "area" is a property of shape.
-
-This ability to overide methods in Subclasses and them have them invoked as a Super class variable is called "ploymoprhism" .
+This ability to overide methods in Subclasses and them have them invoked as a 
+Super class variable is called "ploymoprhism" .
 
 Note we can't do this:
 
-aShape0.getWidth() ; NOT ALLOWED!!!!
+   aShape0.getWidth() ; NOT ALLOWED!!!!
 
-while area is a property of Shape, getWidth is not that's for a Rectangle only the only way we can call this is to convert a Rectangle to a Shape
+while area is a property of Shape, getWidth is not that's for a Rectangle only the only way we can call 
+this is to convert a Rectangle to a Shape
 
 
 Casting a Shape back to a Rectangle we can get to the width.
 
-Rectangle aRectangle = (Rectangle)aShape0;
+   Rectangle aRectangle = (Rectangle)aShape0;
 
 now on aRectangle we can do this
 
-aRectangle.getWidth();
+   aRectangle.getWidth();
 
 
-Note if we try to cast a variable back to a different class than it was originally created we wil get a java.lang.ClassCastException !!!
+Note if we try to cast a variable back to a different class than it was originally created we will 
+get a java.lang.ClassCastException !!!
 
 
 For example 
 
 Cirlce aCricle = (Circle)aShape0; // This will throw an Exception !!!
 
-
-This line will throw a java.lang.ClassCastException because Shape0 was created as a Rectangle not a Circle!
+This line will throw a java.lang.ClassCastException because Shape0 was 
+created as a Rectangle not a Circle!
