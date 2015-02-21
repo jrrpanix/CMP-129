@@ -191,5 +191,56 @@ Concepts:
     }
   }
 
+(7) What's wrong with the following code or is it correct?
+
+    public abstract class Shape {
+
+       public Color color;
+
+       public Shape( Color c ) {
+         this.color = c;
+       }
+
+       public abstract void rotate();
+       public abstract double area();
+
+       public static void main( String [] args ) {
+          Shape s = new Shape(Color.Red );
+       }
+
+    }
     
-    
+
+(8) What's wrong with implementation of Cricle or is it correct?
+
+    public abstract class Shape {
+
+       public abstract void rotate();
+       public abstract double area();
+
+    }
+
+    public class Circle extends Shape {
+
+       public radius;
+
+       public double area() {
+         return Math.PI * radius * radius;
+       }
+
+    }
+
+(9) What's wrong with the following interface ?
+
+    public interface Scale {
+       public double scaleFactor;
+
+       public void increase( double rate ) {
+          scaleFactor *= (1.0 + rate );
+       }
+
+       public void decrease();
+
+    } 
+
+
