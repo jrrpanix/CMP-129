@@ -1,103 +1,116 @@
 For today's lecture we are going follow the coding example for the "Java Class" Rectangle 
 
-which can be found in the file  Lecture5_Rectangle.txt a number of concepts in this lecture are also in Chapter 8 of Gaddis
+which can be found in the file  Examples/Rectangle.javaa a number of concepts in this lecture 
+are also in Chapter 8 of Gaddis
 
 (1) Create the outline of the class 
 
-public class Rectangle {
-}
+   public class Rectangle {
+   }
 
 (2) What information is needed to describe a simple Rectangle?
 
-the length
-the width 
+    the length
+    the width 
+
 (3) Design consideration, what numeric form should the length and width be in ?
 
-choices int,long,float or double ?
-if we choose int or long then we can't have a length or width such as 1.5
-so the choice is between float and double, since we are not worried about conserving memory right now will choose double.
+   choices int,long,float or double ?
+   if we choose int or long then we can't have a length or width such as 1.5
+   so the choice is between float and double, since we are not worried about conserving memory 
+   right now will choose double.
 
 
 (4) We now have two "member" / "instance" variables to represent a Rectangle.
 
-double length
-double width
+   double length
+   double width
 
 (5) next question should they be public,private or protected ?
 
 
-if they are public
+   if they are public
 
-cons
+   cons
 
-the variables length and width can be directly accessed and altered by anyone.
-this means we don't have control over them and can be constrained in changing the representation of them later
-we can never be sure if the class changes when its passed as a parameter
+   the variables length and width can be directly accessed and altered by anyone.
+   this means we don't have control over them and can be constrained in changing 
+   the representation of them later we can never be sure if the class changes when 
+   its passed as a parameter
 
-pros
+   pros
 
-we don't have to write any special methods to access them
+   we don't have to write any special methods to access them
 
-if they are private
+   if they are private
 
 
-pros
+  pros
 
-we fully control the evloution of the design of the class
-we fully control how the variables are access / changed
-we know how it can change if its passed as a parameter
-cons
+  we fully control the evloution of the design of the class
+  we fully control how the variables are access / changed
+  we know how it can change if its passed as a parameter
 
-they can't be accessed in raw form by classes that my be derived from or incude Rectangle
+  cons
 
-Decision
+  they can't be accessed in raw form by classes that my be derived from or incude Rectangle
 
-make member variables private at first
-unless there's a compelling reason to make them protected or public.
-More on protected later.
-We err on the side of making member variables
-it gives us maximum control over the design of the class
-its easier for users of the class to understand how the class can be changed
+  Decision
+
+  make member variables private at first
+  unless there's a compelling reason to make them protected or public.
+  More on protected later.
+  We err on the side of making member variables
+  it gives us maximum control over the design of the class
+  its easier for users of the class to understand how the class can be changed
+
 (6) Class design so far ....
 
 
-public class Rectangle {
+   public class Rectangle {
 
      private double len_;
 
      private double width_;
 
-}
+  }
 
-we use the convention trailing underscore "_" on instance/member variables so its easy to identify which variables belong the the class.
+  we use the convention trailing underscore "_" on instance/member variables so its easy to 
+  identify which variables belong the the class.
 
 (7) Now we need a way to create the class 
 
-Java classes are created with "constructors" in our case to create a rectangle we need twe peices of information , its length and width, so we should have a constructor that takes the length and width as arguments
+   Java classes are created with "constructors" in our case to create a rectangle we need 
+   two peices of information , its length and width, so we should have a constructor that 
+   takes the length and width as arguments
 
  
       public Rectangle( double l , double w ) {
          len_=l ; // we could also do this.len_=l
          width_=w; // this.width=w 
-}
+      }
 
 QUICK Side Topic  Avoid Shadowing
 
  Shadowing - when a parameter name passed into an member function has the same name as an instance variable. 
 
 
-For example : In the below code class Rectangle has an instance variable called "length", the constructor has a parameter "length".
+   For example : In the below code class Rectangle has an instance variable called "length", 
+   the constructor has a parameter "length".
 
-Inside of the constructor the parameter length shadows the instance variable length so referring to length refers to the parameter not the instance variable.  To access the instance variable one has to do
+   Inside of the constructor the parameter length shadows the instance variable length so referring 
+   to length refers to the parameter not the instance variable.  To access the instance variable one 
+   has to use the java keyword "this"
 
-     this.length  
+   this.length  
 
    public class Rectangle {
           private double length;
          private double width;
     
          public Rectangle( double  length , double w ) { // <-  Parameter names are the same as instance names so it "Shadows" the member names
-              length=length; // this statment has no effect since Java assumes the programmer is referring to length the "parameter" and not length the "instance" variable.
+              length=length;     // this statment has no effect since Java assumes the programmer 
+                                  is referring to length the "parameter" and not length the "instance" variable.
              // Do this instead !
              this.length = length;
          }
@@ -105,50 +118,47 @@ Inside of the constructor the parameter length shadows the instance variable len
        (8) So now our class looks like
     
       
-public class Rectangle {
+      public class Rectangle {
 
-     private double len_;
+         private double len_;
 
-     private double width_;
+         private double width_;
 
-     public Rectangle( double len , double width ) {
+        public Rectangle( double len , double width ) {
 
-          len_=len; 
+             len_=len; 
+             width_=width; 
 
-           width_=width; 
+        }
 
-    }
-
-}
+      }
 
    
-  (9) Let's add some simple functionality to the class
+9) Let's add some simple functionality to the class
     
       We will add an area function ...
     
     
       
-public class Rectangle {
+    public class Rectangle {
 
      private double len_;
-
      private double width_;
 
-    public Rectangle( double len , double width ) {
+     public Rectangle( double len , double width ) {
 
           len_=len; 
-
-           width_=width; 
+         width_=width; 
 
     }
 
      public double area() {
            return len_ *width_;
         } 
-}
+    }
 
  
-  ( 10) Quick check point, lets do a smaple run with the class
+(10) Quick check point, lets do a smaple run with the class
    
     public static void testRectangle() {
          Rectangle R0 = new Rectangle(11,3);
@@ -158,10 +168,11 @@ public class Rectangle {
     Notice that we created and "instance" of Rectangle by calling "new"
    
    
-   (11) Add "Get" methods to the class so we can "access" the member variables
-   
+(11) Add "Get" methods to the class so we can "access" the member variables
+     the are called Accessor Methods   
+
     
-     We wil add the following two methods to Rectangle
+    We wil add the following two methods to Rectangle
    
     public double getLength() {
         return len_;
@@ -171,7 +182,7 @@ public class Rectangle {
         return width_;
     }
    
-     now our class looks as follows :
+   now our class looks as follows :
    
     public class Rectangle {
    
@@ -196,9 +207,10 @@ public class Rectangle {
       }
     }
    
-   (12) Overriding methods from "Object"
+(12) Overriding methods from "Object"
   
-  Every class in Java is derived from "Object" and comes with the following "methods" already defined (int addtion to some others)
+     Every class in Java is derived from "Object" and comes with the following "methods" already 
+      defined (int addtion to some others)
   
       toString()
       hashCode()
@@ -206,20 +218,29 @@ public class Rectangle {
       equals()
       finalize()
   
-  we want to override some of these to give us more customized functinality
+we want to override some of these to give us more customized functinality
   
   (1) toString()
-  this is a method that will print out the class as a string and we can customize it to our needs
+
+    this is a method that will print out the class as a string and we can customize it to our needs
   
   (2) clone()
-   this is a way to make a copy of the class , note if you don't override this method and try to call "clone" it will throw
-   an exception
+
+  this is a way to make a copy of the class , note if you don't override this method and try 
+  to call "clone" it will throw an exception
+   
   
   (3) equals()
-  the way to compare if the two classes are equal ( don't use R0 == R1, this does not work for class comparison)
+
+    the way to compare if the two classes are equal ( don't use R0 == R1, this does not work for class comparison)
   
-  (4) hashCode() is a way to create an identifier for putting classes into hash tables for fast look up and should follow somrelationship to equals (eg. if two classes are equal() they should produce the same hashCode)
+  (4) hashCode() 
+
+      is a way to create an identifier for putting classes into hash tables for fast look up and 
+      should follow somrelationship to equals (eg. if two classes are equal() they should produce the same hashCode)
   
   (5) finalize()
-  this is called after the class is garbage collected (if its garbage collected) and is useful for classes that need to clean
-  up open file handles, close threads etc.
+
+      this is called after the class is garbage collected (if its garbage collected) and is useful for 
+      classes that need to clean up open file handles, close threads etc.
+      
