@@ -1,10 +1,15 @@
-Inheritance
 
+----------------------------------------------------------------
+Lecture 9
+Inheritance
+Follows Gaddis Chapter 10
+----------------------------------------------------------------
 
 
 Inheritance - allows a new class to extend an existing class.
               the new class automatically gets all of the members of
               the class it extends.
+
 
 For example from our previous lectures we created a 
 Rectangle, Triangle and Circle classes.  Suppose we create
@@ -14,22 +19,23 @@ created we want to give it an id.
 
 
 
-public class Shape { // This is the SuperClass
+   public class Shape { // This is the SuperClass
        public int id;
 
        public double area() {
           return -987654321.0; // Not implemented
        }
-}
+    }
 
 
-public class Rectangle extends Shape {  // This is a subclass of Shape
+   public class Rectangle extends Shape {  // This is a subclass of Shape
+
        private double len_;
        private double width_;
 
        public Rectangle( double len , double width ) {
-       len_=len;
-       width_=width;
+          len_=len;
+          width_=width;
        }
 
        public double area() {
@@ -44,9 +50,9 @@ public class Rectangle extends Shape {  // This is a subclass of Shape
           return width_;
        }
 
-}
+   }
 
-public class Circle extends Shape { // This is a subclass of Shape
+   public class Circle extends Shape { // This is a subclass of Shape
        private double radius_;
 
        public Circle( double radius ) {
@@ -60,8 +66,7 @@ public class Circle extends Shape { // This is a subclass of Shape
        public double getRadius() {
           return radius_;
        }
-
-}
+   }
 
 ------------------------------------------------
 The advantage of using the "Super" class Shape
@@ -85,10 +90,10 @@ if we didn't have this Super class then we would have to do this ...
      for( Object o : objects ) {
         if ( o.getClass() == Circle.Class ) {
 	     total += ((Cirlce)o).area();
-	     }
-	     else if ( o.getClass() == Rectangle.Class ) {
+        }
+        else if ( o.getClass() == Rectangle.Class ) {
 	          total += ((Rectangle)o).area();
-		  }
+	}
      }
    }
 
@@ -97,6 +102,7 @@ if we didn't have this Super class then we would have to do this ...
 Note the subclass inherits from the super class but the 
 superclass does not inherit from the subclass
 -------------------------------------------------
+
 So Shape does not know about Rectangle's len_ or witdh_
 Nor does shape know about Circle.s radius_
 
