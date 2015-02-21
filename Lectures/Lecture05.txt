@@ -105,32 +105,32 @@ QUICK Side Topic  Avoid Shadowing
    this.length  
 
    public class Rectangle {
-          private double length;
+         private double length;
          private double width;
     
-         public Rectangle( double  length , double w ) { // <-  Parameter names are the same as instance names so it "Shadows" the member names
-              length=length;     // this statment has no effect since Java assumes the programmer 
-                                  is referring to length the "parameter" and not length the "instance" variable.
+         public Rectangle( double  length , double w ) { // <-  Parameter names are the same as instance 
+                                                         // names so it "Shadows" the member names
+
+              length=length;     // this statment has no effect since Java assumes 
+                                 // the programmer is referring to length the "parameter" and not length 
+                                 // the "instance" variable.
+                                  
              // Do this instead !
              this.length = length;
          }
     
-       (8) So now our class looks like
+8) So now our class looks like
     
       
       public class Rectangle {
 
          private double len_;
-
          private double width_;
 
         public Rectangle( double len , double width ) {
-
              len_=len; 
              width_=width; 
-
         }
-
       }
 
    
@@ -142,26 +142,26 @@ QUICK Side Topic  Avoid Shadowing
       
     public class Rectangle {
 
-     private double len_;
-     private double width_;
+       private double len_;
+       private double width_;
 
-     public Rectangle( double len , double width ) {
+       public Rectangle( double len , double width ) {
 
-          len_=len; 
+         len_=len; 
          width_=width; 
+       }
 
-    }
-
-     public double area() {
+       public double area() {
            return len_ *width_;
-        } 
+       } 
     }
 
  
 (10) Quick check point, lets do a smaple run with the class
    
+
     public static void testRectangle() {
-         Rectangle R0 = new Rectangle(11,3);
+         Rectangle R0 = new Rectangle(11,3); <---- Creates an "instance" of Rectangle
          System.out.println("The area of the Rectangle is " + R0.area() );
     }
    
@@ -172,8 +172,9 @@ QUICK Side Topic  Avoid Shadowing
      the are called Accessor Methods   
 
     
-    We wil add the following two methods to Rectangle
+    We wil add the following two methods to Rectangle :
    
+
     public double getLength() {
         return len_;
     }
@@ -182,8 +183,10 @@ QUICK Side Topic  Avoid Shadowing
         return width_;
     }
    
+
    now our class looks as follows :
    
+
     public class Rectangle {
    
       private double len_;
@@ -207,10 +210,11 @@ QUICK Side Topic  Avoid Shadowing
       }
     }
    
+
 (12) Overriding methods from "Object"
   
      Every class in Java is derived from "Object" and comes with the following "methods" already 
-      defined (int addtion to some others)
+     defined (int addtion to some others)
   
       toString()
       hashCode()
@@ -222,7 +226,7 @@ we want to override some of these to give us more customized functinality
   
   (1) toString()
 
-    this is a method that will print out the class as a string and we can customize it to our needs
+  this is a method that will print out the class as a string and we can customize it to our needs
   
   (2) clone()
 
