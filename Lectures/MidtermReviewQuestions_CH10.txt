@@ -244,3 +244,26 @@ Concepts:
     } 
 
 
+(10) Implement the interface Arithmetic for the class Number,
+
+   
+     public interface Arithmetic {
+
+         public void add( int x );
+         public void subtract( int x );
+
+     }
+
+
+     public class Number {
+
+         public int X;
+
+	 public Number( int X ) {
+	    this.X = X;
+	 }
+
+     }
+
+
+
