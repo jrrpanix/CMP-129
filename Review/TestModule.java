@@ -16,8 +16,9 @@ public class TestModule {
 	print("\nString Example");
 	String [] Fruits = ArrayReview.GetFruits();
 	ArrayReview.print(Fruits);
-	print("First Element is",ArrayReview.getFirst(Fruits));
-	print("Last  Element is",ArrayReview.getLast(Fruits));
+	print("Fruits.length is",new Integer(Fruits.length));
+	print("First Element is",ArrayReview.getFirst(Fruits),"index is",new Integer(0));
+	print("Last  Element is",ArrayReview.getLast(Fruits),"index is" , new Integer(Fruits.length-1));
 	int ix = ArrayReview.find( Fruits , "Pear" );
 	if ( ix != -1 ){
 	    print( Fruits[ix],"is at index",new Integer(ix));
@@ -29,8 +30,9 @@ public class TestModule {
 	print("\nInt Example");
 	int [] A = ArrayReview.GetInts();
 	ArrayReview.print(A);
+	print("A.length is",new Integer(A.length));
 	print("First Element is",new Integer(ArrayReview.getFirst(A)));
-	print("Last  Element is",new Integer(ArrayReview.getLast(A)));
+	print("Last  Element is",new Integer(ArrayReview.getLast(A)),"index is",new Integer(A.length-1));
 	print("Max Value is" ,  new Integer( ArrayReview.max(A)));
 	int halfLen = A.length/2;
 	int ix = ArrayReview.find( A , A[halfLen] );
@@ -40,11 +42,12 @@ public class TestModule {
 
     public static void SwapExample() {
 	int [] A = {0,1};
-	print ("");
-	print("Swap Example ... Array Before Swap");
+	print ("\nSwap Example");
+	print("Array Before Swap");
 	ArrayReview.print(A);
 	ArrayReview.Swap(A,0,1);
-	print("Swap Example ... Array After Swap");
+	print("calling ArrayReview.Swap(A,0,1)");
+	print("Array After Swap");
 	ArrayReview.print(A);
     }
 
