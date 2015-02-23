@@ -106,6 +106,28 @@ public class TestModule {
 	}
     }
 
+    public static void ArrayObject() {
+	print("\nArray Of Integer  Objects Test");
+	Integer [] I = new Integer[10];
+	try {
+	    for ( int i = 0; i < I.length ; i++ ) {
+		I[i].toString();
+	    }
+	}
+	catch( java.lang.NullPointerException e) {
+	    print("oops catching exception, have to initialize objects first!" ,e);
+	}
+	print("Now its ok because we are initializing ...");
+	int i ;
+	for ( i = 0; i < I.length ; i++ ) {
+	    I[i] = new Integer(i);
+	}
+	for ( i = 0; i < I.length ; i++ ) {
+	    print( I[i].toString());
+	}
+
+    }
+
     // main
     public static void main( String [] args ) {
 	print( "Begin Test Module ..." );
@@ -116,6 +138,7 @@ public class TestModule {
 	BoundsError();
 	MultiArray();
 	ArrayListTest();
+	ArrayObject();
 	print( "\nEnd Test Module ..." );
     }
 
