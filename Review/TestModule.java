@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TestModule {
 
@@ -67,6 +69,45 @@ public class TestModule {
 	}
     }
 
+    public static void MultiArray() {
+
+	int [][] X = new int[2][3];
+	print ("\n2D Array");
+	print( new Integer( X.length) , "X" ,new Integer(X[0].length));
+	int i,j;
+	for( i = 0; i < X.length ;i++) {
+	    for( j=0; j < X[i].length;j++)
+		X[i][j] = i+ j;
+	}
+	for( i = 0; i < X.length ;i++) {
+	    for(  j=0; j < X[i].length;j++) {
+		System.out.format("%3d ", X[i][j] );
+	    }
+	    System.out.format("\n");
+	}
+    }
+
+
+    public static void ArrayListTest() {
+	print("\nArrayList");
+	ArrayList<String> inputList = new ArrayList<String>();
+	Scanner input = new Scanner(System.in);
+	while( input.hasNext() ) {
+	    String nxt = input.next();
+	    if ( nxt.equals("quit") )break;
+	    inputList.add(nxt);
+	}
+	input.close();
+	for( String a :inputList ) {
+	    print(a);
+	}
+	for( int i =0; i < inputList.size() ; i++ ) {
+	    if (inputList.get(i).equals("fox") ) {
+		print("found fox!");
+		break;
+	    }
+	}
+    }
 
     // main
     public static void main( String [] args ) {
@@ -76,6 +117,8 @@ public class TestModule {
 	SwapExample();
 	ForEachLoop(ArrayReview.GetFruits());
 	BoundsError();
+	MultiArray();
+	ArrayListTest();
 	print( "\nEnd Test Module ..." );
     }
 
