@@ -70,21 +70,15 @@ public class TestModule {
     }
 
     public static void MultiArray() {
-
-	int [][] X = new int[2][3];
 	print ("\n2D Array");
+	int [][] X = new int[2][3];
 	print( new Integer( X.length) , "X" ,new Integer(X[0].length));
-	int i,j;
-	for( i = 0; i < X.length ;i++) {
-	    for( j=0; j < X[i].length;j++)
-		X[i][j] = i+ j;
-	}
-	for( i = 0; i < X.length ;i++) {
-	    for(  j=0; j < X[i].length;j++) {
-		System.out.format("%3d ", X[i][j] );
-	    }
-	    System.out.format("\n");
-	}
+	ArrayReview.init(X);
+	ArrayReview.print(X);
+	int [][] Y = { {1,2}, {3,4} , {5,6} , {7,8}};
+	print("");
+	print( new Integer( Y.length) , "X" ,new Integer(Y[0].length));
+	ArrayReview.print(Y);
     }
 
 

@@ -19,6 +19,15 @@ public class ArrayReview {
 	System.out.println("]");
     }
 
+    static void print( int [][] X ) {
+	for( int i = 0; i < X.length ;i++) {
+	    for(  int j=0; j < X[i].length;j++) {
+		System.out.format("%3d ", X[i][j] );
+	    }
+	    System.out.format("\n");
+	}
+    }
+
     // find greatest value
     static int max( int [] A ) {
 	if ( A.length == 0 ) return 0;
@@ -77,5 +86,12 @@ public class ArrayReview {
 	return A;
     }
 
+
+    public static void init( int [][] X ) {
+	for( int i = 0; i < X.length ;i++) {
+	    for( int j=0; j < X[i].length;j++)
+		X[i][j] = i+ j;
+	}
+    }
 
 }
