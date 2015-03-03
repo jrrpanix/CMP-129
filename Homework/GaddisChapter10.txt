@@ -1,0 +1,145 @@
+Gaddis Chapter 10 
+Part 1 : Review Questions Chapter 10 (pg 688 - 690) (100 pts)
+
+(1) In an inheritance relationship this is the general class 
+
+Answer:  b  : superclass
+
+(2) In an inheritance relationship this is the specialized class 
+
+Answer: c : subclass
+
+(3) This keyword indicates that a class inherits from another class 
+
+Answer: d : extends
+
+(4) A subclass does not have access to these superclass members 
+
+Answer: b : private 
+
+(5) This keyword refers to an objects superclass
+
+Answer: a : super
+
+(6) In a subclass constructor, a call to the superclas constructor must _______
+
+Answer: a : appear as the very first statement
+
+(7) The following is an explicit call to a superclass's default constructor :
+
+Answer: c : super();
+
+(8) A method in a subclass that has the same signature as a method in the super class
+    is an example of ____
+
+Answer: b : overriding
+
+(9) A method in a subclass that has the same name but differet signature as a 
+    method in the super class is an example of ____
+
+Answer: a : overloading
+
+(10) These superclass members are accessible to subclasses and classes in the same package
+
+Answer: b : public
+
+(note classes in the same package can only access public members, but subclasses can
+ access both public and protected, so its a bit of a trick question)
+ 
+
+(11) All classes directly or indirectly inherit from this class.
+
+Answer: a : Object
+
+(12) With this type of binding, the JVM determines at runtime which method to call,
+     depending on the type of object that a variable references 
+
+Answer: d : dynamic
+
+(13) This operator can be used to determine wether a reference variable references
+     an of a particular class.
+
+Answer: c : instanceof
+
+(14) When a class implements and interface, it must _____
+
+Answer: b : provide all methods that are listed in the interface, with the exact signatures 
+            and return types specified
+
+(15) Fields in an interface are 
+
+Answer: c : both final and static
+
+
+(16) Abstract methods must be 
+
+Answer: a : overridden
+
+(17) Abstract classes cannot be 
+
+Answer: c : instantiated
+
+(18) True or False: Constructors are not inherited.
+
+Answer: True
+
+(Each subclass must define its own constuctors but can call super class constructors)
+
+(19) True or False: In a subclass, a call to a superclass constructor can only be
+     written in a the subclass constructor
+
+Answer: True
+
+(20) True or False: If a subclass constructor does not explicitly call any superclass
+     constructors Java will not call any of the superclass constructors
+
+Answer: False
+
+(the default constructor of the superclass is called if no explicit call is made to
+ a superclass constructor)
+
+(21) True or False: An object of the superclass can access members declared in the subclass
+
+Answer: False
+
+(22) The superclass constructor always executes before the subclass constructor
+
+Answer: True
+
+(23) True or False: When a method is declared final it must be overridden in a subclass
+
+Answer: False
+
+(24) Ture or False: A superclass has a member with package access.  A class that is outisde
+the superclass's package but inherits from the superclass can access the members.
+
+Answer: True
+
+(25) True or False: A superclass reference variable can reference an object of a superclass
+that extends the superclass
+
+Answer: True
+
+(Object the ultimate super class, can be a reference to any class )
+
+(26) True or False: A supclass reference variable can reference an object of the superclass
+
+Answer: False
+
+(27) True or False: When a class contains an abstract method it can't be instantiated
+
+Answer: True
+
+(28) True or False: A class can only implement one interfce
+
+Answer: False
+
+(29) By default all members of an interface are public
+
+Answer: True
+
+
+
+
+
+
