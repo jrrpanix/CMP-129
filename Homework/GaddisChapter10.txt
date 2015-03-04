@@ -45,7 +45,7 @@ Answer: c : protected
 
 (note classes in the same package can access public and protected members, but subclasses can
  access both public and protected inside or outside of the class, regardless of package.  
- Classes outside of the package that can't access protected members unless they are a subclass).
+ Classes outside of the package can't access protected members unless they are a subclass).
 
 (11) All classes directly or indirectly inherit from this class.
 
