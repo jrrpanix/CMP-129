@@ -71,7 +71,7 @@ A: Dog is the superclass , Pet is the subclass
 
 
    It means that a Reference Varaible of a superclass can be assigned to a subclass
-   instance and will still take on the properities of the subclass.
+   instance and will still call the overrided methods of the subclass.
 
 
    Using the code example from 7
