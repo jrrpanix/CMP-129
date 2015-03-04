@@ -1,0 +1,115 @@
+Gaddis Chapter 10 , pg 693 , Short Answers
+
+1. What is an "is-a" relationship ?
+
+A: "is-a" referrs to a subclass relationship to a superclass
+   it means the subclass has all of the characteristics fo the superclass
+   plus specilized attributes that make it differ from the superclass
+
+2. A program uses two class Animal and Dog. Which class is the superclass
+   and which class is the subclass ?
+
+A: Animal is the superclass, Dog is the subclass (Dog "is-a" Animal )
+
+
+3. What is the superclass and what is the subclass in the following line?
+
+   public class Pet extends Dog
+
+A: Dog is the superclass , Pet is the subclass
+
+
+4. What is the difference between a protected class member and a private class member?
+
+   private class members are only accessible to methods within the class, no outside
+   class can access private members, regardless of wether its a subclass or which package
+   it's in.
+
+   protected class members are accessible to any class within the same package or
+   any class that is a subclass and the subclass can be the same package or 
+   a different package.
+
+5. Can a subclass every directly access private members of a superclass ?
+
+   No
+
+6. Which constructor is called first,that of the superclass or that of the subclass?
+
+   The superclass constructor is called first, for the good reason that the subclass
+   may need to access properities from the superclass.
+
+7. What is the difference between overriding a method and overloading a superclass method?
+
+   overriding is reimplementing the superclass method in the subclass and keeping the
+   method signature the exact same.
+
+   overloading is changing the signature of the superclass method but keeping the name 
+   the same.
+
+   example ASuperClass {
+      public int x;
+
+      public int add( int a ) {
+         return x + a;
+      }
+   }
+
+   example ASubClass extends ASuperClass {
+       public y;
+
+      public int add( int a ) {   <- This is an example of overriding 
+         return y + a;               add from ASuperClass is reimplementd in ASubClass
+      }
+
+      public int add( ASubClass x ) {  <- this is an example of overloading
+         return y + x.y;                  the signature of add is changed to the "ASubClass"
+      }                                   instead of int
+
+   }
+
+8. Reference Variables can be polymorphic, what does this mean?
+
+
+   It means that a Reference Varaible of a superclass can be assigned to a subclass
+   instance and will still take on the properities of the subclass.
+
+
+   Using the code example from 7
+
+   ASuperClass S = new ASubClass();
+   System.out.println(S.add());  <- this S.add will call ASubClass add
+
+9. When does dynamic binding take place ?
+
+   Dynamic binding takes place at runtime , when a class contaisn a polymorphic reference.
+   The JVM determines which method to call based on the type of object the variable references.
+
+10. What is an abstract method?
+
+   An abstract method is a method which contains a signature but no implementation.
+   It must be impelemted by a subclass.
+
+11. What is an abstract class ?
+   
+   An abstract class is a class that can't be instantiated.  It may also contain
+   an abstract method.  It typically referrs to a high level notion.
+
+12. What are the differences between an abstract class and an interface
+
+   An abstract class can contain public,private and protected class members
+   and methods, as well as static and non-static functions.   It may also contain
+   abstract methods and implemented methods. A subclass can only extend 1 Abstract class.
+   
+
+   An interface contains only public non-static method declarations and can't implement any
+   of the methods.  It can only contain final static members.
+
+
+
+
+   
+
+
+
+
+   
