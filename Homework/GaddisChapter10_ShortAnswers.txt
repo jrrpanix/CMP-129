@@ -29,7 +29,7 @@ A: Dog is the superclass , Pet is the subclass
    any class that is a subclass and the subclass can be the same package or 
    a different package.
 
-5. Can a subclass every directly access private members of a superclass ?
+5. Can a subclass ever directly access private members of a superclass ?
 
    No
 
@@ -102,7 +102,9 @@ A: Dog is the superclass , Pet is the subclass
    
 
    An interface contains only public non-static method declarations and can't implement any
-   of the methods.  It can only contain final static members.
+   of the methods.  It can only contain final static members.  A class can implement
+   multiple interfaces.
+
 
 
 
