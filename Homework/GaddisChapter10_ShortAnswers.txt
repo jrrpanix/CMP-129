@@ -58,7 +58,7 @@ A: Dog is the superclass , Pet is the subclass
        public y;
 
       public int add( int a ) {   <- This is an example of overriding 
-         return y + a;               add from ASuperClass is reimplementd in ASubClass
+         return y + a;               add from ASuperClass is reimplemented in ASubClass
       }
 
       public int add( ASubClass x ) {  <- this is an example of overloading
