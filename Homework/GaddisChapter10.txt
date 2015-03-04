@@ -41,11 +41,11 @@ Answer: a : overloading
 
 (10) These superclass members are accessible to subclasses and classes in the same package
 
-Answer: b : public
+Answer: c : protected
 
-(note classes in the same package can only access public members, but subclasses can
- access both public and protected, so its a bit of a trick question)
- 
+(note classes in the same package can access public and protected members, but subclasses can
+ access both public and protected inside or outside of the class.  Classes outside of the 
+ package can't access protected members unless they are a subclass).
 
 (11) All classes directly or indirectly inherit from this class.
 
