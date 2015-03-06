@@ -313,7 +313,7 @@
        Rectangle r0 = s0;
 
     
-    Answeres:
+    Answers:
 
     (a) output of main is 6
     (b) not allowed, Shape is an abstract class and can't be instantiated
