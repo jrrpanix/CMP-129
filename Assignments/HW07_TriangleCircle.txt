@@ -2,39 +2,45 @@
 Implementing a Triangle and Circle class
 --------------------------------------------------------------------
 
-Based on the Lecture 5 your assignment is to write the code for Triangle and Circle classes analogous to what was done for Rectangle.
-
-As a reminder the Rectangle code can be found here Rectangle Code
-
-
 (100 points , 50 for Triangle, 50 for Circle )
 
-For both the Triangle and Circle classes
+Based on Lecture 5, your assignment is to write the code for Triangle and Circle classes analogous 
+to what was done for Rectangle.
 
-Identify the appropraite instance members and their type (aka member variables , e.g. this would be the len_ and width_ for Rectangle)
-Implement the following Constructors
-(a) one that passes a parameter to initalize the class members (the would be the Rectangle(double len, double width)
-(b) a copy constructor ( Rectangle(Rectangle R) )
-(c) a default constructor ( one that takes no arguments e.g. Rectangle() )
+As a reminder the Rectangle code can be found under "Examples"
 
-Override the "Object" methods : toString() and hashCode()
-For equals we will just implement "boolean equals(Triangle)" and "boolean equals(Circle) 
-(we will get to "boolean equals(Object) in the next lecture"
-Implement "area" method for each  (e.g. double area() )
 
-Note for the Object method which has signature "equals( Object o)" we didn't get to finish this part in the Lecture 5. 
-This involves checking to make sure the class types match and then casting Object to Rectangle.  We didn't cover this 
-yet because this will be expanded upon in the inheritence part of the lecture as it involves checking class type and 
-casting.
+For both the Triangle and Circle classes :
+
+(*) Identify the appropraite instance members and their type (aka member variables , 
+     e.g. this would be the len_ and width_ for Rectangle)
+(*)    Implement the following Constructors
+       (a) one that passes a parameter to initalize the class members 
+           (the would be the Rectangle(double len, double width)
+       (b) a copy constructor ( Rectangle(Rectangle R) )
+       (c) a default constructor ( one that takes no arguments e.g. Rectangle() )
+
+(*) Override the "Object" methods : toString() and hashCode()
+(*) For equals we overload and implement "boolean equals(Triangle)" 
+    and "boolean equals(Circle) 
+    (we will get to "boolean equals(Object) in the next lecture"
+(*) Implement "area" method for each  (e.g. double area() )
+
+Note:
+------
+Note for the Object method which has signature "equals( Object o)" we didn't get to finish 
+this part in the Lecture 5.  This involves checking to make sure the class types match and then 
+casting Object to Rectangle.  We didn't cover this  yet because this will be expanded upon in the 
+inheritence part of the lecture as it involves checking class type and casting.
 
 If you are curious the technique is below otherwise skip for now and wait for Lecture 6
 
 
-boolean equals( Object o ) {
-   if ( o.getClass() != Rectangle.class ) return false;
-   return equals( (Rectangle)o );  // <- Casting Object to Rectangle
-}
+   public boolean equals( Object o ) {
+      if ( o.getClass() != Rectangle.class ) return false;
+      return equals( (Rectangle)o );  // <- Casting Object to Rectangle
+   }
 
-boolean equals( Rectangle r ) {
-   return len_ == r.len_ && width_ == r.width_;
-}
+   public boolean equals( Rectangle r ) {
+      return len_ == r.len_ && width_ == r.width_;
+   }
