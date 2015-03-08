@@ -173,6 +173,60 @@ code in multiple locations
     }
 
 
+-----------------------------------------------
+(*) The Exception Hirearchy
+-----------------------------------------------
+
+              Object
+                |
+              Throwable
+                |
+        |---------------|               
+      Error           Exception
+
+
+(*) All Exceptions inherit from Throwable
+(*) Classes that inherit from Error are Serious system
+    errors which (JVM error, running out of memeory)
+    and are generally not good to recover rom
+(*) Classes that inherit from Exception are errors that
+    can be handled by the programmer
+
+
+----------------------------------------------------------
+(*) Exceptions can be handled anywhere in the calling stack
+-----------------------------------------------------------
+
+Example:
+
+public class Account {
+   public String name;
+   public double balance;
+   
+   public void setAccount( String fname ) throws IOException {
+       	File f = new File (fname );
+	Scanner scan = new Scanner(f);
+	while( scan.hasNext() ) {
+	  name=scan.next();
+	}
+	scan.close();
+   }
+
+   public void run( String fname ) {
+       try {
+          setAccount(fname);
+       }
+       catch( IOException e ) {
+          System.out.println(e);
+       }	  
+   }
+ 
+   public static void main( String [] args ) {
+        Account acct = new Account();
+        acct.run(args[0]);
+   }
+
+}
 
 
 
