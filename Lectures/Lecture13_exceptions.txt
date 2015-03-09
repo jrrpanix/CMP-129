@@ -9,7 +9,7 @@ We have seen exceptions throw in previous classes so as
 a refersher lets create some code that throws exceptions ...
 
 -----------------------------------------------
-(*) Example code which generates an exception
+(*) Example code which generates an exceptions
 -----------------------------------------------
 
 public class ThrowExample {
@@ -20,9 +20,20 @@ public class ThrowExample {
 	System.out.println(X[5]);
     }
 
-    public static void main( String [] args ) {
-	test1();
+    public static void test2() {
+        int count = 0;
+        Scanner scan = new Scanner( System.in );
+	int sum = 0;
+	while( count++ < 5 ) {
+	   String s = scan.next() ;
+	   Integer i = Ingeger.parseInt(s);
+	   sum += i;
+	}
+	System.out.println(sum);
+    }
 
+    public static void main( String [] args ) {
+	    test1();
     }
 }
 
@@ -37,6 +48,42 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5
 exception handler 
 
 (*) When an excption is generated it is said to be "thrown"
+
+
+Another Exception Example
+
+import java.util.Scanner;
+
+public class ThrowExample {
+
+    public static void keyboardInput() {
+        int count = 0;
+        Scanner scan = new Scanner( System.in );
+	int sum = 0;
+	while( count++ < 5 ) {
+	   String s = scan.next() ;
+	   Integer i = Ingeger.parseInt(s);
+	   sum += i;
+	}
+	System.out.println(sum);
+    }
+
+    public static void main( String [] args ) {
+         keyboardInput();
+    }
+}
+
+if we enter input that is not an integer format we will
+get the following exception messsage:
+
+1 2 3 a
+Exception in thread "main" java.lang.NumberFormatException: For input string: "a"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:48)
+	at java.lang.Integer.parseInt(Integer.java:449)
+	at java.lang.Integer.parseInt(Integer.java:499)
+	at ThrowExample.run(ThrowExample.java:46)
+	at ThrowExample.main(ThrowExample.java:55)
+
 
 -----------------------------------------------
 (*) Example of catching an exception
