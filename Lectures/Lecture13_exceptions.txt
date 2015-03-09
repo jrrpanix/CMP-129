@@ -113,6 +113,37 @@ we could also write this code as ...
     }
 
 
+Exceptions are polymorphic so we can catch the super class(es)
+of any excdption type throw all the way up the inheritance
+chain ...
+
+Example:
+
+import java.util.Scanner;
+import java.io.File;
+
+public class FileTest {
+
+   public static void readFormat1( String fname ) {
+       
+        try {
+	   File f = new File( fname );
+	   Scanner scan = new Scanner(f);  <-- this can throw java.io.FileNotFoundException
+	   while( scan.hasNext() ) {
+	       double x = scan.nextDouble(); <-- this cand throw java.util.InputMismatchException
+	       System.out.format( "%12.6f\n",x );	      
+	   }
+	}
+	catch( Exception e ) {
+	  System.out.println( "Exception caught in readFormat1 " + e );
+	}
+        System.out.println( "Program will resume here after a catch ... ); <-- program resumes here
+   }
+
+
+Both inherit from Exception so we can use 1 catch of the super class Exception
+to catch both exceptions ...
+
 -----------------------------------------------
 (*) Catching multiple exception types
 -----------------------------------------------
