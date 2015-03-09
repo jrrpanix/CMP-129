@@ -144,6 +144,54 @@ public class FileTest {
 Both inherit from Exception so we can use 1 catch of the super class Exception
 to catch both exceptions ...
 
+-------------------------------------------------------------
+(*) Exceptions must be caught or a compile error will result!
+--------------------------------------------------------------
+
+Example of exception not caught or declared to be thrown ...
+
+    public void readFile( String fname ) { 
+	File f = new File (fname );
+	Scanner scan = new Scanner(f);  <-- this will throw an exeptiion
+	while( scan.hasNext() ) {           and must either be caught
+	    scan.next();                    or a throw spec must be put on method
+	}
+	scan.close();
+    }
+
+Ex.java:8: unreported exception java.io.FileNotFoundException; must be caught or declared to be thrown
+	Scanner scan = new Scanner(f);
+	               ^
+
+remedy 1 throw Spec
+
+    public void readFile( String fname ) throws java.io.FileNotFoundException { 
+	File f = new File (fname );
+	Scanner scan = new Scanner(f);
+	while( scan.hasNext() ) {     
+	    scan.next();              
+	}
+	scan.close();
+    }
+
+remedy 2 catch 
+
+
+    public void readFile( String fname ) { 
+	File f = new File (fname );
+        try {
+	  Scanner scan = new Scanner(f);
+	  while( scan.hasNext() ) {     
+	      scan.next();              
+	  }
+        catch (java.io.FileNotFoundException e ) {
+	  System.out.println(e);
+	}
+	finally {
+	  scan.close();
+	}
+    }
+
 -----------------------------------------------
 (*) Catching multiple exception types
 -----------------------------------------------
