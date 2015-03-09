@@ -244,16 +244,21 @@ code in multiple locations
 (*) Exceptions can be handled anywhere in the calling stack
 -----------------------------------------------------------
 
+In this example we are going to catch the Exception in a different
+in method that is not the same as it was generated.
+
 Example:
 
 public class Account {
    public String name;
    public double balance;
    
-   public void setAccount( String fname ) throws IOException {
+   public void setAccount( String fname ) throws IOException {  <- because we are not handling 
+                                                                   the exception we need to put
+                                                                   a throw spec on the method
        	File f = new File (fname );
-	Scanner scan = new Scanner(f);
-	while( scan.hasNext() ) {
+	Scanner scan = new Scanner(f);  <---- Exception will be generated here
+	while( scan.hasNext() ) {             if the file is not found
 	  name=scan.next();
 	}
 	scan.close();
@@ -264,7 +269,7 @@ public class Account {
           setAccount(fname);
        }
        catch( IOException e ) {
-          System.out.println(e);
+          System.out.println(e);        <--- but caught here ....
        }	  
    }
  
