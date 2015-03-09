@@ -239,6 +239,17 @@ code in multiple locations
 (*) Classes that inherit from Exception are errors that
     can be handled by the programmer
 
+Example of an Error condition:
+
+    public static void main( String [] args ) {
+	int big = 990000000;
+	double [] Big = new double[big];
+    }
+
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at Ex.main(Ex.java:55)
+
+
 
 ----------------------------------------------------------
 (*) Exceptions can be handled anywhere in the calling stack
