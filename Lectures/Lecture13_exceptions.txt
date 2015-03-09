@@ -234,8 +234,8 @@ code in multiple locations
 
 (*) All Exceptions inherit from Throwable
 (*) Classes that inherit from Error are Serious system
-    errors which (JVM error, running out of memeory)
-    and are generally not good to recover rom
+    errors (example JVM error, running out of memeory)
+    and are generally not good to recover from
 (*) Classes that inherit from Exception are errors that
     can be handled by the programmer
 
