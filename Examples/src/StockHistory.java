@@ -15,6 +15,7 @@ public class StockHistory {
 
     public StockHistory( String symbol ) {
 	symbol_=symbol;
+	prices_= new ArrayList<StockPrices>();
     }
 
     public String getSymbol() {
@@ -25,8 +26,38 @@ public class StockHistory {
 	prices_.add(price);
     }
 
+    public StockPrices get( int i ) {
+	return prices_.get(i);
+    }
+
     public ArrayList<StockPrices> getPrices() {
 	return prices_;
+    }
+
+    public int getMaxPrice() {
+	if ( prices_.size() == 0) return -1;
+	int ix = 0;
+	double mx = prices_.get(ix).getHigh();
+	for( int i = 1 ; i < prices_.size();i++ ){
+	    if ( prices_.get(i).getHigh() > mx ) {
+		mx = prices_.get(i).getHigh();
+		ix=i;
+	    }
+	}
+	return ix;
+    }
+
+    public int getMinPrice() {
+	if ( prices_.size() == 0) return -1;
+	int ix = 0;
+	double mx = prices_.get(ix).getLow();
+	for( int i = 1 ; i < prices_.size();i++ ){
+	    if ( prices_.get(i).getLow() < mx ) {
+		mx = prices_.get(i).getLow();
+		ix=i;
+	    }
+	}
+	return ix;
     }
 
 }
