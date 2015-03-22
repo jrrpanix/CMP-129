@@ -37,10 +37,10 @@ public class StockHistory {
     public int getMaxPrice() {
 	if ( prices_.size() == 0) return -1;
 	int ix = 0;
-	double mx = prices_.get(ix).getHigh();
+	double mx = prices_.get(ix).getAdjClose();
 	for( int i = 1 ; i < prices_.size();i++ ){
-	    if ( prices_.get(i).getHigh() > mx ) {
-		mx = prices_.get(i).getHigh();
+	    if ( prices_.get(i).getAdjClose() > mx ) {
+		mx = prices_.get(i).getAdjClose();
 		ix=i;
 	    }
 	}
@@ -50,10 +50,10 @@ public class StockHistory {
     public int getMinPrice() {
 	if ( prices_.size() == 0) return -1;
 	int ix = 0;
-	double mx = prices_.get(ix).getLow();
+	double mx = prices_.get(ix).getAdjClose();
 	for( int i = 1 ; i < prices_.size();i++ ){
-	    if ( prices_.get(i).getLow() < mx ) {
-		mx = prices_.get(i).getLow();
+	    if ( prices_.get(i).getAdjClose() < mx ) {
+		mx = prices_.get(i).getAdjClose();
 		ix=i;
 	    }
 	}

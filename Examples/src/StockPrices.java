@@ -28,13 +28,14 @@ public class StockPrices {
     public void parse( String line ) {
 	String [] f  = line.split(",");
 	int i = 0;
-	if ( i < f.length ) parseDate(f[i++]);
+	if ( i < f.length ) date_=parseDate(f[i++]);
 	if ( i < f.length ) open_ = Double.parseDouble(f[i++]);
 	if ( i < f.length ) high_ = Double.parseDouble(f[i++]);
 	if ( i < f.length ) low_ = Double.parseDouble(f[i++]);
 	if ( i < f.length ) close_ = Double.parseDouble(f[i++]);
 	if ( i < f.length ) volume_ = Long.parseLong(f[i++]);
 	if ( i < f.length ) adjClose_ = Double.parseDouble(f[i++]);
+	//System.out.println( "date=" + date_ +":high_=" + high_ + ":adjclose" + adjClose_ );
     }
 
     private Date parseDate( String dateString ) {
@@ -70,7 +71,7 @@ public class StockPrices {
 	return volume_;
     }
 
-    public double getAdjclose() {
+    public double getAdjClose() {
 	return adjClose_;
     }
 

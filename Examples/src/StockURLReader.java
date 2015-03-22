@@ -34,8 +34,8 @@ public class StockURLReader {
 		if ( count++ == 0 ) continue;
 		StockPrices prices = new StockPrices();
 		prices.parse(line);
-		System.out.println(line);
 		history.add(prices);
+		//System.out.println(line);
 	    }
 	}
 	catch( IOException e ) {
@@ -81,17 +81,22 @@ public class StockURLReader {
 	return Integer.parseInt( dayFmt.format(d));
     }
 
+    public static String Format( Date d ) {
+	return dateFmt.format(d);
+   }
+
     //---------------------------------------------------------------
     // main
     //---------------------------------------------------------------
     public static void main( String [] args ) {
-	Date d = GetDate("2015-03-22");
-	int yyyy = GetYear(d);
-	int mm = GetMonth(d);
-	int dd = GetDay(d);
-	System.out.println( yyyy + " " + mm + " " + dd );
-	System.out.println( formUrl( "GOOGL" , GetDate("2014-01-01") , GetDate("2015-03-22") ) );
-	GetHistory( "GOOGL" , GetDate("2014-01-01") , GetDate("2015-03-22") );
+	StockHistory hist = GetHistory( "GOOGL" , GetDate("2014-01-01") , GetDate("2015-03-22") );
+	int minix = hist.getMinPrice();
+	int maxix = hist.getMaxPrice();
+	StockPrices minPrice = hist.get(minix);
+	StockPrices maxPrice = hist.get(maxix);
+	System.out.println( "Symbol : " + hist.getSymbol() );
+	System.out.println( "Low    : " + minPrice.getAdjClose()  + " : Date = " + Format(minPrice.getDate())); 
+	System.out.println( "High   : " + maxPrice.getAdjClose()  + " : Date = " + Format(maxPrice.getDate()));
     }
 
 }
