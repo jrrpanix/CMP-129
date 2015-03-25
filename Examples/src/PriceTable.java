@@ -1,3 +1,10 @@
+//-----------------------------------------------------
+// course     : CMP-129
+// instructor : JReynolds
+// parsing a stock file download from yahoo.com and 
+// putting it into a JTable
+//-----------------------------------------------------
+
 import java.io.*;
 import java.util.*;
 import java.awt.*;
@@ -17,23 +24,10 @@ public class PriceTable extends JFrame {
 	    boolean isFirst = true;
 	    while(scan.hasNextLine()) {
 		String line = scan.nextLine();
-		if ( isFirst ) {
+		if ( !isFirst ) 
+		    hist.add(new Record(line));
+		else
 		    isFirst = false;
-		    continue;
-		}
-		String [] fields =  line.split(",");
-		//System.out.println(line + " " + fields.length);
-		if ( fields.length < 7) continue;
-		Record r = new Record();
-		int i = 0;
-		r.date = fields[i++];
-		r.open = Double.parseDouble(fields[i++]);
-		r.high = Double.parseDouble(fields[i++]);
-		r.low = Double.parseDouble(fields[i++]);
-		r.close = Double.parseDouble(fields[i++]);
-		r.volume = Long.parseLong(fields[i++]);
-		r.adjclose = Double.parseDouble(fields[i++]);
-		hist.add(r);
 	    }
 	    scan.close();
 	} catch (IOException e) {
@@ -76,14 +70,34 @@ public class PriceTable extends JFrame {
     }
 
     public class Record {
-	String date;
-	double open;
-	double high;
-	double low;
-	double close;
-	long   volume;
-	double adjclose;
-	
+	public String date;
+	public double open;
+	public double high;
+	public double low;
+	public double close;
+	public long   volume;
+	public double adjclose;
+
+	public Record() {
+	}
+
+	public Record( String line ) {
+	    parse(line);
+	}
+
+	public void parse(String line ) {
+	    String [] fields =  line.split(",");
+	    if ( fields.length < 7) return;
+	    int i = 0;
+	    date = fields[i++];
+	    open = Double.parseDouble(fields[i++]);
+	    high = Double.parseDouble(fields[i++]);
+	    low = Double.parseDouble(fields[i++]);
+	    close = Double.parseDouble(fields[i++]);
+	    volume = Long.parseLong(fields[i++]);
+	    adjclose = Double.parseDouble(fields[i++]);
+	}
+
 	public String toString() {
 	    return new String( date +"," + open + "," + high + "," + low + "," + close + "," +volume + "," +adjclose);
 	}
