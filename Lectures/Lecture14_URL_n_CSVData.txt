@@ -122,7 +122,38 @@ In this lecture we are going to create the necesary classes to download data fro
 	}
 	return data;
       }
-   }
+
+  }
+
+Example to read in some data:
+   
+
+    public class CallURLReader {
+
+        private static SimpleDateFormat dateFmt = new SimpleDateFormat( "yyyy-MM-dd");
+
+       public static Date GetDate( String dateString ) {
+  	  try {
+	    return dateFmt.parse(dateString);
+	  } 
+	  catch( java.text.ParseException e ) {
+	    return new Date();
+	  }
+       }
+     
+      
+       public static void main( String [] args ) {
+           String dateStr1 = "2014-01-01";
+           String dateStr2 = "2015-03-22";
+	   String symbol = "GOOGL";
+
+	   Date date1 = GetDate( dateStr1 );
+	   Date date2 = GetDate( dateStr2 );
+	   String urlString = YahooURL.formURL( symbol , date1 , date2 );
+	   ArrayList<String> data = YahooURLReader.ReadURL( urlString );          
+       }
+
+     }
 
 
 4) We now have an ArrayList<String> where each element of the ArrayList is a line of csv data
