@@ -59,6 +59,38 @@ Code to parse a line of data, in this Example we have 7 Fields :
      Volume
      Adj Close
 
+We use the String method "split" which creates a String Array from
+breaking a line into parts based on the separator, in this case the
+separator is a comma ","
+  
+    So if a String variable "line" is this 
+
+    2015-03-20,566.71,567.10,564.48,564.95,2200500,564.95
+
+	String line = "2015-03-20,566.71,567.10,564.48,564.95,2200500,564.95"
+    
+    then line.split(",") will produce a String Array with 7 fields :
+
+        String [] fields = line.split(",");
+
+	fields[0] equals "2015-03-20"
+	fields[1] equals "566.71"
+	fields[2] equals "567.10"
+	fields[3] equals "564.48"
+	fields[4] equals "564.95"
+	fields[5] equals "2200500"
+	fields[6] equals "564.95"
+	
+we can convert the floating point numbers to "Double" using the
+static method Double.parseDouble()
+
+       double price = Double.parseDouble(fields[1]);
+
+and for the long variable 
+
+       long  volume = Long.praseLone(fields[5]);
+
+
 we can make a class to capture each record and parse a line of data:
 
    public class YahooRecord {
@@ -116,37 +148,6 @@ We can create a class to hold all the YahooRecords for a Stock History
        }
    }
 
-
-We use the String method "split" which creates a String Array from
-breaking a line into parts based on the separator, in this case the
-separator is a comma ","
-  
-    So if a String variable "line" is this 
-
-    2015-03-20,566.71,567.10,564.48,564.95,2200500,564.95
-
-	String line = "2015-03-20,566.71,567.10,564.48,564.95,2200500,564.95"
-    
-    then line.split(",") will produce a String Array with 7 fields :
-
-        String [] fields = line.split(",");
-
-	fields[0] equals "2015-03-20"
-	fields[1] equals "566.71"
-	fields[2] equals "567.10"
-	fields[3] equals "564.48"
-	fields[4] equals "564.95"
-	fields[5] equals "2200500"
-	fields[6] equals "564.95"
-	
-we can convert the floating point numbers to "Double" using the
-static method Double.parseDouble()
-
-       double price = Double.parseDouble(fields[1]);
-
-and for the long variable 
-
-       long  volume = Long.praseLone(fields[5]);
 
 
 
