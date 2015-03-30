@@ -24,6 +24,7 @@ Chapters 8 & 10 in Gaddis
 * instance methods
 * static methods
 * different types of constructors Defalut,Copy,Class Specific
+
 * Aggregation
 * Enums
 * built in methods from enums
