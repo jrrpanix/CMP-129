@@ -1,0 +1,135 @@
+In this lecture we are going to create the necesary classes to download data from
+
+   from finance.yahoo.com:
+
+   this url will download Google stock price history in csv format:
+
+   http://real-chart.finance.yahoo.com/table.csv?s=GOOGL&d=2&e=22&f=2015&g=d&a=7&b=19&c=2004&ignore=.csv
+
+
+   the output will look like this:
+
+   Date,Open,High,Low,Close,Volume,Adj Close
+   2015-03-20,566.71,567.10,564.48,564.95,2200500,564.95
+   2015-03-19,564.52,566.96,562.12,563.67,1227000,563.67
+   2015-03-18,557.73,566.51,553.50,566.16,1766200,566.16
+   2015-03-17,558.29,560.64,554.41,557.61,1444600,557.61
+   2015-03-16,556.93,563.75,551.32,561.64,1842800,561.64
+   2015-03-13,559.23,564.36,550.33,553.00,1771400,553.00
+   2015-03-12,558.48,561.84,555.53,561.17,1780100,561.17
+   2015-03-11,559.80,564.18,555.41,555.69,2026200,555.69
+   2015-03-10,568.48,569.76,559.82,559.85,2004000,559.85
+   2015-03-09,570.92,575.45,569.05,574.10,1173900,574.10
+   2015-03-06,582.00,582.78,572.06,572.90,1879600,572.90
+   2015-03-05,579.62,583.20,578.23,581.43,1795900,581.43
+   2015-03-04,576.97,581.63,572.52,578.33,1898200,578.33
+   2015-03-03,576.35,580.85,570.50,578.79,2526300,578.79
+   
+
+   the URL is dividied into a couple of components :
+
+   1) The service 
+   http://real-chart.finance.yahoo.com/table.csv?
+
+   2) The parameters
+
+   s=GOOGL&d=2&e=22&f=2015&g=d&a=7&b=19&c=2004&ignore=.csv
+
+   s - stock ticker
+
+   d - ending month
+   e - ending day
+   f - ending year
+
+   a - starting month
+   b - starting day
+   c - starting year
+
+   ignore - format
+
+
+   we are going to write software which can programatically create this URL
+   and then make a call to yahoo.com to get the stock prices and read it in:
+
+
+2) Code to Form the URL
+
+   Given a String for the Stock Tick a Begin Date and an End Date 
+   we can programatically form any URL for this call:
+
+    import java.util.*;
+    import java.text.*;
+
+    public class YahooURL {
+
+    public static String formUrl( String symbol , Date begin ,Date end ) {
+	String l = getHost();
+	l += "s=" + symbol;
+	l += "&d=" + (GetMonth(end)-1);
+	l += "&e=" + GetDay(end);
+	l += "&f=" + GetYear(end);
+	l += "&a=" + (GetMonth(begin)-1);
+	l += "&b=" + GetDay(begin);
+	l += "&c=" + GetYear(begin);
+	l += "&ignore=.csv";
+	return l;
+    }
+
+    private static SimpleDateFormat yearFmt = new SimpleDateFormat("yyyy");
+    private static SimpleDateFormat monthFmt = new SimpleDateFormat("MM");
+    private static SimpleDateFormat dayFmt = new SimpleDateFormat("dd");
+
+    private static String getHost() {
+	return "http://real-chart.finance.yahoo.com/table.csv?";
+    }
+
+    private static int GetYear( Date d ) {
+	return Integer.parseInt( yearFmt.format(d));
+    }
+
+    private static int GetMonth( Date d ) {
+	return Integer.parseInt( monthFmt.format(d));
+    }
+    private static int GetDay( Date d ) {
+	return Integer.parseInt( dayFmt.format(d));
+    }
+
+    }
+
+3) Code to call Yahoo.com and get StockPrice History:
+
+   public class YhaooURLReader {
+
+      public ArrayList<String> ReadURL( String urlString ) {
+        ArrayList<String> data = new ArrayList<String>();
+	try {
+	    URL url = new URL( urlString );
+	    URLConnection conn = url.openConnection();
+	    HttpURLConnection httpConn = null;
+	    if ( conn instanceof HttpURLConnection ) {
+		httpConn = (HttpURLConnection)conn;
+	    }
+	    if ( httpConn == null ) 
+	      return data;
+	    BufferedReader in = new BufferedReader( new InputStreamReader(httpConn.getInputStream()));
+	    String line = null;
+	    while( (line = in.readLine()) != null ) {
+	        data.add(line);
+	    }
+	}
+	catch( IOException e ) {
+	    System.out.println(e);
+	}
+	return data;
+      }
+   }
+
+
+4) We now have an ArrayList<String> where each element of the ArrayList is a line of csv data
+   that we learned how to parse in the first part of this lecture ...
+
+   
+
+
+
+
