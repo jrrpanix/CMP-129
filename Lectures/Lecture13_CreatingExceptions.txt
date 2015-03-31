@@ -159,12 +159,11 @@ Example:
    public class StudentInfoException extends Exception {
 
       public StudentInfoException( String msg ) {
-         super(msg)
+         super(msg);
       }
 
       public StudentInfoException( String msg , double data ) {
-        String err = new String( msg + " number = " + data );
-	super(err); 
+      	 super(new String( msg + " number = " + data ));
       }
    }
     
