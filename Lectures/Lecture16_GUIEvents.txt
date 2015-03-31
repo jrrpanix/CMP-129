@@ -112,7 +112,7 @@ public class StringEntryView extends JFrame{
     }
 
     public static void main(String [] args ){
-        STringEntryView view = new StringEntryView();
+        StringEntryView view = new StringEntryView();
     }
 
 }   
