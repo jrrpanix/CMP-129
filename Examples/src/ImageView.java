@@ -1,3 +1,7 @@
+// Course      : CMP-129
+// Instructor  : JReynolds
+// Title       : Example of loading, scaling and displaying an .jpg image in java
+
 import java.awt.*;
 import javax.imageio.*;
 import javax.swing.*;
