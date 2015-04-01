@@ -1,3 +1,7 @@
+// Course      : CMP-129
+// Instructor  : JReynolds
+// Title       : Example showing differences between Flow,Border and GridLayout
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
