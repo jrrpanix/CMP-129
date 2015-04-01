@@ -47,18 +47,6 @@ public class ImageView extends JFrame {
 		}
 	}
 	
-	public void scale() {
-		int type = (img.getTransparency() == Transparency.OPAQUE) ?
-			    BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB;
-		int iw = img.getWidth();
-		int ih =img.getHeight();
-		simg = new BufferedImage(400,400,type);
-		Graphics2D g2 = img.createGraphics();
-		AffineTransform at = AffineTransform.getScaleInstance(iw, ih);
-		g2.drawRenderedImage(simg,at);
-	}
-	
-	
 	public static void main(String [] args ) {
 		String fileName = "C:/Users/John/Pictures/2013-02-17 phone/phone 400.jpg";
 		ImageView iview = new ImageView( fileName);
