@@ -10,7 +10,7 @@ public class ImageView extends JFrame {
 	public BufferedImage simg;
 	
 	public ImageView(String fileName ) {
-		read(fileName);
+		readImage(fileName);
 		simg = getScaledImage(img,24*20,32*20);
 		ImageIcon icon = new ImageIcon(simg);
 		JLabel label = new JLabel();
@@ -20,25 +20,24 @@ public class ImageView extends JFrame {
 		setVisible(true);
 	}
 	
-	public static BufferedImage getScaledImage(BufferedImage image, int width, int height) { // throws IOException {
+	public static BufferedImage getScaledImage(BufferedImage image, int width, int height) { 
 	    int imageWidth  = image.getWidth();
 	    int imageHeight = image.getHeight();
 
 	    double scaleX = (double)width/imageWidth;
 	    double scaleY = (double)height/imageHeight;
 	    AffineTransform scaleTransform = AffineTransform.getScaleInstance(scaleX, scaleY);
-	    AffineTransformOp bilinearScaleOp = new AffineTransformOp(scaleTransform, AffineTransformOp.TYPE_BILINEAR);
+	    AffineTransformOp bilinearScaleOp = new AffineTransformOp(scaleTransform, 
+								      AffineTransformOp.TYPE_BILINEAR);
 
-	    return bilinearScaleOp.filter(
-	        image,
-	        new BufferedImage(width, height, image.getType()));
+	    return bilinearScaleOp.filter(image,
+					  new BufferedImage(width, height, image.getType()));
 	}
-	public void read(String fileName) {	
+
+	public void readImage(String fileName) {	
 		try {
 			img = ImageIO.read( new File(fileName));
 			System.out.println( img.getWidth() + " " + img.getHeight() );
-			//Graphics2D g2 = img.createGraphics();
-			//g2.drawImage(img, AffineTransform.getScaleInstance(0.2, 0.2), null);
 		} catch( IOException e) {
 			System.out.println(e);
 		}
