@@ -1,3 +1,7 @@
+// Course      : CMP-129
+// Instructor  : JReynolds
+// Title       : Example showing usage of HashMap
+
 import java.util.*;
 
 public class MapExample {
