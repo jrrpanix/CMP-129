@@ -221,7 +221,7 @@ Topics:
 	   }
 	   
 	   public static void main( String [] args ) {
-	      new BorderExample( 10,5 );
+	      new BorderExample();
 	   }
 
     }
