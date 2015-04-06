@@ -24,7 +24,7 @@ public class LayoutDemo extends JFrame {
 		else if ( ltype.equals("flow"))
 			flow();
 	}
-											private void grid() {
+	private void grid() {
 		JPanel aPanel = new JPanel();
 		GridLayout lo = new GridLayout(2,3);
 		aPanel.setLayout(lo);
@@ -32,7 +32,8 @@ public class LayoutDemo extends JFrame {
 			aPanel.add(buttons[i]);
 		add(aPanel);
 	}
-											private void border() {
+	
+	private void border() {
 		JPanel aPanel = new JPanel();
 		BorderLayout lo = new BorderLayout();
 		aPanel.setLayout(lo);
@@ -50,7 +51,8 @@ public class LayoutDemo extends JFrame {
 	
 	private void flow() {
 											}
-											public static void main( String args []){
+	
+	public static void main( String args []){
 		new LayoutDemo("Grid",100,200);
 		new LayoutDemo("Border",200,300);
 		//new LayoutDemo("Flow",300,400);
