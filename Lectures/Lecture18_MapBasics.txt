@@ -1,0 +1,101 @@
+// Course      : CMP-129
+// Instructor  : JReynolds
+// Title       : Basics of Maps
+
+Maps are a way to map "Keys" to "Values" they also go by the name 
+Associate Arrays or Dictionary in Python.  They are a type of collection.
+
+Easy Example:
+
+Suppose we have a list of unique names and for each name had a test score
+and wanted to have way where we could look up the name and find the test score.
+
+
+    Tracy,75
+    Steven,85
+    Zoe,92
+    Peter,55
+
+(1) Putting Entries into a Map
+
+      import java.util.*;
+
+      HashMap<String,Integer> ScoreMap = new HashMap();
+
+      ScoreMap.put( "Tracy" , 78);
+      ScoreMap.put( "Steven" ,  85);
+      ScoreMap.put( "Zoe" , 92);
+      ScoreMap.put( "Peter" ,  55);
+
+(2) Getting Values from a Map
+
+      int x = ScoreMap.get("Zoe");
+   
+
+   or Alternatively:
+
+      ScoreMap.put( "Tracy" , new Integer(78));
+      Integer x = ScoreMap.get("Tracy");
+
+
+   Note if we attempt this :
+
+   	int z = ScoreMap.get("SomebadKey");
+
+   this will throw a java.lang.NullPointerException because "SomebadKey" is
+   not in the map and we are attempting to convert a found Value associated
+   with "SomebadKey" to an integer
+
+   if we did this instead
+
+      	Integer z = ScoreMap.get("SomebadKey");
+	if ( z == null ) {
+	   System.out.println( "SomebadKey has null value");
+	}
+
+
+    or this to check for the existance of the key   
+
+
+       if ( ScoreMap.containsKey( "SomebadKey") == false ) {
+       	  System.out.println( "Key is not in the map");
+      }
+
+(3) Iterating over a map 
+
+    Suppose we want to see everything that's in a map :
+
+    	    Set<Map.Entry<String,Integer>> entries = ScoreMap.entrySet();
+    
+        for( Map.Entry<String,Integer> e : entry ) {
+	    System.out.println(e);
+    	}
+       
+
+    or we could create an Iterator
+
+       Iterator itr = ScoreMap.entrySet().iterator();
+       while( itr.hasNext() ) {
+         Map.entry e = (Map.Entry)itr.next();
+	 System.out.println( e.getKey() + " " + e.getValue() );
+       }
+   
+
+(4) Types of Maps
+
+    HashMap - entries are unordered has faster lookup time
+    TreeMap - keeps the entries sorted by key
+
+
+    both can be assigned to the Map interface
+
+    	 Map<String,Integer> fastMap = new HashMap<String,Integer>();
+    	 Map<String,Integer> orderedMap = new TreeMap<String,Integer>();
+    	 
+
+
+
+
+
+
+
