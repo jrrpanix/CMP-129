@@ -1,0 +1,248 @@
+-------------------------------------------------------------------
+HW 11 Hints
+-------------------------------------------------------------------
+
+1) Create a Java class which does the following:
+   a) creates a JFrame of width = 200 , height = 200
+   b) has the property where it Exits on close
+   c) is at location x=200,y=200
+   d) displays 
+
+
+This to remember 
+
+a) import swing from javax
+b) extend your class from JFrame
+c) set the the size calling setSize( <witdh>, <hieght> )
+d) set the location calling setLocation( <x> , <y> )
+e) set the default close operation to EXIT_ON_CLOSE
+f) rmember to call setVisible(true) !!!
+
+import javax.swing.*;
+
+public class DisplayAFrame extends JFrame {
+
+       public DisplayAFrame() {
+	 super("Frame Display Example");
+         init();
+	 setVisible(true);
+       }
+
+       private void init() {
+          setSize(200,200);
+	  setLocation(200,200);
+	  setDefaultCloseOperation( EXIT_ON_CLOSE);
+       }
+
+    public static void main(String [] args ) {
+	new DisplayAFrame();
+    }
+
+}
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+4) Write a Java GUI Application which does the following:
+   
+   a) Adds up Two Numbers and displays the result 
+   b) The user interface will look as follows:
+
+   X:______________  Y:_________ [Calc] 
+     Result____________
+
+   where the layout will be
+   JLabel("X:") , JTextField <x_input> , JLabel("Y:") , JTextField<y_input> , JButton("Calc")
+      JLabel("Result") , JLabel<result_string>
+
+
+a) you will use JLabel , JTextField and JButton
+b) you will invoke a callback from the JButton by 
+   i) implementing an ActionListener class
+   ii) adding actionListener to the JButton
+c) remember ActionListener is found in java.awt.event.*
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+
+public class Calc1 extends JFrame {
+
+    JTextField xInput;
+    JTextField yInput;
+    JLabel     result;
+    JButton    calcButton;
+    
+    public Calc1() {
+	super("Simple Calculator");
+	initFrame();
+	initPanel();
+	setVisible(true);
+    }
+
+    private void initFrame() {
+	setSize( 500,100 );
+	setLocation( 200,200);
+	setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    private void initPanel() {
+	JPanel outer = new JPanel();
+	outer.setLayout( new GridLayout( 2, 1 ) );
+
+	JPanel inputPanel = new JPanel();
+	inputPanel.add( new JLabel( "X:"));
+	xInput = new JTextField( 10 );
+	inputPanel.add(xInput);
+	inputPanel.add( new JLabel( "Y:"));
+	yInput = new JTextField( 10 );
+	inputPanel.add(yInput);
+	calcButton = new JButton( "Calc" );
+	calcButton.addActionListener( new ButtonL());
+	inputPanel.add(calcButton);
+
+	JPanel outputPanel = new JPanel();
+	outputPanel.add( new JLabel( "Result" ));
+	result = new JLabel("     ");
+	outputPanel.add(result);
+
+	outer.add( inputPanel );
+	outer.add( outputPanel );
+	add(outer);
+    }
+
+
+    private class ButtonL implements ActionListener {
+
+	public void actionPerformed( ActionEvent e ) {
+	    double x = Double.parseDouble( xInput.getText());
+	    double y = Double.parseDouble( yInput.getText());
+	    double z = x+y;
+	    String r = Double.toString(z);
+	    result.setText( r );
+	}
+
+    }
+
+    public static void main( String [] args ) {
+	new Calc1();
+    }
+}
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+ Write the same GUI Application as in (4) but without the CalcButton
+   instead use KeyListener to update the result
+   
+   a) Adds up Two Numbers and displays the result 
+   b) The user interface will look as follows:
+
+   X:______________  Y:_________ Result:
+
+   where the layout will be
+   JLabel("X:") , JTextField <x_input> , JLabel("Y:") , JTextField<y_input> ,
+      JLabel("Result") , JLabel<result_string>
+
+
+a) The Key to this exercise is getting Keyboard Events using KeyListener
+b) 
+
+	class TextKeyListener implements KeyListener{
+		public void keyPressed( KeyEvent e){
+		}
+		
+		public void keyTyped( KeyEvent e) {
+		}
+		
+		public void keyReleased( KeyEvent e) {
+		}
+		
+	}
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+
+public class KL extends JFrame {
+
+    JTextField xInput;
+    JTextField yInput;
+    JLabel     result;
+
+    public KL() {
+	super("A Calculator");
+	initFrame();
+	initInput();
+	setVisible(true);
+    }
+
+    private void initFrame() {
+	setSize( 500, 100 );
+	setLocation( 200,200);
+	setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    private void initInput() {
+	JPanel inputP = new JPanel();
+	inputP.add( new JLabel( "X" ));
+	xInput = new JTextField( 10 );
+	xInput.addKeyListener( new KeyL());
+	inputP.add(xInput);
+	inputP.add( new JLabel( "Y" ));
+	yInput = new JTextField( 10 );
+	yInput.addKeyListener( new KeyL());
+	inputP.add(yInput);
+	result = new JLabel( "      " );
+	inputP.add(result);
+	add(inputP);
+    }
+
+    private class KeyL implements KeyListener{
+	public void keyPressed( KeyEvent e){
+	}
+	
+	public void keyTyped( KeyEvent e) {
+	}
+
+	public void keyReleased( KeyEvent e) {
+	    // we will update result when the key is released 
+	    updateResult();
+	}
+	
+	public void printComponent( KeyEvent e ) {
+	    // not needed just to see which component is firing 
+	    // the event 
+	    Component c = e.getComponent();
+	    if ( c.equals(xInput)) {
+		System.out.println("was x");
+	    }
+	    if ( c.equals(yInput)) {
+		System.out.println("was y");
+	    }
+	}
+    }
+    
+    private double getDouble( String text ) {
+        // we will prevent program from throwing
+	// an exception if the text entered is invalid
+	try {
+	    return Double.parseDouble(text);
+	}
+	catch( Exception e ) {
+	    return 0;
+	}
+    }
+    
+    private void updateResult() {
+	double x = getDouble( xInput.getText() );
+	double y = getDouble( yInput.getText() );
+	result.setText( Double.toString(x+y));
+    }
+
+    public static void main( String [] args ){
+	new KL();
+    }
+
+}
