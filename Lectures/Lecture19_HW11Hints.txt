@@ -246,3 +246,94 @@ public class KL extends JFrame {
     }
 
 }
+
+
+5) Write a keypad application that has a buttons the digits 0-9 plus the symbols '*' and '#'
+   put this into a GridLayout with 4 rows and 3 Colums
+   and when a key is pressed it updates a JTextField with the button pressed
+
+   ----------------------
+   |  |_______________| <- JTextField
+   ----------------------
+   |   1  |   2  |  3 |
+   |   4  |   5  |  6 |  <- when a button is pressed the text is appened to
+   |   7  |   8  |  9 |     the text in JTextField above... 
+   |   *  |   0  |  # |
+   ----------------------
+
+
+For this exercise you will be using a GridLayout for the KeyPad that has 12 Buttons 
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class KeyP extends JFrame {
+
+    JButton [] buttons;
+    JTextField text;
+
+    public KeyP() {
+	super("KeyPad");
+	initFrame();
+	initKey();
+	setVisible(true);
+    }
+
+    private void initFrame() {
+	setSize( 500, 300 );
+	setLocation( 200,200);
+	setDefaultCloseOperation( EXIT_ON_CLOSE );
+    }
+
+    private void initKey() {
+	buttons = new JButton[12];
+	for( int i = 0; i < 12 ; i++ ){
+	    if ( i < 9 )
+		buttons[i] = new JButton( Integer.toString( i + 1 ) );
+	    else if ( i == 9 )
+		buttons[i] = new JButton( "#" );
+	    else if ( i == 10 )
+		buttons[i] = new JButton( "0" );
+	    else if ( i == 11 )
+		buttons[i] = new JButton( "*" );
+	}
+	JPanel outer = new JPanel();
+	outer.setLayout( new GridLayout(2,1));
+
+	JPanel textP = new JPanel();
+	text = new JTextField( 20);
+	textP.add(text);
+
+	JPanel keyPad = new JPanel();
+	keyPad.setLayout( new GridLayout( 4,3 ));
+	ActionListener listener = new ButtonL();
+	for( int i = 0; i < buttons.length ; i++ ) {
+	    buttons[i].addActionListener(listener);
+	    keyPad.add(buttons[i]);
+	}
+	outer.add(textP);
+	outer.add(keyPad);
+	add(outer);
+    }
+
+    private class ButtonL implements ActionListener {
+
+	public void actionPerformed( ActionEvent e ) {
+	    updateText(e.getActionCommand());
+	}
+    }
+
+    private void updateText( String t ) {
+	String input = text.getText();
+	input += t;
+	text.setText(input);
+    }
+
+    public static void main(String [] args ) {
+	new KeyP();
+    }
+}
+
+
