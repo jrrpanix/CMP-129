@@ -169,7 +169,7 @@ public class KL extends JFrame {
 
     JTextField xInput;
     JTextField yInput;
-    JTestField result;
+    JTextField result;
 
     public KL() {
 	super("A Calculator");
