@@ -5,6 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.image.*;
+import java.io.*;
 
 public class ImageViewer extends JFrame {
 
@@ -42,26 +43,33 @@ public class ImageViewer extends JFrame {
 	p.add(scroll,BorderLayout.WEST);
 	imageL_ = new JLabel();
 	p.add(imageL_,BorderLayout.CENTER);
+	p.add( new JLabel("   ") , BorderLayout.EAST);
 
-	dirText_= new JTextField(100);
+	dirText_= new JTextField(40);
 	dirText_.setText(fileList_.getDir());
 	p.add(dirText_,BorderLayout.NORTH);
 	add(p);
     }
 
     private void updateImageName( String iName ) {
-	System.out.println("image = " + iName );
 	if ( imageName_.equals(iName) ) return;
 	int ix = iName.indexOf(".jpg");
 	String absPath = fileList_.getDir() + iName;
 	imageName_=iName;
 	ImageIcon img = ix > 0 ? getJPGIcon(absPath) : getGIFIcon(absPath);
 	imageL_.setIcon(img);
+	//pack();
     }
 
     private ImageIcon getJPGIcon( String file ) {
-	BufferedImage scaledImage = JPGLoader.getScaledImage(file,200,200);
-	return new ImageIcon(scaledImage);
+	File f = new File(file);
+	//System.out.println("File len=" + f.length() + " " + f.getTotalSpace() );
+	boolean useScale = f.length() > 400000;
+	if ( useScale ) {
+	    BufferedImage scaledImage = JPGLoader.getScaledImage(file,200,200);
+	    return new ImageIcon(scaledImage);
+	}
+	return new ImageIcon(file);
     }
 
     private ImageIcon getGIFIcon(String file ) {
@@ -72,15 +80,12 @@ public class ImageViewer extends JFrame {
 	public void valueChanged( ListSelectionEvent e ) {
 	    String sel = (String)jfileList_.getSelectedValue();
 	    updateImageName(sel);
-	    //mSel.setText(sel);
 	}
     }
 
     public static void main(String [] args ){
 	boolean useJPG = args.length > 0;
-	String dir = "/System/Library/Frameworks/Tk.framework/Versions/8.5/Resources/Scripts/demos/images/";
-	if ( useJPG )
-	    dir = "/Users/johnreynolds/git/img/";
+	String dir = "/Users/johnreynolds/git/CMP-129/Images/";
 	new ImageViewer(dir);
     }
 
