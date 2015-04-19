@@ -1,0 +1,71 @@
+/ Course       : CMP-129
+// Title       : Graphics
+// Instructor  : JReynolds
+
+
+Based on material covered in Chapter 14, section 14.5  of Gaddis
+
+In the lecture we are going to cover the basics of using the Graphics Object in Java
+
+
+   *) Each Object that inherits from Component has an internal object that inherits 
+      from Graphics class
+   *) Components have a method called "void paint(Graphics )" which allows the component
+      to update the graphics object
+   *) The Graphics class has an XY Coordinate System in Pixels where
+      * (0,0) is the top left corner 
+      * (0,HEIGHT) is the bottom left corner
+      * (WIDTH,0) is the top right corner
+      * (WIDTH,HEIGHT) is teh bottom right corner
+
+      
+    (0,0)               (WITDH,0)
+      ---------------------
+      |                   |
+      |                   |
+      |                   |
+      |                   |
+      ---------------------
+    (0,HEIGHT)          (WIDTH,HEIGHT)
+
+
+Example (1) Drawing a Simple Rectangle on a Canvas (note we are making a class that extends from
+            JPanel not JFrame, so its more direct to draw to)
+
+
+	import java.awt.*;
+	import java.swing.*;
+
+	public class GraphEx extends JPanel {
+	
+	    public GraphEx() {
+	    }
+
+	    // draw a green rectangle
+	    public void paint(Graphics g ) {
+	       super.paint(g);
+	       g.setColor(Color.green);
+	       // draw a rectangle starting in the top left corner
+	       // that is 50 pixels wide and 50 pixels high
+	       g.drawRectangle(0,0,50,50); 
+	    }
+
+	    static public void RunEx() {
+	       JFrame frame = new JFrame();
+	       frame.setSize(400,400);
+	       frame.setLocation(200,200);
+	       frame.add( new GraphEx());
+	       frame.setVisible(true);
+	    }
+
+
+	    public static void main( String [] args ) {
+	       RunEx();
+	    }
+
+	}
+
+  
+
+
+
