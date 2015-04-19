@@ -66,6 +66,30 @@ Example (1) Drawing a Simple Rectangle on a Canvas (note we are making a class t
 	}
 
   
+Some Graphics Methods
+
+	 *) setColor( Color C)
+	 *) Color getColor()
+
+	 *) drawLine( int x1 , int y1 , int x2, int y2 );
+
+	 *) drawRect( int xLocation , int yLocation , int width , int height )
+	 *) fillRect( int xLocation , int yLocation , int width , int height )
+
+	 *) drawOval( int xLocation , int yLocation , int width , int height )
+	 *) fillOval( int xLocation , int yLocation , int width , int height )
+	 
+	 *) drawArc( int xLocation , int yLocation , int width , int height ,
+	             int startAngle , int arcAngle )
+
+	 *) fillArc( int xLocation , int yLocation , int width , int height ,
+	             int startAngle , int arcAngle )
+
+         *) drawPolygon( int [] xPoints , int [] yPoints , int numVerticies);		     	  
+         *) fillPolygon( int [] xPoints , int [] yPoints , int numVerticies);		     	  
+
+         *) drawString( String S , int x , int y );
+	 *) setFont( Font f );      
 
 
 
