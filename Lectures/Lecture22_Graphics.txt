@@ -10,8 +10,16 @@ In the lecture we are going to cover the basics of using the Graphics Object in 
 
    *) Each Object that inherits from Component has an internal object that inherits 
       from Graphics class
-   *) Components have a method called "void paint(Graphics )" which allows the component
-      to update the graphics object
+   *) Components have a method called 
+ 
+           void paint(Graphics ) // Used For Applets
+
+      in addition JPanel has 
+
+            void paintComponent(Graphics g ) // For JPanel
+
+       this method update the Graphics Comonent 
+
    *) The Graphics class has an XY Coordinate System in Pixels where
       * (0,0) is the top left corner 
       * (0,HEIGHT) is the bottom left corner
@@ -29,8 +37,12 @@ In the lecture we are going to cover the basics of using the Graphics Object in 
     (0,HEIGHT)          (WIDTH,HEIGHT)
 
 
-Example (1) Drawing a Simple Rectangle on a Canvas (note we are making a class that extends from
-            JPanel not JFrame, so its more direct to draw to)
+-----------------------------------------------------------------------------
+Example : Drawing a Rectangle on a Canvas
+-----------------------------------------------------------------------------
+
+(1) Drawing a Simple Rectangle on a Canvas (note we are making a class that extends from
+    JPanel not JFrame, so its more direct to draw to)
 
 
 	import java.awt.*;
@@ -66,7 +78,9 @@ Example (1) Drawing a Simple Rectangle on a Canvas (note we are making a class t
 	}
 
   
+-----------------------------------------------------------------------------
 Some Graphics Methods
+-----------------------------------------------------------------------------
 
 	 *) setColor( Color C)
 	 *) Color getColor()
@@ -92,4 +106,8 @@ Some Graphics Methods
 	 *) setFont( Font f );      
 
 
+-----------------------------------------------
+Adding a Timer class
+-----------------------------------------------
+This 
 
