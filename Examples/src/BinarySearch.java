@@ -2,7 +2,7 @@
 // Title       : Binary Search
 // Instructor  : JReynolds
 
-public class Search1 {
+public class BinarySearch {
 
     // Implemnetation of binarySearch Algorithm
     // Note : This algorithm requires that A be sorted!!!
