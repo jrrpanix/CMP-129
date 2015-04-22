@@ -79,7 +79,7 @@ public class TestHarness1 {
     }
 
     public static void SearchResult( int [] A , int searchValue , boolean useBinary ) {
-	int pos = useBinary ? Search1.binarySearch(A,searchValue) : Search1.linearSearch(A,searchValue);
+	int pos = useBinary ? BinarySearch.binarySearch(A,searchValue) : BinarySearch.linearSearch(A,searchValue);
 	String algo = useBinary ? "BinarySearch" : "LinearSearch";
 	String status = pos >= 0 ? "Found" : "NotFond";
 	System.out.println("Algo="+algo + ",SearchValue=" + searchValue + ",Status=" + status + ",pos="  + pos);
