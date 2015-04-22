@@ -2,7 +2,7 @@
 // Title       : Sort Algorithms (Selection Sort)
 // Instructor  : JReynolds
 
-class Sort1 {
+class SelectionSort {
 
     // 
     //  implementation of selection sort algorithm
