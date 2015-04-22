@@ -53,7 +53,7 @@ public class TestHarness1 {
 	String TestName = "Test Sort";
 	int [] A = Random1.RandomIntArray( 15 , 1000 );
 	System.out.println(TestName);
-	Sort1.selectionSort(A);
+	SelectionSort.selectionSort(A);
 	System.out.println(AsString(A));
     }
 
@@ -108,7 +108,7 @@ public class TestHarness1 {
 	System.out.println( "Time to create RandomIntArray of Size= " + A.length + "=" + watch.timeus() + " us" );
 
 	watch.start();
-	Sort1.selectionSort(A);
+	SelectionSort.selectionSort(A);
 	watch.stop();
 	System.out.println( "Time to sort RandomIntArray of Size= " + A.length + "=" + watch.timeus() + " us" );
 
@@ -117,7 +117,7 @@ public class TestHarness1 {
 	watch.stop();
 	System.out.println( "Time to create SequentialIntArray of Size= " + A.length + "=" + watch.timeus() + " us" );
 	watch.start();
-	Sort1.selectionSort(A);
+	SelectionSort.selectionSort(A);
 	watch.stop();
 	System.out.println( "Time to sort SequentialIntArray of Size= " + A.length + "=" + watch.timeus() + " us" );   
     }
