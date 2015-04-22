@@ -1,0 +1,83 @@
+
+Selection sort is a method of sorting data in java, its meant to be an
+introduction to algorithms which you will get more of in the next 
+course.  The more efficent sorting algoirhtms are called Quicksort and Mergesort.
+
+
+suppose we have the following array of integers 
+
+
+	Integer [] Z = {3,-1,11,5,9,2};
+
+The selection sort algorithm works as follows
+
+      start at position i=0 in array size N
+      find the smallest value in array (position j) in range position i to N-1
+      swap i and j 
+      increment to position i+1 
+      stop when position i == N-1
+
+
+      for example 
+
+      *) starting a position 0
+      *) going through the entire array we find the smallest value is at position 1
+         where the value is -1.
+      *) we can swap position 0 and 1 
+      *) if we do this the array now looks like
+
+          -1 , 3 , 11 , 5 , 9 , 2
+
+      *) we can now move to position 1 and look for smallest value from 1 to end of array
+      *) if we do this we see the smallest value 2 is at position 5
+      *) so we swap position 1 and 5 and now the array looks like this 
+
+          -1 , 2 , 11 , 5 , 9 , 3
+
+      *) from position 2
+
+          -1 , 2 , 3 , 5 , 9 , 11
+
+class SelectionSort {
+
+    // 
+    //  implementation of selection sort algorithm
+    //  selection sort works as follows
+    //  
+    //  start at position i=0 in array size N
+    //  find the smallest value in array (position j) in range position i to N-1
+    //  swap i and j 
+    //  increment to position i+1 
+    //  stop when position i == N-1
+    // 
+    public static void selectionSort( int [] A) {
+	// go down array and swap i with the indexOfMin
+	for( int i = 0; i < A.length - 1 ; i++) {
+	    swap( A , i , indexOfMin(A,i));
+	}
+    }
+
+    //
+    // private implmentation details of selectionSort
+    //
+
+    private static int indexOfMin( int [] A , int pos) {
+	// find the index of the min value from pos to end of array
+	// return that index
+	// Note: This is 'private' because its part of the algorithm implementation
+	int m = pos;
+	for( int i = pos + 1 ; i < A.length ; i++ )
+	    if ( A[i] < A[m]) m = i;
+	return m;
+    }
+
+    private static void swap( int [] A , int i , int j ) {
+	// Swap array positions i and j
+	// Note: This is 'private' because its part of the algorithm implementation
+	int tmp = A[i];
+	A[i]=A[j];
+	A[j]=tmp;
+    }
+}
+        
+
