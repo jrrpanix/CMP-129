@@ -1,0 +1,109 @@
+
+--------------------------------------
+Database Access
+CMP-129
+J Reynolds
+--------------------------------------
+
+
+Today we are going to cover some basic steps in dealing with data bases 
+Specifically we are going to learn how to 
+
+a) log into a remote linux machine to access a dbserver
+2) login into a mysql server
+3) do basic navigation of a sql server
+4) do basic listing of tables
+5) run some simple queries
+6) write a Java Program to Connect to a remote database
+7) write a Java Program to send a query to a database and get back the results.
+
+
+---------------------------------------------------
+(1) Logging into a remove Linux Server 
+---------------------------------------------------
+
+    *) Bring up "Putty"
+    *) Host Name : vc147.vc.panix.com
+    *) hit open 
+
+    prompts for user id
+
+    *) type cmp129
+    
+    prompts for password
+    
+    *) given out in class
+
+---------------------------------------------------
+(2) Logging into MySql
+---------------------------------------------------
+
+    At prompt type
+
+    mysql --user=cmp129 --password=<given out in class>
+
+    after sucessfull login you will see
+
+    mysql>
+
+---------------------------------------------------
+(3) Some basic DB Navagation
+---------------------------------------------------
+
+    show databases;
+
+    use cmp129;
+
+    show tables;
+
+    describe persons;
+
+    
+---------------------------------------------------
+(4) Some basic Queries
+---------------------------------------------------
+
+    select * from Persons;
+
+    select PersonID,LastName,City from Persons;
+
+---------------------------------------------------
+(5) Java Code to make a connection 
+---------------------------------------------------
+
+In connecting to an external database we need to make sure
+that the class path the jar that containts the mysql-driver
+so we can connect to a mysql server and send/recieve from it.
+For convience this driver is located in CMP-129/Drivers and is called
+"mysql-connector-java-5.0.8-bin.jar"
+
+
+   *) Bring up Eclipse
+
+   *) Create a Project call it "DB"
+
+   *) Under "Project" menu item select "Properities"
+
+   *) this brings up a Window containing the projects depedencies
+
+   *) select "Java Build Path" from the left most menu
+
+   *) this brings up a Top Bar called "Java Build Path"
+
+   *) Select the tab "Libraries"
+
+   *) Select the tab "Add External JARs..."
+   
+   *) This will bring up a Popup menu
+
+   *) Navigate to /Users/<your_user_name>/CMP-129/Drivers/
+
+   *) select "mysql-connector-java-5.0.8-bin.jar"
+
+
+Now you have the driver necessary to for connecting to a MySql database.
+
+
+
+
+
