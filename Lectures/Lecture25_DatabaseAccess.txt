@@ -67,6 +67,34 @@ a) log into a remote linux machine to access a dbserver
 
     select PersonID,LastName,City from Persons;
 
+
+---------------------------------------------------
+(4a) Sql Code to Create a Table
+---------------------------------------------------
+
+	create table Persons
+	(
+	   PersonID int,
+	   LastName varchar(30),
+	   FirstName varchar(30),
+	   Address varchar(255),
+	   City varchar(50),
+	   Country varchar(50)
+	 );
+
+
+
+---------------------------------------------------
+(4a) Sql Code to Insert Data into a table
+---------------------------------------------------
+insert into Persons 
+(PersonId,LastName,FirstName,Address,City,Country)
+values (3,'Washington,'George','The Whitehouse,'Washington,DC,'USA'),
+       (4,'Harper,'Stephen','Capital Building','Ottawa,'Canada);
+
+
+
+
 ---------------------------------------------------
 (5) Java Code to make a connection 
 ---------------------------------------------------
@@ -142,7 +170,30 @@ Along with the userid and password :
 
       }
       
+---------------------------------------------------
+(7) Sending a Query to the database
+---------------------------------------------------
 
 
+      public static void testQuery( String DBURL , String user , String password ) {
+
+          try {
+    	     Class.forName(JDBC_DRIVER);
+	     Connection conn = DriverManager.getConnection(DBURL,user,pass);
+	     String Query = "select PersonID,LastName,City from Persons;";
+	     Statement statement = conn.createStatement();
+	     ResultSet result = statement.executeQuery(statement);
+	     while( result.next() ) {
+	        Integer id = result.getInt("PersonId");
+		String lastName = result.getString("LastName");
+		String city = result.getString("City");
+		System.out.format("%d %20s %20s\n",id,lastName,city);
+	     }
+	  }
+	  catch( Exception e ) {
+	     System.out.println(e);
+	  }
+
+      }
 
 
