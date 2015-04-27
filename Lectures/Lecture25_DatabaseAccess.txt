@@ -89,8 +89,8 @@ a) log into a remote linux machine to access a dbserver
 ---------------------------------------------------
 insert into Persons 
 (PersonId,LastName,FirstName,Address,City,Country)
-values (3,'Washington,'George','The Whitehouse,'Washington,DC,'USA'),
-       (4,'Harper,'Stephen','Capital Building','Ottawa,'Canada);
+values (3,'Washington','George','The Whitehouse','Washington,DC,'USA'),
+       (4,'Harper','Stephen','Capital Building','Ottawa,'Canada');
 
 
 
