@@ -1,0 +1,335 @@
+ 
+
+-----------------------------------------------------------------------
+Part 1 : Review Questions Gaddis Chapter 10 (pg 688 - 690) (100 pts)
+-----------------------------------------------------------------------
+(1) In an inheritance relationship this is the general class 
+
+Answer:  b  : superclass
+
+(2) In an inheritance relationship this is the specialized class 
+
+Answer: c : subclass
+
+(3) This keyword indicates that a class inherits from another class 
+
+Answer: d : extends
+
+(4) A subclass does not have access to these superclass members 
+
+Answer: b : private 
+
+(5) This keyword refers to an objects superclass
+
+Answer: a : super
+
+(6) In a subclass constructor, a call to the superclas constructor must _______
+
+Answer: a : appear as the very first statement
+
+(7) The following is an explicit call to a superclass's default constructor :
+
+Answer: c : super();
+
+(8) A method in a subclass that has the same signature as a method in the super class
+    is an example of ____
+
+Answer: b : overriding
+
+(9) A method in a subclass that has the same name but differet signature as a 
+    method in the super class is an example of ____
+
+Answer: a : overloading
+
+(10) These superclass members are accessible to subclasses and classes in the same package
+
+Answer: c : protected
+
+(note classes in the same package can access public and protected members, but subclasses can
+ access both public and protected inside or outside of the class, regardless of package.  
+ Classes outside of the package can't access protected members unless they are a subclass).
+
+(11) All classes directly or indirectly inherit from this class.
+
+Answer: a : Object
+
+(12) With this type of binding, the JVM determines at runtime which method to call,
+     depending on the type of object that a variable references 
+
+Answer: d : dynamic
+
+(13) This operator can be used to determine wether a reference variable references
+     an of a particular class.
+
+Answer: c : instanceof
+
+(14) When a class implements and interface, it must _____
+
+Answer: b : provide all methods that are listed in the interface, with the exact signatures 
+            and return types specified
+
+(15) Fields in an interface are 
+
+Answer: c : both final and static
+
+
+(16) Abstract methods must be 
+
+Answer: a : overridden
+
+(17) Abstract classes cannot be 
+
+Answer: c : instantiated
+
+(18) True or False: Constructors are not inherited.
+
+Answer: True
+
+(Each subclass must define its own constuctors but can call super class constructors)
+
+(19) True or False: In a subclass, a call to a superclass constructor can only be
+     written in a the subclass constructor
+
+Answer: True
+
+(20) True or False: If a subclass constructor does not explicitly call any superclass
+     constructors Java will not call any of the superclass constructors
+
+Answer: False
+
+(the default constructor of the superclass is called if no explicit call is made to
+ a superclass constructor)
+
+(21) True or False: An object of the superclass can access members declared in the subclass
+
+Answer: False
+
+(22) The superclass constructor always executes before the subclass constructor
+
+Answer: True
+
+(23) True or False: When a method is declared final it must be overridden in a subclass
+
+Answer: False
+
+(24) Ture or False: A superclass has a member with package access.  A class that is outisde
+the superclass's package but inherits from the superclass can access the members.
+
+Answer: True
+
+(25) True or False: A superclass reference variable can reference an object of a superclass
+that extends the superclass
+
+Answer: True
+
+(Object the ultimate super class, can be a reference to any class )
+
+(26) True or False: A supclass reference variable can reference an object of the superclass
+
+Answer: False
+
+(27) True or False: When a class contains an abstract method it can't be instantiated
+
+Answer: True
+
+(28) True or False: A class can only implement one interfce
+
+Answer: False
+
+(29) By default all members of an interface are public
+
+Answer: True
+
+---------------------------------------------------------------------
+Gaddis Chapter 10 , pg 693 , Short Answers
+---------------------------------------------------------------------
+1. What is an "is-a" relationship ?
+
+A: "is-a" referrs to a subclass relationship to a superclass
+   it means the subclass has all of the characteristics fo the superclass
+   plus specilized attributes that make it differ from the superclass
+
+2. A program uses two class Animal and Dog. Which class is the superclass
+   and which class is the subclass ?
+
+A: Animal is the superclass, Dog is the subclass (Dog "is-a" Animal )
+
+
+3. What is the superclass and what is the subclass in the following line?
+
+   public class Pet extends Dog
+
+A: Dog is the superclass , Pet is the subclass
+
+
+4. What is the difference between a protected class member and a private class member?
+
+   private class members are only accessible to methods within the class, no outside
+   class can access private members, regardless of wether its a subclass or which package
+   it's in.
+
+   protected class members are accessible to any class within the same package or
+   any class that is a subclass and the subclass can be the same package or 
+   a different package.
+
+5. Can a subclass ever directly access private members of a superclass ?
+
+   No
+
+6. Which constructor is called first,that of the superclass or that of the subclass?
+
+   The superclass constructor is called first, for the good reason that the subclass
+   may need to access properities from the superclass.
+
+7. What is the difference between overriding a method and overloading a superclass method?
+
+   overriding is reimplementing the superclass method in the subclass and keeping the
+   method signature the exact same.
+
+   overloading is changing the signature of the superclass method but keeping the name 
+   the same.
+
+   example ASuperClass {
+      public int x;
+
+      public int add( int a ) {
+         return x + a;
+      }
+   }
+
+   example ASubClass extends ASuperClass {
+       public y;
+
+      public int add( int a ) {   <- This is an example of overriding 
+         return y + a;               add from ASuperClass is reimplemented in ASubClass
+      }
+
+      public int add( ASubClass x ) {  <- this is an example of overloading
+         return y + x.y;                  the signature of add is changed to the "ASubClass"
+      }                                   instead of int
+
+   }
+
+8. Reference Variables can be polymorphic, what does this mean?
+
+
+   It means that a Reference Varaible of a superclass can be assigned to a subclass
+   instance and will still call the overrided methods of the subclass.
+
+
+   Using the code example from 7
+
+   ASuperClass S = new ASubClass();
+   System.out.println(S.add());  <- this S.add will call ASubClass add
+
+9. When does dynamic binding take place ?
+
+   Dynamic binding takes place at runtime , when a class contaisn a polymorphic reference.
+   The JVM determines which method to call based on the type of object the variable references.
+
+10. What is an abstract method?
+
+   An abstract method is a method which contains a signature but no implementation.
+   It must be impelemted by a subclass.
+
+11. What is an abstract class ?
+   
+   An abstract class is a class that can't be instantiated.  It may also contain
+   an abstract method.  It typically referrs to a high level notion.
+
+12. What are the differences between an abstract class and an interface
+
+   An abstract class can contain public,private and protected class members
+   and methods, as well as static and non-static functions.   It may also contain
+   abstract methods and implemented methods. A subclass can only extend 1 Abstract class.
+   
+
+   An interface contains only public non-static method declarations and can't implement any
+   of the methods.  It can only contain final static members.  A class can implement
+   multiple interfaces.
+
+--------------------------------------------------------------
+Gaddis Chapter 10 , pg 692 , Algorithm Workbench #3
+--------------------------------------------------------------
+(*) Write a declaration for class B
+(*) int m - not accessible to anything outside of B
+(*) int n - only accessible to classes that extend class B or in same package
+(*) write accessor methods that are avaialbe outside of the class
+(*) abstract method calc
+
+public abstract class B {
+
+   private   int m;
+   protected int n;
+
+
+   public void setM( int m ) {
+      this.m = m;
+   }   
+
+   public void setN( int n ) {
+      this.n = n;
+   }
+
+   public int getM() {
+      return m;
+   }
+
+   public int getN() {
+      return n;
+   }
+
+   public abstract double calc() ;
+}
+
+(*) class D
+(*) q double not accessible outside of class
+(*) r double accessible to anything that extends class or in same package
+(*) accessor methods availabe outside of class
+(*) override calc method ,return q*r
+
+public class D extends B {
+   
+   private   double q;
+   protected double r;
+
+   public void setQ( double q ) {
+     this.q = q;
+   }
+
+   public void setR( double r ) {
+     this.r = r;
+   }
+
+   public double getQ() {
+     return q;
+   }
+
+   public double getR() {
+     return r;
+   }
+
+   public double calc() {
+     return q*r;
+   }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+   
