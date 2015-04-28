@@ -1,0 +1,134 @@
+
+
+
+----------------------------------------------------------------------------------------
+Part1 (70 Pts) : Gaddis Chapter 13 : Questions 1-21 (pages 901-904)
+----------------------------------------------------------------------------------------
+1) You can use this method to make a text field read-only?
+
+answer d : setEditable
+
+2) A JList componet generates this type of event when a user selects and item ?
+
+answer c : ListSelectionEvent
+
+3) To display a scroll bar with a JList Component you must _________
+
+answer b : add the JList component to a JScrollPane 
+
+4) This is JList components default selection mode
+
+answer d: multiple interval selection
+
+5) A list selection listener must have this method 
+
+answer a : valueChanged
+
+6) The ListSelectionListener interface is in what package ?
+
+answer c: javax.swing.event
+
+7) This JList method returns -1 if no item in the list is selected.
+
+answer c: getSelectedIndex
+
+8) A JComboBox generates this type of event when the user selects and item ?
+
+answer a : action event
+
+9) You can pass an instance of this class to the JLablel constructor if you
+   want to display an image in the Label.
+
+answer b : ImageIcon
+
+10) This method can be used to storate an inmage in a JLabel or JButton 
+
+answer d : setIcon
+
+11) This is the text that appears in a small box when the user holds the mouse cursor
+over a component;
+
+answer c: tool tip
+
+12) This is the key that activates a component just as if the used clicked it with the mouse.
+
+answer a : mnemoic 
+
+13) To display an open file or save file dialog box, use this class.
+
+answer a : JFileChooser
+
+14) To display a dialog box that allows the user to select a color, use this class.
+
+answer c: JColorChooser
+
+15) Use this class to create a menu bar.
+
+answer b : JMenuBar
+
+16) Use this class to create a radio button menu item.
+
+answer d : JRadioButtonMenuItem
+
+17) Use this method to place a menu bar on a JFrame
+
+answer a : setJMenuBar 
+
+18) setPreferredSize method accepts this as its arguments>
+
+answer c: a Dimension Object
+
+19) Components of this class are multi-line text fields.
+
+answer b : JTextArea
+
+20) This method is inherited from JComponent and changes the appearence of 
+    a components text.
+
+answer c: setFont
+
+21) This method sets the intervals at which major tick marks are displayed
+    on a JSlider component.
+
+answer a : setMajorTickSpacing
+
+
+----------------------------------------------------------------------------------------
+Part2 : (48 pts) Gaddis Chapter 13 : Algorithmic Workbench
+----------------------------------------------------------------------------------------
+
+1) Give an example of code that creates a read-only text field ( Gaddis Chapter 13 : Question 1 (p 905) )
+
+   JTextField f = new JTextField(10);
+   f.setEditable(false);
+
+
+ 
+2) Write code that creates a list with the fillowing items : Monday, Tuesday ... , Saturday, Sunday
+
+   String [] days = { "Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday","Sunday"};
+   JList<String> slist = new JList<String>(days);
+
+     or (if you are on verions of Java < 1.7 )
+
+   JList list = new JList(days);
+    
+
+3) Write code that adds a scroll bar to list in question 2
+
+   String [] days = { "Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday","Sunday"};
+   JList<String> slist = new JList<String>(days);
+   JScrollPane scroll = new JScrollPane(slist);
+
+
+
+12) Write code that creates a JSlider component. The component should be horizontally oriented
+    and it's range should be 0 to 1000. Display labels and tick marks.  Major ticks every 100th
+    number , minor ticks every 25th.  Initial value of slider at 500.
+
+
+    JSlider slide = new JSlider(JSlider.HORIZONTAL,0,1000,500);
+    slide.setMajorTickSpacing(100);
+    slide.setMinorTickSpacing(25);
+    slide.setPaintTicks(true);
+    slide.setPaintLabels(true);
