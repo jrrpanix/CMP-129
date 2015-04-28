@@ -138,7 +138,29 @@ Java GUI and Events
 
 
    }
-    
+
+(5) Write code that creates a JList with the months of the
+    year and the JList is scrollable.
+
+
+(6) Write code that puts the file image dog.jpg onto a JLabel
+
+
+(7) Write code that creates a 3x3 grid of buttons with labels from 1-9
+
+
+(8) For the problem in (7) write an event listener which prints out the
+    label of the button pressed.
+
+(9) Write the code to create a menu with the label "File" and under
+    "File" a menu item "Open".  
+
+(10) For the problem in (9) write am ActionListener which pops up a JFileChooser
+   if the menu item open is selected.
+
+
+
+
 
 
 
