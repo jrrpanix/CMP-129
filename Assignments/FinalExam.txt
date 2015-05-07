@@ -73,7 +73,7 @@ May 7th 8:00 am
        File f = new File( fileName );
        Scanner scan = new Scanner(f);
        while(scan.hasNextLine() ) {
-       				   System.out.print( scan.nextLine() );
+          System.out.print( scan.nextLine() );
        }
    }
 
@@ -116,7 +116,7 @@ May 7th 8:00 am
     private void initLayout() {
 
        JPanel panel = new JPanel();
-       panel.setLayoutManager( new BorderLayout() );
+       panel.setLayout( new BorderLayout() );
        JButton topB = new JButton("Top");
        JButton leftB = new JButton("Left");
        JButton rightB = new JButton("Right");
