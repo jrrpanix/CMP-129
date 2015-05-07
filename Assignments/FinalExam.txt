@@ -1,5 +1,7 @@
-CMP-129 Final Exam
-May 7th 8:00 am
+Course      : CMP-129 
+Assignment  : Final Exam
+Date        : May 7th,2015 8:00 am
+Instructor  : Prof. John Reynolds
 
 
 1) Answer the following 3 questions 
@@ -199,7 +201,7 @@ May 7th 8:00 am
 17) For the code below complete the following code 
  
     a) implement a contstructor for Square that takes 4 arguments
-       the lenght of a side of the square (a double) , the xpos
+       the length of a side of the square (a double) , the xpos
        (an int), the ypos (an int) and the Color.
 
     b) implement the function area for Square 
