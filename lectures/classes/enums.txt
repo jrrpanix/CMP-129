@@ -1,0 +1,28 @@
+
+For this lecture we are going to refer to the code sample which can be found 
+int the java code Examples EnumTest.java
+
+
+
+Enums are a way to assign ordinal values to types that have a selected number of outcomes.  
+
+  Examples include Months (Jan,Feb,Mar, ...) , 
+  Days of the week (Monday,Tuesday,...) , 
+  Levels (Simmer,Low,Medium,High) etc.  
+
+
+Enums make code safer and easier to read and the Java enum type automatically creates a number 
+of built in conviences by including the following methods:
+
+   name()
+   toString()
+   ordinal()
+   compareTo()
+
+and static functions
+
+   values()
+   valueOf()
+
+  In this lecture we are going to go over an example of enum using Months which in the 
+  the previously mentioned link.
