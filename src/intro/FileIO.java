@@ -1,6 +1,8 @@
-package intro;
+package lecture1;
 
 import java.io.File;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.nio.file.Paths;
 import java.nio.file.Path;
@@ -40,24 +42,48 @@ public class FileIO {
 	}
 	
 
-	public static void printFile( String fileName) {
+	public static ArrayList<String> readFile( String fileName) {
+		ArrayList<String> data = new ArrayList<String>();
 		try {
 			File f = new File(fileName);
 			Scanner scan = new Scanner(f);
 			while(scan.hasNextLine()) {
-				System.out.println(scan.nextLine());
+				data.add(scan.nextLine());
 			}
 			scan.close();
 			
 		} catch(Exception e) {
 			e.printStackTrace(System.out);
 		}
+		return data;
+	}
+	
+	public static void writeData( String fname , ArrayList<String> someData) {
+		try {
+			PrintWriter writer = new PrintWriter(fname);
+			for(int i =0; i < someData.size(); i++) {
+				writer.format("%s\n", someData.get(i));
+			}
+			writer.flush();
+			writer.close();
+			
+		} catch(Exception e) {
+			e.printStackTrace(System.out);
+		}
+		
 	}
 	
 	public static void main(String [] args ) {
-		pwd();
-		listFiles(getwd());
-		printFile(args[0]);
+		FileIO.pwd();
+		FileIO.listFiles(getwd());
+		if ( args.length < 2) {
+			System.err.println("expecting <input file name> <output file name>");
+		} else {
+			String inputFile = args[0];
+			String outputFile = args[1];
+			ArrayList<String> data = FileIO.readFile(inputFile);
+			FileIO.writeData(outputFile,data);
+		}
 	}
 	
 }
