@@ -1,0 +1,53 @@
+
+ArrayReview  CMP-129
+2/6/2016
+
+10 pts , 2 pts each
+
+1) Write code for the following questions 
+
+   a) Initialize and array of int , called A, with the values 1 to 5, using {} .
+
+   b) what is the value of A[1] ?
+
+   c) Create an array of int which can hold 1000 numbers and initialize it with the values 0 to 999.
+
+
+2) Write the code to sum the contents of an int array .
+
+
+3) Write the code to find a String X in an array of String and return its position of found otherwise return -1.
+
+
+4) Is the following ok or not ok? If its not ok tell why.
+
+   a) int [] X = {1,2};
+      X[2] = 3;
+
+   b) int [] X = {1,2,3};
+      X[-1] = 6;
+
+   c) int [] X = new int[1000];
+
+   d) String [] X = new String[10];
+    
+      String Y = X[0] + "ABC";
+
+5) What is the contents of X after the following code sequence ?
+
+   int [] X = new int[2];
+
+   for( int i =0; i < X.length ;i++ ) 
+       X[i]=i;
+
+    int [] Y = X;
+
+    Y[0] += 2;
+
+ 
+
+
+  
+
+
+   
