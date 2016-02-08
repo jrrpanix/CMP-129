@@ -1,0 +1,35 @@
+Gaddias Chapter 8
+2/7/2016
+
+1) Static methods 
+
+   a) write a static method toFarenheit which takes in the temperature in F and returns it in C.
+   
+   b) write a static method toCelcius which takes in the temperature in C and returns it in F.
+
+2) Static member variables
+
+   a) write a class which contains a static member variable which keeps track of the number of times the class is constructed.
+
+   b) write constructors for the class which increment every time the class is constructed
+
+3) Write a class called Rectangle which contains the length and with
+
+   a) write a constructor which takes the length and width'
+   
+   b) write a method called area which returns the area of the rectangle
+
+4) For the Rectangle class write the following methods
+
+   a) toString()
+
+   b) equals( Rectangle rectangle)
+
+5) Write a method called copy for the Rectangle which returns a copy of the class
+
+6) Write a copy constructor for the Rectangle class
+
+
+
+
+
