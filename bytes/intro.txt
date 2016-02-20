@@ -1,0 +1,112 @@
+
+Bytes ,Characters and Integers
+------------------------------
+
+
+A Byte is made of up 8 bits each which can take on a value of 1 or 0 so 
+each byte can hold 2^8 different (256) values 
+
+
+    7| 6| 5| 4| 3| 2| 1| 0 
+    ----------------------
+    0| 0| 0| 0| 0| 0| 0| 0
+
+
+this sequence 00000000 is called a binary sequence examples of 8 bit binary sequences are below :
+
+   00000000 = 0 
+   00000001 = 1 
+   00000010 = 2
+   00000011 = 3
+   00000100 = 4
+   00001000 = 8
+   00001111 = 15
+
+to make binary seqeuencs easier to read we typically represent then in "hexadecimal" or base - 16
+
+  binary   base10  hex        
+  0000      0      0 
+  0001      1      1
+  0010      2      2
+  0011      3      3
+  0100      4      4
+  0101      5      5
+  0110      6      6
+  0111      7      7
+  1000      8      8
+  1001      9      9
+  1010     10      A
+  1011     11      B
+  1100     12      C
+  1101     13      D
+  1110     14      E
+  1111     15      F
+
+the binary sequence 01111101 can be represented as 7D
+
+   01111101  7D
+   11111111  FF
+
+1 byte is 8 bits or 2 hex numbers and 1 hex number is represented as 4 bits
+
+2 bytes are are 16 bits or 4 hex numbers 
+
+---------------------------------------------
+Character
+---------------------------------------------
+In Java a Character is represented by 2 bytes 
+
+   char x = 'A';
+
+
+will be represented as the bytes
+
+   0 65
+
+we can use a ByteBuffer to examine the bytes 
+
+   char [] c = 'A';
+   byte [] b= new byte[Character.BYTES]; // 2 bytes per charcter
+
+   ByteBuffer bb = ByteBuffer.wrap(b);
+   bb.putChar(c[0])
+   bb.rewind();   
+   System.out.println(c[0] + " = " bb.get() + " " + bb.get());
+
+   // output 
+   A = 0 65
+   
+---------------------------------------------
+Byte Ordering 
+---------------------------------------------
+  byte [] b = new byte[2];
+  b[0]=65;
+  b[1]=0;
+  ByteBuffer bb = ByteBuffer.wrap(b);	
+  System.out.println(bb.getChar());
+
+  //output
+  ä
+
+
+  In Java Byte default byte order is BIG_ENDIAN 
+  A represented as BIG_ENDIAN    0  65
+  A represented as LITTLE_ENDIAN 65 0
+
+  byte [] b = new byte[2];
+  b[0]=65;
+  b[1]=0;
+  ByteBuffer bb = ByteBuffer.wrap(b);	
+  bb.order(ByteOrder.LITTLE_ENDIAN)
+  System.out.println(bb.getChar());
+
+  //output
+  A
+
+
+
+
+
+
+
+
