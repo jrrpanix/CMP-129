@@ -1,0 +1,53 @@
+
+From Gaddias Chapter 8
+
+(1)
+Consider the following class declaration:
+
+   public class Thing {
+     private int x;
+     private int y;
+     private static int z=10;
+   
+     public Thing() {
+       x=z;
+       y=z;
+     }
+   
+     static void putThing(int a ) {
+       z=a;
+     }
+   }
+
+Assume aprogram containing the class defins three Thing objects with
+the following statements:
+
+   Thing one = new Thing();
+   Thing two = new Thing();
+   Thing three = new Thing();
+
+
+a. How many separate instances of the x member exist ?
+b. How many separate instances of the y member exist ?
+c. How many separate instances of the z member exist ?
+d. What value will be stored in the x and y members of each object?
+e. Write a statement that will call the putThing method.
+
+(2)
+
+The Westfield Carpet Company has asked you to write an application that calculates the
+price of carpeting for rectangular rooms.  To calculate the price, you multiply the area of the
+floor( width x length) by the price per square foot of the carpet.  
+
+First create a class called RoomDimension that has two fields, one for the length 
+and one for the width.  The RoomDimension class should have a method that 
+returns the area of the room.
+
+Next create a class called RoomCarpet that has RooomDimension as a field. It should also have
+a field for the cost of the carpet per square foot.  The RoomCarpet class should have method
+that returns the total cost of the carpet.
+
+
+
+
+
