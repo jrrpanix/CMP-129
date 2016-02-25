@@ -1,7 +1,11 @@
 
-From Gaddias Chapter 8
+Homework Assignment 
 
-(1)
+Taken From Gaddias Chapter 8
+
+10pts Total
+
+(1) 5 pts
 Consider the following class declaration:
 
    public class Thing {
@@ -33,7 +37,7 @@ c. How many separate instances of the z member exist ?
 d. What value will be stored in the x and y members of each object?
 e. Write a statement that will call the putThing method.
 
-(2)
+(2) 5pts
 
 The Westfield Carpet Company has asked you to write an application that calculates the
 price of carpeting for rectangular rooms.  To calculate the price, you multiply the area of the
