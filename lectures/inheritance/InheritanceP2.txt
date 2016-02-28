@@ -1,0 +1,253 @@
+-------------------------------------------------------------------------------------------
+Lecture10 
+Inheritance, polymorphism , Super and SubClasses continued  
+Introducing Abstract classes
+-------------------------------------------------------------------------------------------
+
+concepts in this lecture
+  * inheritance
+  * Super and SubClasses ( Base and Derived )
+  * overriding instance methods
+  * Is-A
+  * polymorphism
+  * dynamic binding
+  * casting 
+  * java.lang.ClassCastException
+  * Abstract classes
+  * the java key word "super"
+
+-------------------------------------------------------------------------------------------
+From the previous lecture
+-------------------------------------------------------------------------------------------
+In the previous lecture we created a "Super" class called "Shape"
+We then extended "Shape" buy creating two "SubClasses" called "Rectangle" and "Circle".
+
+We defined an instance method on "Shape" called "area" and then we introduced the 
+concept of "OverRiding" the instance method in the SubClass.  We orderrided the methods
+"area" and "toString" so structure is presented below: Some things to note in this structure
+
+* Shape is the Super class
+* The reason we want to create a Super class shape is to form a logically stronger
+  construct which allows us to write less code that applies to a larger group of items
+* Rectangle extends Shape and is a SubClass of Shape
+* Circle extends Shape and is a SubClass of Shape 
+* Rectangle and Circle are types of Shapes so we can say Rectangle "is a" Shape and
+  Circle "is a" Shape
+* We are overriding the instance method "area" in both classes "Rectangle" and "Shape"
+  the instance method "area" was defined in Shape
+* We are overriding the instance method "toString" in both classes "Rectangle" and "Shape"
+  the instance method "toString" was defined in Object
+  (Rember all class inherit from Object so Object is the SuperClass of all classes in Java)
+* If we create an instance of a SubClass of Shape (which in this example will be either a 
+  Rectangle or Cirlce) and call the "area" method or "toString" method, Java will call 
+  the instance method of the class that was originally created.  This is called "ploymorphism"
+  For Example:
+
+  Shape shape0 = new Rectangle(2,2);
+  Shape shape1 = new Cirlce(5);
+
+  shape0.area() <- this will call "Rectangle's" area method, this is polymorphism
+                   java finds the correct method to call vai "dynamic binding"
+  shape1.area() <- this will call "Circle's" area method, this is polymorphism
+
+
+//-------------------------------
+// class Shape
+//-------------------------------
+public class Shape {   // Shape is "Super" Class
+
+   public double area() {
+     return 0;
+   }
+}
+
+//------------------------------------
+// class Rectangle
+//------------------------------------
+public class Rectangle extends Shape { // Rectangle is a "SubClass" of Shape
+
+  private double len_;
+  private double width_;
+
+  public Rectangle() {
+    len_=0;
+    width_=0;
+  }
+
+  public Rectangle( double l , double w ) {
+    len_ = l;
+    width_ = w;
+  }
+
+  public Rectangle( Rectangle r ) {
+    len_ = r.len_;
+    width_ = r.width_;
+  }
+
+  public double area() {  // we are "overriding" the instance method "area"
+    return len_ * width_;
+  }
+
+  public String toString() { // we are "overriding" the instance method "toString" 
+                             // toString comes from Object
+    return new String( "Rectangle:" + len_ + ":" + width_);
+  }
+
+  public double getLength() {
+    return len_;
+  }
+
+  public double getWidth() {
+    return width_;
+  }
+
+}
+
+//------------------------------------
+// class Circle
+//------------------------------------
+public class Circle extends Shape {
+
+  private double radius_;
+
+  public Circle() {
+    radius_=0;
+  }
+
+  public Circle( double radius ) {
+    radius_ = radius;
+  }
+
+  public Circle( Circle r ) {
+    radius_ = r.radius_;
+  }
+
+  public double area() { // <- overriding area 
+    return Math.PI * radius_ * radius_;
+  }
+
+  public String toString() { // <- overriding toString
+    return new String( "Circle:" + len_ + ":" + width_);
+  }
+
+  public double getRadius() {
+    return radius_;
+  }
+	
+}
+
+-------------------------------------------------------------------------------------------
+Casting and java.lang.ClassCastException
+-------------------------------------------------------------------------------------------
+
+We can "cast" Super class to its SubClass via the "cast" operation:
+
+   Shape shape0 = new Rectangle(3,5);
+
+because we assigned the instance of rectangle of variable of type "Shape"
+we can't access the Rectangle specific methods "getLength" and "getWidth"
+to do this we need to turn Shape back into a "Rectangle":
+
+   Rectangle aRectangle = (Rectangle)shape0; // ok because shape0 was instanianted as a Rectangle
+
+but if we do the following ...
+
+   Circle aCricle = (Cirlce)shape0; // this will thorow a java.lang.ClassCastException
+
+
+this will cause Java to throw a java.lang.ClassCastException because shape0 was created as a Rectangle
+not a Circle.
+
+
+-------------------------------------------------------------------------------------------
+Introducing Abstract Classes
+-------------------------------------------------------------------------------------------
+
+In the first version of our Shape example we defined the method and implemented "area"
+method for Shape
+
+public class Shape {
+
+  public double area() {  <-- THIS IS NOT IDEAL, SINCE AREA REALLY DOES NOT EXIST FOR SHAPE
+    return 0.0;               AREA EXISTS FOR SPECIFIC INSTANCES OF SHAPE
+  } 
+
+}
+
+but we really didn't know what value to return , since a shape is an "abstract" notion.
+there are "concrete" examples of a Shape such as a Cirle and Rectangle so for "abstract"
+notions such as Shape, Java allows us to create an "abstract" class and decleae
+methods as "abstract" which then can be overridden in subclasses
+
+public abstract class Shape {
+
+   public abstract double area();  // <- We declare abstract methods only
+}
+
+
+abstract means the following things for a class
+* the class can't be instantiated
+* abstract methods must be overrided somewhere in the chain of SubClasses for 
+  it to be instantiated.
+* any SubClass that does not orderride an abstract method from a Super class
+  must be declared abstract
+
+if a class is "abstract" then the following line is "illegal"
+
+   Shape s = new Shape() ; <--- ILLEGAL, class Shape is "abstract"
+
+we will get a compile error such as this :
+
+    Shape.java:22: Shape is abstract; cannot be instantiated
+    	   Shape s = new Shape();
+	             ^
+
+now if we extend Circle from "abstract" class Shape we must override the
+abstract method "area" to instantiate Circle or we must declare the
+class to be "abstract"
+
+public class Circle extends Shape {
+    private double radius_;
+
+    public Circle() {
+    }
+
+    public Circle(double r) {
+      radius_=r;
+    }
+}
+
+
+if we keep the implementation of Cricle as above (without writing the code for area) then
+we will get the following compile error:
+
+  Circle is not abstract and does not override abstract method area() in Shape
+  public class Circle extends Shape {
+
+
+so we either must make Circle "abstract" or override the method "area"
+
+public class Circle extends Shape {
+    private double radius_;
+
+    public Circle() {
+    }
+
+    public Circle(double r) {
+      radius_=r;
+    }
+
+    public dobule area() {
+      return Math.PI * radius_ * radius_;
+    }
+}
+
+
+
+
+
+
+
+
+
+
