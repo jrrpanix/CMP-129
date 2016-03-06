@@ -1,0 +1,90 @@
+
+ArrayReview  CMP-129
+2/6/2016
+
+10 pts , 2 pts each
+
+1) Write code for the following questions 
+
+   a) Initialize and array of int , called A, with the values 1 to 5, using {} .
+
+Answer:   int [] A = { 1 , 2, 3, 4 ,5 };
+
+
+   b) what is the value of A[1] ?
+
+Answer:     The value of A[1] = 2
+
+   c) Create an array of int which can hold 1000 numbers and initialize it with the values 0 to 999.
+
+Answer:
+
+     int [] A = new int[1000];
+     for ( int i =0; i < A.length; i++) A[i] = i;
+
+2) Write the code to sum the contents of an int array .
+
+Answer:
+
+	public static long sum( int [] A ) {
+	    long t =0;
+	    for( int i =0; i < A.length ; i++ ) t += A[i];
+	    return t;
+	}
+
+
+3) Write the code to find a String X in an array of String and return its position of found otherwise return -1.
+
+Answer:
+    public static int find( String X , String [] V ) {
+
+      for( int i =0; i < V.length ; i++ )
+         if (X.equals(V[i]) return i;
+      return -1;
+    }
+
+
+4) Is the following ok or not ok? If its not ok tell why.
+
+   a) int [] X = {1,2};
+      X[2] = 3;
+
+Answer: not ok, array length is 2 index 2 is out of bounds, max index is 1
+
+   b) int [] X = {1,2,3};
+      X[-1] = 6;
+
+Answer: not ok, negative indicies not allowed in Java , ok in python
+
+   c) int [] X = new int[1000];
+
+Answer , ok
+
+   d) String [] X = new String[10];
+    
+      String Y = X[0] + "ABC";
+
+Answer , ok but terrible programming X[0] is null ... 
+
+5) What is the contents of X after the following code sequence ?
+
+   int [] X = new int[2];
+
+   for( int i =0; i < X.length ;i++ ) 
+       X[i]=i;
+
+    int [] Y = X;
+
+    Y[0] += 2;
+
+
+Answer : Y[0] =2
+
+
+ 
+
+
+  
+
+
+   
