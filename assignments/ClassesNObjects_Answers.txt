@@ -57,11 +57,13 @@ Answers:
         private double _l;
 	private double _w;
 
+	// Answer 3a)
 	public Rectangle( double length ,double width ) {
 	   _l = length;
 	   _w = width;
 	}
 
+	// Answer 3b)
 	public double area() {
 	
 	   return _l * _w;
@@ -94,11 +96,12 @@ Answers:
 	   return _l * _w;
 	}
 
-
+	// Answer 4a)
 	public String toString() {
-	   return new String( "Rectangle:length=" + _l ":width=" + _w);
+	   return new String( "Rectangle:length=" + _l + ":width=" + _w);
 	}
 
+	// Answer 4b)
 	public boolean equals(Rectangle x ) {
 	   return (_l==x._l) && (_w==x._w);
 	}
@@ -137,10 +140,13 @@ Answers:
 	}
 
 
+	// Answer 4a)
 	public String toString() {
 	   return new String( "Rectangle:length=" + _l + ":width=" + _w);
 	}
 
+
+	// Answer 4b)
 	public boolean equals(Rectangle x ) {
 	   return (_l==x._l) && (_w==x._w);
 	}
