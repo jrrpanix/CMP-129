@@ -1,0 +1,159 @@
+Gaddias Chapter 8
+2/7/2016
+
+1) Static methods 
+
+   a) write a static method toFarenheit which takes in the temperature in F and returns it in C.
+   
+   b) write a static method toCelcius which takes in the temperature in C and returns it in F.
+
+
+Answers:
+
+   public class Temp{
+
+        public static double toF( double C ) {
+	   return 32.0 + 9.0/5.0 * C;
+	}
+
+
+	 public satic double toC( double F ) {
+	    return ( F - 32.0 ) * 5.0/9.0;
+        }
+
+   }
+
+
+
+2) Static member variables
+
+   a) write a class which contains a static member variable which keeps track of the number of times the class is constructed.
+
+   b) write constructors for the class which increment every time the class is constructed
+
+Answers:
+
+   class Track {
+       static private long _counter;
+
+       public Track() {
+       	  ++_counter;
+       }
+
+   }
+
+
+3) Write a class called Rectangle which contains the length and width
+
+   a) write a constructor which takes the length and width
+   
+   b) write a method called area which returns the area of the rectangle
+
+
+Answers:
+
+   class Rectangle {
+
+        private double _l;
+	private double _w;
+
+	public Rectangle( double length ,double width ) {
+	   _l = length;
+	   _w = width;
+	}
+
+	public double area() {
+	
+	   return _l * _w;
+	}
+
+   }
+
+
+4) For the Rectangle class write the following methods
+
+   a) toString()
+
+   b) equals( Rectangle rectangle)
+
+
+Answers:
+
+   class Rectangle {
+
+        private double _l;
+	private double _w;
+
+	public Rectangle( double length ,double width ) {
+	   _l = length;
+	   _w = width;
+	}
+
+	public double area() {
+	
+	   return _l * _w;
+	}
+
+
+	public String toString() {
+	   return new String( "Rectangle:length=" + _l ":width=" + _w);
+	}
+
+	public boolean equals(Rectangle x ) {
+	   return (_l==x._l) && (_w==x._w);
+	}
+
+   }
+
+
+
+
+
+5) Write a method called copy for the Rectangle which returns a copy of the class
+
+6) Write a copy constructor for the Rectangle class
+
+Answers:
+
+   class Rectangle {
+
+        private double _l;
+	private double _w;
+
+	public Rectangle( double length ,double width ) {
+	   _l = length;
+	   _w = width;
+	}
+
+	// Question 6 Answer Copy Constructor
+	public Rectangle( Rectangle x ) {
+	   _l = x._l;
+	   _w = x._w;
+	}
+
+	public double area() {
+	
+	   return _l * _w;
+	}
+
+
+	public String toString() {
+	   return new String( "Rectangle:length=" + _l ":width=" + _w);
+	}
+
+	public boolean equals(Rectangle x ) {
+	   return (_l==x._l) && (_w==x._w);
+	}
+
+
+	// Question 5 Answer
+	public Rectangle copy() {
+	   return new Rectangle(_l,_w);
+	}
+
+   }
+
+
+
+
+
