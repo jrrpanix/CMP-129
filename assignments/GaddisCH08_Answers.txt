@@ -1,0 +1,111 @@
+
+Homework Assignment 
+
+Taken From Gaddias Chapter 8
+
+10pts Total
+
+(1) 5 pts
+Consider the following class declaration:
+
+   public class Thing {
+     private int x;
+     private int y;
+     private static int z=10;
+   
+     public Thing() {
+       x=z;
+       y=z;
+     }
+   
+     static void putThing(int a ) {
+       z=a;
+     }
+   }
+
+Assume a program containing the class defins three Thing objects with
+the following statements:
+
+   Thing one = new Thing();
+   Thing two = new Thing();
+   Thing three = new Thing();
+
+
+a. How many separate instances of the x member exist ?
+b. How many separate instances of the y member exist ?
+c. How many separate instances of the z member exist ?
+d. What value will be stored in the x and y members of each object?
+e. Write a statement that will call the putThing method.
+
+
+Answers:
+
+a) 3 instances of "x" in varaibles one,two,three
+
+b) 3 instances of "y" in varaibles one,two,three
+
+c) 1 instance of "z" because its static
+
+d) x an y will be initalized with the value of z which is 10
+
+e) Thing.putThing(11);
+
+
+
+
+(2) 5pts
+
+The Westfield Carpet Company has asked you to write an application that calculates the
+price of carpeting for rectangular rooms.  To calculate the price, you multiply the area of the
+floor( width x length) by the price per square foot of the carpet.  
+
+First create a class called RoomDimension that has two fields, one for the length 
+and one for the width.  The RoomDimension class should have a method that 
+returns the area of the room.
+
+Next create a class called RoomCarpet that has RooomDimension as a field. It should also have
+a field for the cost of the carpet per square foot.  The RoomCarpet class should have method
+that returns the total cost of the carpet.
+
+
+Answers:
+
+
+public class RoomDimenstion {
+
+    private double _length;
+    private double _width;
+
+    public RoomDimension( double l , double w ) {
+
+        _length=l;
+    	_width=w;
+    }
+
+    public double area() {
+      return _length * _width;
+    }
+
+
+}
+
+
+public class RoomCarpet (
+     private RoomDimension _room;
+     private double        _costPerSquareFoot;
+
+     public RoomCarpet( RoomDimension room ,double costPerSquareFoot; ) {
+        _room=room;
+        _costPerSquareFoot=costPerSquareFoot;
+     }
+
+     public double totalCost() {
+        return _room.area() * _costPerSquareFoot;
+     }
+       
+}
+
+
+
+
+
