@@ -1,0 +1,425 @@
+-------------------------------------
+Class      CMP-129 
+Instructor JReynolds
+Review Questions 
+Total      100 pts
+-------------------------------------
+
+(1) (3 pts) What is the length of the Array X in the code below ?
+
+    int [] X = {1,2,3,4};
+
+Answer: 4
+
+
+(2) (3 pts) What is the value of X[2] in the code below ?
+
+    int [] X = {1,2,3,4};
+
+Answer: X[2]=3
+
+
+(3) (3 pts) Complete the code to return the last element in the array:
+   
+    public static int getLast( int [] X ) {      
+     // what code needs to be written here to return the last element?
+
+Answer:     return X[X.length-1];
+
+    }
+
+
+(4) (3 pts) Complete the code to return the first element in the array:
+
+    public static int getFirst( int [] X ) {       
+       // Write code below to return the first element in the Array X
+Answer:     return X[0]
+       
+    }
+
+
+(5) (3 pts) What's the value of Z[4] after the following code sequence is executed?
+        
+     int [] Z = {2,4,6,8,10};        
+     Z[4]--;        
+     Z[4] += Z[1];
+
+
+Answer:
+
+Z[4] starts out as Z[4]=10
+after Z[4]-- , Z[4] = 9
+after [Z4] += Z[1]-> 9 + 4 ->13
+Z[4] = 13
+
+
+(6) (3 pts) Write a function "find" which returns the position of a String pattern in a String array X .
+             If the pattern is not found it returns -1;
+
+    public static int find( String pattern , String [] X ) {       
+        // your code here
+
+Answer:
+       for( int i =0; i < X.length ; i++)
+          if ( pattern.equals(X[i]) ) return i;
+       return -1;
+    }
+
+
+
+(7) (3 pts) What's wrong with the following code ?
+
+    int [] X = new int[1000];
+    for( int i = 0; i <= 1000 ; i++ ) {       
+         System.out.println(x[i]);    
+    }
+
+Answer:  for loop bounds is i <= 1000 and should be i < 1000 so code accesses X[1000] which is bast the max index of 999
+
+
+(8) (3 pts) What happens if the following instructions are executed ?
+
+     int [] X = {1,2};     
+     System.out.println( X[-1] );
+
+Answer: throws an ArrayOutofBoundsException because -1 is not a valid index
+
+
+(9) (3 pts) Use an enhanced for loop to print the contents of the following array:
+
+    String [] X = {"A","B","C","D","E"};
+    // write your answer below
+
+Answer:
+     for( String a : X ) System.out.println(a);
+
+
+(10) (3 pts) Write the code to return the sum of each row of a 2D Array
+
+     public static int [] SumRows( int [][] X ) {           
+      // your code here
+
+Answer:
+       NRows = X.length;
+       int [] rowSum = new int[NRows];
+       for( int i =0; i < NRows ; i++ ) {
+           int sum=0;
+           NCols = X[i].length;
+           for( int j = 0; j < NCols ; j++) sum += X[i][j];
+           rowSum[i]=sum;
+       }
+       return rowSum;
+     }
+
+
+
+
+(11) (3 pts) Create a public class called Point that contains two public instanace 
+      variables X and Y that are int.
+
+Answer:
+     public class Point {
+        public int X;
+	public int Y;
+
+     }
+
+
+
+(12) (3 pts) For the class Point you created in the previous question, implement the 
+     default constructor.
+
+     public class Point {
+        public int X;
+	public int Y;
+
+Answer: // Default Constructor
+
+        public Point() {
+	   X=0;
+	   Y=0;
+	}
+
+     }
+
+
+
+
+(13) (3 pts) For the class Point , implement a constructor that takes two integers as agruments 
+     and assigns them to the instance variables X and Y.
+
+Answer:
+        public Point( int x , int y) {
+	   X=x;
+	   Y=y;
+	}
+
+
+
+(14) (3 pts) Implement the copy constructor for class Point.
+
+Answer: // Copy Constructor 
+
+        public Point( Point aPoint ) {
+	   X=aPoint.X;
+	   Y=aPoint.Y;
+	}
+
+
+(15) (3 pts) Overide the toString() method inherited from Object for class Point. 
+
+Answer:
+
+      public String toString() {
+         return new String( "Point:X=" + X + ":Y=" + Y);
+      }
+
+
+(16) (3 pts) What is the value of x in the following code?
+
+      enum Color {Red,Blue,Green};
+      int x = Color.Green.ordinal();
+
+Answer:
+
+    x = 2
+
+(17) (3 pts) For the following enum FloorType, create a variable X  of  FloorType and assign 
+      it to Carpet.
+
+      enum FloorType {Concrete,Wood,Carpet};
+
+Answer:
+
+     FloorType X = FloorType.Carpet;
+
+
+(18) (10 pts) Answer the questions below based on the following code:
+    
+    public class Test {
+       public static int X = 5;       
+       public int y;
+       
+       public Test() {          
+           y=X++;       
+       }
+       
+      public static void main( String [] args ){          
+           Test t0 = new Test();          
+           Test t1 = new Test();          
+           System.out.println( t1.y );      
+      }
+    
+    }
+
+   (a) How many instances of Test y exist in main?
+ 
+Answer : 2 , t0 and t1 both have an instnce of "y"
+     
+
+   (b) How many instances of Test X exist in main?
+
+Answer: 1 , X is static 
+
+   (c) What is the value of t1.y ?
+
+Answer : 6
+
+   (d) What is the value of X in class Test after t1 is created ?
+
+Answer: 7
+
+
+(19) (5 pts) What's the output if main is called in the following code ?
+
+     public class Circle {         
+       private double r_;
+         
+       public Circle( double r ) {          
+           r_=r;         
+       }
+         
+       public String toString() {           
+          return new String("Circle:r_="+r_);         
+       }
+         
+        public static void main( String [] args ) {            
+          System.out.println( new Circle(4));         
+        }     
+     }
+
+Answer: 
+
+   calls toString so output ,  Circle:r_=4
+
+(20) (6 pts) What's wrong the the following code or is it correct?
+
+     public class Item {        
+        private int X;
+        
+        public Item( int a ) {           
+            X=a;        
+        }     
+     }
+     
+     public class ItemCalc {
+       
+       public static void addItem( Item anItem ) {          
+          anItem.X += 1;       
+      }
+     }
+
+Answer:
+
+    X is private in Item, so ItemCalc does not access to it
+
+
+(21) (3 pts) What's the purpose of the keyword "new" ?
+
+Answer:
+    new is used to create an instance of a class  
+
+
+(22) (3 pts) Given the following code which is the SuperClass and which is the SubClass ?
+     
+    public class Apple extends Fruit {     
+    }
+
+
+Answer:
+   SuperClass is Fruit , SubClass is Apple
+
+
+
+(23) (10 pts) For the code below answer the following questions :
+
+    public abstract class Shape {
+
+       public abstract double area();   
+    
+    }
+
+    public class Rectangle extends Shape {       
+        private double len_;       
+        private double width_;
+       
+        public Rectangle( double l , double w ) {          
+              len_=l;          
+              width_=w;       
+        }
+       
+       public double area() {          
+               return len_*width_;       
+       }
+
+       public static void main( String [] args ){          
+             Shape s = new Rectangle(2,3);          
+             System.out.println(s.area());       
+       }   
+   }
+
+   (a) What is the output of main?
+
+Answer: 6
+
+   (b) Is this statement allowed, why or why not ?
+
+        Shape s0 = new Shape();
+
+Answer: Not Allowed because Shape is an abstract class , can't create an instance of an abstract class
+
+   (c) Is this code sequence ok,why or why not ?
+   
+       Shape s0 = new Rectangle(3,3);     
+       Rectangle r0 = s0;
+
+
+Answer ; Not ok, can't assign Shape to Rectangle , the other way around is ok 
+
+
+(24) (6 pts) Implement the interface Arithmetic for the class Number,
+
+     public interface Arithmetic {
+         public void add( int x );        
+         public void subtract( int x );
+     }
+
+     public class Number {
+         public int X;
+         public Number( int X ) {            
+                 this.X = X;         
+         }
+     }
+
+
+Answer: 
+
+     public class Number implements Arithmetic {
+         public int X;
+         public Number( int X ) {            
+                 this.X = X;         
+         }
+
+         public void add( int x ) {
+	     X+=x;
+	 }
+
+         public void subtract( int x ) {
+	    X-=x;
+	 }
+     }
+
+
+(25) (6 pts) For the code below complete the following contructors for Square     
+
+   (a) A square that's constructed with (side,xpos,ypos)     
+   (b) A square that's constructed with (side,xpos,ypos,color)
+
+     enum Color { Purple,Green,Blue };
+ 
+     public class Shape {       
+       protected int   xPos_;       
+       protected int   yPos_;       
+       protected Color color_;
+
+       public Shape( int x , int y, Color c ) {         
+              xPos_=x;         
+              yPos_=y;         
+              color_=c;       
+        }
+       
+       public Shape( int x , int y ) {         
+              xPos_=x;         
+              yPos_=y;         
+              color_=Color.Purple;       
+        }
+    }
+
+    public class Square extends Shape {
+         private double side_;
+     }
+
+
+Answer:
+
+    public class Square extends Shape {
+         private double side_;
+
+//Answer (a)
+	 public Square( double side , int xpos , int ypos ) {
+            super(xpos,ypos);
+	    _side=side;
+
+	 }
+
+// Answer (b)
+	 public Square( double side , int xpos , int ypos , Color color) {
+            super(xpos,ypos,color);
+	    _side=side;
+
+	 }
+        
+
+     }
+
+
