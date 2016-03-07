@@ -1,0 +1,354 @@
+-------------------------------------
+Class      CMP-129 
+Instructor JReynolds
+Review Questions 
+Total      100 pts
+-------------------------------------
+
+
+1) (3 pts , Total 3 ) What is the length of the Array X in the code below ?
+
+    int [] X = {0,1,2,3,4};
+
+
+
+
+2) (3 pts,  Total 6) What is the value of X[6] in the code below ?
+
+    int [] X = {-1,2,-11,-2,100,97,3000,-25};
+
+
+
+
+3) (3 pts, Total 9) Complete the code to return the last element in the array:
+   
+    public static int getLast( int [] X ) {      
+     // what code needs to be written here to return the last element?
+
+
+
+
+
+    }
+
+
+4) (3 pts, Total 12) Complete the code to return the first element in the array:
+
+    public static int getFirst( int [] X ) {       
+       // Write code below to return the first element in the Array X
+
+
+
+
+    }
+
+
+5) (3 pts , Total 15) What's the value of Z[4] after the following code sequence is executed?
+        
+     int [] Z = new int[5];
+     for( int i =1;i < Z.length ;i++ )
+        Z[i]=Z[i-1]+1;
+
+
+
+6) (3 pts , Total 18) Write a function "find" which returns the position of int z in int Array X
+            if not found return -1
+
+    public static int find( int  z , int [] X ) {
+        // your code here
+
+
+
+
+    }
+
+
+
+7) (3 pts , Total 21) Write the code to do the following :
+
+
+ a) Create a String array with 3 elements "A","B","C
+
+
+
+ b) Create an array of int with 1000 elements
+
+
+
+
+
+8) (3 pts , Total 24) Based on the declaration below are they valid or not ? Write yes if valid , no if not.
+
+     int [] X = {1,2};     
+
+     a) int y = X[-1];
+
+
+     
+     b) int z = X[2];
+
+
+ 
+     c) int a = X[0] + X[1];
+
+
+
+
+9) (3 pts , Total 27) Use an enhanced for loop to sum the contents of a double array
+
+    static double sum( double [] X ) {
+       double T = 0;
+       // YOUR CODDE HERE 
+
+
+
+
+
+
+       return T;
+   }
+
+
+10) (3 pts , Total 30) write code to sum the ith row, row_i for a 2D Array and return the sum
+
+     public static int  SumRow( int row_i ,int [][] X ) {           
+
+
+
+
+
+     }
+
+
+
+
+
+11) (9 pts , Total 39 ) The following Questions are based on creating a class called Employee.
+     The class will contain 3 elements 
+     The First Name, The Last Name and integer for employee id.
+
+     a) Write the code for Employee which contains the 3 Elements
+
+        public class Employee {
+         // Your Code Here
+
+
+
+
+
+
+        }
+
+
+     b) Implement a Constructor which takes 3 Arguments String firstName, String lastName , int id
+
+
+
+
+        
+
+     
+     c) Override the toString method which returns a string contins the elements of the class
+
+
+
+
+
+
+12) (3 pts , Toatl 42) Create an Enum Called Direction which has North,South,East,West
+
+
+
+
+
+13) (3 pts , Toatl 45) For the following enum declaration assign the value Red to the variable z
+
+      enum StopLight {Red,Yellow,Green};
+
+      // Assign to red
+      StopLight z     
+
+
+
+14) (15 pts, Total 60)
+
+   public class Counter {
+
+
+     private static int _Count = 0;
+     private int _x;
+
+     public Counter(int x) {
+        _x=x;
+	_Count++;
+     } 
+
+
+     // Add getCount ....
+
+
+   }
+    
+
+  a) write a member function of Counter called getCount which returns the Count
+   
+
+
+
+
+
+  b) Answer Questions after main is run ..  
+     public static void main(String [] args ) {
+
+        Counter c0 = new Counter(0);
+        Counter c1 = new Counter(1);
+	System.out.println(Counter.getCount());
+     }
+
+
+  b1) How many instances of Counter._x exist ?
+
+
+  b2) How many instance of Counter._Count exist ?
+
+
+  b3) What is the value of c1._x ?
+
+
+  b4) what is the output of the last line System.out.println(Counter.getCount()); ?
+
+
+15) (5 pts , Total 65) What's the output if main is called in the following code ?
+
+     public class Rectangle {         
+       private double l_;
+       private double w_;
+         
+       public Rectangle( double l, double w ) {          
+           w_=w;         
+           l_=l;         
+       }
+         
+       public String toString() {           
+          return new String("Rectangle:l_=" + l_ + ":w_=" + w_ );         
+       }
+         
+        public static void main( String [] args ) {            
+          System.out.println( new Rectangle(4,5));         
+        }     
+     }
+
+
+
+
+16) (5 pts , Total 70) What's wrong the the following code or is it correct?
+
+     public class Cabinet {        
+        private static final String Tag = "Cabinet";
+        private string _cabinetMake ;
+        
+        public Cabinet( String cabinetMake) {
+	  _cabinetMake=cabinetMake;
+        }     
+
+	public static void printMake() {
+	   System.out.println(_cabinetMake);
+	}
+
+     }
+     
+
+
+
+17) (3 pts, Total 73) What's the purpose of the keyword "new" ?
+
+
+
+18) (3 pts ,Total 76) Given the following code which is the SuperClass and which is the SubClass ?
+
+     
+    public class Tiger extends Animal {     
+    }
+
+
+
+19) (14 pts, Total 90) For the class Shape make Circle a subclas
+
+    public abstract class Shape {
+
+       public abstract double area();   
+       public abstract double perimeter();   
+       public abstract String name();    
+
+
+    }
+
+   
+
+    public class Rectangle extends Shape {       
+        private double len_;       
+        private double width_;
+       
+        public Rectangle( double l , double w ) {          
+              len_=l;          
+              width_=w;       
+        }
+       
+       public double area() {          
+               return len_*width_;       
+       }
+
+       public static void main( String [] args ){          
+             Shape s = new Rectangle(2,3);          
+             System.out.println(s.area());       
+       }   
+   }
+
+   (a) What is the output of main?
+
+
+
+
+   (b) Is this statement allowed, why or why not ?
+
+        Shape s0 = new Shape();
+
+
+
+
+   (c) Is this code sequence ok,why or why not ?
+   
+       Shape s0 = new Rectangle(3,3);     
+       Rectangle r0 = s0;
+
+
+
+
+
+20) (10 pts, Total 100 ) Implement the interface Circuit for US and European Outlets , your implementation
+              should return the voltage and frequency of the respective region.
+
+     interface Circuit {
+         double voltage();
+	 double frequency();
+     }
+
+     
+     public class USOutlet {
+        // voltage 110, frequency 60Hz
+
+
+
+     	    
+     }
+
+
+     public class EuropeOutlet {
+        // voltage 220, frequency 50Hz
+
+
+
+
+
+     }
+
