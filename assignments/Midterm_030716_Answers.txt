@@ -390,7 +390,7 @@ Answer:  Class Circle
      }
 
      
-     public class USOutlet {
+     public class USOutlet implements Circuit {
         // voltage 110, frequency 60Hz
 
  Answer:    
@@ -399,7 +399,7 @@ Answer:  Class Circle
      }
 
 
-     public class EuropeOutlet {
+     public class EuropeOutlet implements Circuit {
         // voltage 220, frequency 50Hz
 
  Answer:    
