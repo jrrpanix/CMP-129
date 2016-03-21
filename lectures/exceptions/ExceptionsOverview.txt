@@ -1,0 +1,383 @@
+------------------------------------------------------
+Handeling Excepitons in Java
+Gaddis Chapter 11
+------------------------------------------------------
+
+
+We have seen exceptions throw in previous classes so as 
+a refersher lets create some code that throws exceptions ...
+
+-----------------------------------------------
+(*) Example code which generates an exceptions
+-----------------------------------------------
+
+public class ThrowExample {
+
+
+    public static void test1() {
+	int [] X = new int [5];
+	System.out.println(X[5]);
+    }
+
+    public static void test2() {
+        int count = 0;
+        Scanner scan = new Scanner( System.in );
+	int sum = 0;
+	while( count++ < 5 ) {
+	   String s = scan.next() ;
+	   Integer i = Ingeger.parseInt(s);
+	   sum += i;
+	}
+	System.out.println(sum);
+    }
+
+    public static void main( String [] args ) {
+	    test1();
+    }
+}
+
+if we run this code we get the following Exception message:
+
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5
+	at Throw.test1(Ex1.java:9)
+	at Throw.main(Ex1.java:13)
+
+
+(*) The exception was never handled so it was handled by the default
+exception handler 
+
+(*) When an excption is generated it is said to be "thrown"
+
+
+Another Exception Example
+
+import java.util.Scanner;
+
+public class ThrowExample {
+
+    public static void keyboardInput() {
+        int count = 0;
+        Scanner scan = new Scanner( System.in );
+	int sum = 0;
+	while( count++ < 5 ) {
+	   String s = scan.next() ;
+	   Integer i = Ingeger.parseInt(s);
+	   sum += i;
+	}
+	System.out.println(sum);
+    }
+
+    public static void main( String [] args ) {
+         keyboardInput();
+    }
+}
+
+if we enter input that is not an integer format we will
+get the following exception messsage:
+
+1 2 3 a
+Exception in thread "main" java.lang.NumberFormatException: For input string: "a"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:48)
+	at java.lang.Integer.parseInt(Integer.java:449)
+	at java.lang.Integer.parseInt(Integer.java:499)
+	at ThrowExample.run(ThrowExample.java:46)
+	at ThrowExample.main(ThrowExample.java:55)
+
+
+-----------------------------------------------
+(*) Example of catching an exception
+-----------------------------------------------
+
+    public static void test1() {
+      try {
+	int [] X = new int [5];
+	System.out.println(X[5]);
+       } 
+       catch(ArrayIndexOutOfBoundsException e ) {
+	  System.out.println(e + " exception caught in test1" );
+       }
+    }
+
+ArrayIndexOutOfBoundsException e inherits from Exception 
+
+we could also write this code as ...
+
+      try {
+	int [] X = new int [5];
+	System.out.println(X[5]);
+       } 
+       catch(Exception e ) {
+	  System.out.println(e + " exception caught in test1" );
+       }
+    }
+
+
+Exceptions are polymorphic so we can catch the super class(es)
+of any excdption type throw all the way up the inheritance
+chain ...
+
+Example:
+
+import java.util.Scanner;
+import java.io.File;
+
+public class FileTest {
+
+   public static void readFormat1( String fname ) {
+       
+        try {
+	   File f = new File( fname );
+	   Scanner scan = new Scanner(f);  <-- this can throw java.io.FileNotFoundException
+	   while( scan.hasNext() ) {
+	       double x = scan.nextDouble(); <-- this cand throw java.util.InputMismatchException
+	       System.out.format( "%12.6f\n",x );	      
+	   }
+	}
+	catch( Exception e ) {
+	  System.out.println( "Exception caught in readFormat1 " + e );
+	}
+        System.out.println( "Program will resume here after a catch ... ); <-- program resumes here
+   }
+
+
+Both inherit from Exception so we can use 1 catch of the super class Exception
+to catch both exceptions ...
+
+-------------------------------------------------------------
+(*) Exceptions must be caught or a compile error will result!
+--------------------------------------------------------------
+
+Example of exception not caught or declared to be thrown ...
+
+    public void readFile( String fname ) { 
+	File f = new File (fname );
+	Scanner scan = new Scanner(f);  <-- this will throw an exeptiion
+	while( scan.hasNext() ) {           and must either be caught
+	    scan.next();                    or a throw spec must be put on method
+	}
+	scan.close();
+    }
+
+Ex.java:8: unreported exception java.io.FileNotFoundException; must be caught or declared to be thrown
+	Scanner scan = new Scanner(f);
+	               ^
+
+remedy 1 throw Spec
+
+    public void readFile( String fname ) throws java.io.FileNotFoundException { 
+	File f = new File (fname );
+	Scanner scan = new Scanner(f);
+	while( scan.hasNext() ) {     
+	    scan.next();              
+	}
+	scan.close();
+    }
+
+remedy 2 catch 
+
+
+    public void readFile( String fname ) { 
+	File f = new File (fname );
+        try {
+	  Scanner scan = new Scanner(f);
+	  while( scan.hasNext() ) {     
+	      scan.next();              
+	  }
+        catch (java.io.FileNotFoundException e ) {
+	  System.out.println(e);
+	}
+	finally {
+	  scan.close();
+	}
+    }
+
+-----------------------------------------------
+(*) Catching multiple exception types
+-----------------------------------------------
+
+import java.util.Scanner;
+import java.io.File;
+
+public class FileTest {
+
+   public static void readFormat1( String fname ) {
+       
+        try {
+	   File f = new File( fname );
+	   Scanner scan = new Scanner(f);
+	   while( scan.hasNext() ) {
+	       double x = scan.nextDouble();
+	       System.out.format( "%12.6f\n",x );	      
+	   }
+	}
+	catch( java.io.FileNotFoundException e ) {
+	  System.out.println( "Exception caught in readFormat1 " + e );
+	}
+	catch( java.util.InputMismatchException e ) {
+	  System.out.println( "Exception caught in readFormat1 " + e );
+	}
+   }
+
+}
+(*) Note the packages the exceptions are in 
+(*) FileNotFoundException is in package java.io
+(*) java.util.InputMismatchException in in package java.util
+
+
+-----------------------------------------------
+(*) Continuing on from an exception  ...
+-----------------------------------------------
+
+In this example we are changing the exception so we can move
+on to process more input in the event of an unexcepted error
+This is a reason to use specific exceptions instead of the 
+general class "Exception" , in this case our behavior changes
+based on the type of exception caught.  If the file is not
+found there's nothing we can do, while if there's just some
+bad data we can skip it and move on ...
+
+    public static void readFormat1( String fname ) {
+	int bad = 0;
+	int good = 0;
+	try {
+	    File f = new File( fname );
+	    Scanner scan = new Scanner(f);
+	    while( scan.hasNext() ) {
+		try {
+		    double x = scan.nextDouble();
+		    System.out.format( "%12.6f\n",x );	      
+		    good++;
+		}
+		catch (java.util.InputMismatchException e ) {
+		    scan.next();
+		    bad++;
+		}
+	    }
+	}
+	catch( java.io.FileNotFoundException e ) {
+	    System.out.println( "Exception caught in readFormat1 " + e );
+	}
+	System.out.println("bad=" + bad + " good = " + good ); 
+    }
+    
+    public static void main( String [] args ) {
+	readFormat1(args[0]);
+    }
+
+
+-----------------------------------------------
+(*) using a finally block
+-----------------------------------------------
+The finally block is executed after the try block completes
+or a catch block has been executed.  Its convient for cleanup
+and prevents the programmer from having to write clean up
+code in multiple locations
+
+    public static void readFormat1( String fname ) {
+	try {
+	    File f = new File( fname );
+	    Scanner scan = new Scanner(f);
+	    try {
+		while( scan.hasNext() ) {
+		    double x = scan.nextDouble();
+		    System.out.format( "%12.6f\n",x );	      
+		}
+	    }
+	    catch (java.util.InputMismatchException e ) {
+		System.out.println(e);
+		return;
+	    }
+	    finally {
+		System.out.println("closing file ");  <---- this block of code gets executed
+		scan.close();                               regardless if exception we finish with
+	    }                                               try or execute catch ...
+	}
+	catch( java.io.FileNotFoundException e ) {
+	    System.out.println( "Exception caught in readFormat1 " + e );
+	}
+    }
+
+
+-----------------------------------------------
+(*) The Exception Hirearchy
+-----------------------------------------------
+
+              Object
+                |
+              Throwable
+                |
+        |---------------|               
+      Error           Exception
+
+
+(*) All Exceptions inherit from Throwable
+(*) Classes that inherit from Error are Serious system
+    errors (example JVM error, running out of memeory)
+    and are generally not good to recover from
+(*) Classes that inherit from Exception are errors that
+    can be handled by the programmer
+
+Example of an Error condition:
+
+    public static void main( String [] args ) {
+	int big = 990000000;
+	double [] Big = new double[big];
+    }
+
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at Ex.main(Ex.java:55)
+
+
+
+----------------------------------------------------------
+(*) Exceptions can be handled anywhere in the calling stack
+-----------------------------------------------------------
+
+In this example we are going to catch the Exception in a different
+in method that is not the same as it was generated.
+
+Example:
+
+public class Account {
+   public String name;
+   public double balance;
+   
+   public void setAccount( String fname ) throws IOException {  <- because we are not handling 
+                                                                   the exception we need to put
+                                                                   a throw spec on the method
+       	File f = new File (fname );
+	Scanner scan = new Scanner(f);  <---- Exception will be generated here
+	while( scan.hasNext() ) {             if the file is not found
+	  name=scan.next();
+	}
+	scan.close();
+   }
+
+   public void run( String fname ) {
+       try {
+          setAccount(fname);
+       }
+       catch( IOException e ) {
+          System.out.println(e);        <--- but caught here ....
+       }	  
+   }
+ 
+   public static void main( String [] args ) {
+        Account acct = new Account();
+        acct.run(args[0]);
+   }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
