@@ -1,0 +1,117 @@
+
+1) In an inheritance relationship, this is the general class.
+
+Answer b) superclass
+
+2) In an inheritance relationship, this is the specialized class.
+
+Answer c) subclass
+
+3) This keyword indicates the class inherits from another class.
+
+Answer d) extends
+
+4) A subclass does not have access to a superclas members.
+
+Answer b) private
+
+5) This keyword referrs to an objects superclass.
+
+Answer a) super
+
+6) In a subclass constructor the superclass constructor must ____
+
+Answer a) appear as the very first statement
+
+7) The following is an explicit call to the superclass's default constructor 
+
+Answer c) super();
+
+8) A method in the subclass that has the same signature as a method in the superclass is
+an example of 
+
+Answer b) overriding 
+
+9) method in the subclass that has the same name as a method in the superclass but different signature is
+an example of 
+
+Answer a) overloading
+
+10) These superclass members are acessible to subclasses and classes in the same package
+
+Answer c) protected
+
+11) All classes directly or indrectly inherit from this class 
+
+Answer a) Object
+
+12) With this type of binding the JVM determines at runtime which method to call, depending on the type of 
+varaible it references
+
+Answer d) dyanmic
+
+13) This operator can be used to determing wheather a reference variable references an object of a particualr class.
+
+Answer c) instanceof
+
+14) When a class implements an interface it must 
+
+Answer b) provide all of the nondefault method that are listed in the interface, with exact signatures and return types.
+        (Note default memebers in "interfaces" is a new concept in Java 8)
+
+15) Fields in an interface are 
+
+Answer c) both final and static
+
+
+16) Abstract methods must be 
+
+Answer b) overidden
+
+17) Abstract classes cannot be 
+
+Answer c) instantiated
+
+
+18) You must use the ____ operator to define an anonymous inner class 
+
+Answer c) new
+
+19) An anonymous innner class must 
+
+Answer c) implement an interface of extend a superclass
+
+20) A functional interface is an interface with
+
+Answer a) only one abstract method
+
+21) YOu can use an lambda expression to instantiate an object that 
+
+Answer c) implements a functional interface 
+
+
+22) True
+23) True
+24) False
+25) False
+26) True
+27) False
+28) True
+29) False
+30) True
+31) True
+32) False
+33) True
+
+Find the error
+
+1) should be extends no "expands"
+2) Car can't access private member varaible cost from Vehicle
+3) parameter c is not declared 
+
+ 
+
+
+
+
+
