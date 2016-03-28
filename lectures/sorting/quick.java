@@ -15,7 +15,8 @@ public class quick {
 	}
 	
 	private static int partition_(int [] A , int b , int e) {
-		int D = A[(b+e)/2];
+		int pivot =(b+e)/2;
+		int D = A[pivot];
 		int i = b-1;
 		int j = e+1;
 		while(true){
