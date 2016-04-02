@@ -1,0 +1,102 @@
+
+Implement the selection sort algorithm
+
+This exercise covers the components we used to build the selection sort algoirhtm
+
+Here's background on the selection sort algorihtm (Selection sort Gaddis 7.11 p 465)
+
+Given an array of integers , we want to order them from smallest to largest (sort)
+
+    example : suppose we have the array
+
+    ----------------------------------
+    | 19 | 77 | 13 | 22 | 8 | 11| 16 | 
+    ----------------------------------
+
+      
+   
+    in sorted order the array would be 
+
+    ---------------------------------
+    | 8 | 11| 13 | 19| 16 | 22 | 77 | 
+    ---------------------------------
+
+ 
+    the selection sort works as follows :
+
+       start at the beginning of the array (index 0)
+       find the index smallest value in the array call it si
+       swap the value at index 0  with si
+       
+       repeat start at 1 and find the smallest and swap with positioth
+       until we are at the end of teh array    
+   
+Array: X
+      ----------------------------------
+      | 19 | 77 | 13 | 22 | 8 | 11| 16 | 
+      ----------------------------------
+index   0    1    2    3    4   5   6       
+
+----------------
+      start at 0:      
+          the smallest value in the array is 8 and it is at index 4
+          swap X[4] with X[0] (8 with 19)
+         
+Array: X
+      ---------------------------------
+      | 8 | 77 | 13 | 22 | 19 | 11| 16 | 
+      ----------------------------------
+index   0   1    2    3    4    5   6       
+
+--------------
+      now at 1:      
+          the smallest value in the array from 1 to the end is 11 and it is at index 5
+          swap X[5] with X[1]
+      
+Array: X
+      ---------------------------------
+      | 8 | 11 | 13 | 22 | 19 | 77| 16 | 
+      ----------------------------------
+index   0   1    2    3    4    5   6       
+
+-------
+
+
+Question 1)
+
+   write the code which finds the location of teh smallest value
+   in array X , from position p to the end of the array and return
+   the index
+
+
+   public static int findSmallestIndex(int [] X , int p ) {
+
+   }
+
+
+Question 2)
+
+   write the code to swap the contents of the values in array X 
+   at postion i and j
+
+  public static void swap( int [] X , int i , int j ) {
+
+  }
+
+
+Question 3)
+
+   write the selection sort algorithm using findSmallIndex and swap
+
+
+  public static void sort (int [] X ) {
+
+  }
+
+
+
+
+
+
+    
+    
