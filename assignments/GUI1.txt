@@ -1,0 +1,13 @@
+Due April 14th,2016
+25 Points
+
+1) Create a subclass of JFRAME thats 400x400 , will exit on close and will appear at coordinates 500 and 200.
+
+
+2) Create an interface which has two JButtons "Upper" and "Lower" using a GridLayout
+
+
+3) Create in interface which takes input from a JTextField that in Feet and when a button is pressed converts
+  it to Meters and then displays the result in a JLABEL
+
+  Feet : ----------------  CalcButton  -----------
