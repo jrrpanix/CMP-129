@@ -1,0 +1,267 @@
+Course      : CMP-129 
+Assignment  : Final Exam
+Date        : May 7th,2015 8:00 am
+Instructor  : Prof. John Reynolds
+
+
+1) Answer the following 3 questions 
+
+	a) create an array of int called X, that's initialized with 1,2,3,4
+
+
+	b) create an array of int called X, that's size 5
+
+
+	c) for the array declaration int [] X = {5,12,3,1};
+
+	    What is X[0] ?
+
+	    What is X[3] ? 
+
+
+2) What is the value of "total" after the following code sequence is executed
+
+   int [] X = { 1, 2 ,3 };
+   int [] Y = { 2, 1, 1 };
+
+   int total = 0;
+   for( int i = 0; i < X.length ; i++ ) 
+      total += X[i]*Y[1];
+
+3) What are the values of "sum" , X[1][1] and Z[0][2] , after the following code sequence is executed?
+
+        int [][] X = { {1,2} , {3,6} , {4,5} };        
+        int [][] Z = { {1,2,3} , {1,3 ,7} };
+        X[1][1] += X[0][0];       
+        Z[0][2] += Z[1][2];        
+        int sum = X[1][1] + Z[0][2];
+
+	a) sum =  ?
+	b) X[1][1] = ?
+	c) Z[0][2] = ? 
+
+
+4)  Write a static function to "findString" to find the index of the first occurrence of a String variable   
+    called "pattern" in an String array, String [] Z, have it return -1 if it does not find the variable,   
+    make the search case insensitive, so the findString treats "ABC" and "abc" exactly the same.
+
+    static public int findString( String [] Z , String pattern ) {
+    }
+
+
+
+5) Override the toString method for the following class Point, have it return the variables in the
+   class separated by a ":".
+
+   public class Point {
+      public int X;
+      public int Y;
+   }
+
+6) Overload the equals method for the calss Point , have it return true if the X and Y variables
+   are the same for the 2 points.
+
+   public class Point {
+      public int X;
+      public int Y;
+   }
+
+
+
+7) correct the compile error in the code below by writing code that
+   will handle the exception in the method below
+
+   public void printFile( String fileName ) {
+       File f = new File( fileName );
+       Scanner scan = new Scanner(f);
+       while(scan.hasNextLine() ) {
+          System.out.print( scan.nextLine() );
+       }
+   }
+
+    
+
+8)  What is the output if main is executed?
+
+    public class ExceptionTest    {       
+         public static void main( String []  args ) {
+               try {             
+                        System.out.println("A");
+                        System.out.println( Integer.parseInt( "11" ) );
+                        System.out.println( Double.parseDouble( "XYZ" ) );
+                        System.out.println("B");          
+                  }   catch( NumberFormatException e ) { 
+                        System.out.println("C");          
+                  }   catch( Exception e ) {              
+                        System.out.println("D");         
+                  }   finally {              
+                       System.out.println("E");         
+                  }         
+                  System.out.println("F");      
+                 }   
+            }
+
+
+9) Create a class call "SimpleFrame" which extends from
+   JFrame, has width 200 , height 500 , is at location 200,300
+   and the defult close operation is to exit Make it visible after
+   its constructed.  Give it the title "Final Exam" .
+   Be sure to import the correct packages.
+
+
+
+10) Use a BorderLayout and place the following 5 buttons at the position
+    in the layout corresponding to their name, so for Example the button 
+    named Top should go at the top of the layout.
+
+
+    private void initLayout() {
+
+       JPanel panel = new JPanel();
+       panel.setLayout( new BorderLayout() );
+       JButton topB = new JButton("Top");
+       JButton leftB = new JButton("Left");
+       JButton rightB = new JButton("Right");
+       JButton bottomB = new JButton("Bottom");
+       JButton centerB = new JButton("Center");
+
+       
+       // write the code here the place the buttons in the position
+       // corresponding to their name .
+
+       ---> ADD CODE HERE .....
+
+       add(panel);
+    }
+
+
+
+11) Implement the correct listener interface for a JButton so that 
+    when the button below is press it print "Button Pressed". Name
+    name the implementation "ButtonListener"
+
+    
+    private JButton aButton;
+
+    private void initButton() {
+       aButton = new JButton("Press");
+       aButton.addActionListener( new ButtonListener()) :
+    }
+
+    // Fill in the rest of the code 
+    private class ButtonListener
+
+
+12) Write code that creates a JList with the months of the 
+    year and the JList is scrollable.
+
+
+13) a) What package is ActionListener in ?
+    b) What package is JFrame in?
+    c) What package is GridLayout in?
+    d) What package is Scanner in ?
+    e) What package is File in ?
+
+14) Implement the interface KeyListener for the following text
+    fields so that when the key is released it grabs the text in
+    the fields , adds them together and displays the result in
+    the field called "result"
+
+    private JTextField x1Field;
+    private JTextField x2Field;
+    private JTextField result;
+
+    void initTextFields() {
+
+        x1Field = new JTextField(15);
+        x2Field = new JTextField(15);
+	result = new JTextField(15);
+	result.setEditable(false);
+        x1Field.addKeyListener(new TextKeyListener());
+        x2Field.addKeyListener(new TextKeyListener());
+    }
+
+   // Implement Here so that when when a Key is Released
+   // the contents of x1Field and x2Field are added togehter
+   // and the sum is displayed in JTextField "result"
+   class TextKeyListener implements KeyListener{
+
+
+   }
+
+15) Write code that creates a 3x3 grid of buttons with labels from 1-9
+
+
+16) Create an abstract class called Animal and create 3 abstract methods
+       (a) one that returns the weight 
+       (b) a method that returns the name
+       (c) a method returns the species .
+
+
+17) For the code below complete the following code 
+ 
+    a) implement a contstructor for Square that takes 4 arguments
+       the length of a side of the square (a double) , the xpos
+       (an int), the ypos (an int) and the Color.
+
+    b) implement the function area for Square 
+
+
+    public abstract class Shape {
+
+       private int   xPos_;
+       private int   yPos_;
+       private Color color_;
+
+
+       public Shape( int xpos , int ypos, Color color ) {
+         xPos_=xpos;
+	  yPos_=ypos;
+	   color_=color;
+       }
+
+       public abstract double area();
+
+    }
+
+    public class Square extends Shape {
+
+       // your code here ...
+    }   
+
+
+18) Write the declaration for a class "B" . The class members should be as follows:
+
+    m an integer.  This variable should not be accessible to code outside of
+    the class or any class that extends from B,
+
+    n an integer.  This variable should only be accessible to any variable that 
+    extends from B or is in the same package as class B.
+
+    write getM , getN accessor and mutator methods that are accsssible
+    to code outside of the class.
+
+
+19) For the class below write a method parse a CSV line
+    of input and assign it to the class members.
+
+
+   public class Inventory {
+      public int     itemNum;
+      public String  itemName;
+      public double  itemPrice
+
+      // example line of input
+      // String line = "341,Flat Screw Driver,3.99";
+      // where the format is itemNum,itemName,itemPrice
+      public void parseLine( String line ) {
+
+        // put your code here 
+      }
+      
+
+   }
+
+
+20) Write a generic function to print the contents of an array of type T
+    on a single line.
