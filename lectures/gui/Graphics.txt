@@ -1,0 +1,240 @@
+/ Course       : CMP-129
+// Title       : Graphics
+// Instructor  : JReynolds
+
+
+Based on material covered in Chapter 14, section 14.5  of Gaddis
+
+In the lecture we are going to cover the basics of using the Graphics Object in Java
+
+
+   *) Each Object that inherits from Component has an internal object that inherits 
+      from Graphics class
+   *) Components have a method called 
+ 
+           void paint(Graphics ) // Used For Applets
+
+      in addition JPanel has 
+
+            void paintComponent(Graphics g ) // For JPanel
+
+       this method update the Graphics Comonent 
+
+   *) The Graphics class has an XY Coordinate System in Pixels where
+      * (0,0) is the top left corner 
+      * (0,HEIGHT) is the bottom left corner
+      * (WIDTH,0) is the top right corner
+      * (WIDTH,HEIGHT) is teh bottom right corner
+
+      
+    (0,0)               (WITDH,0)
+      ---------------------
+      |                   |
+      |                   |
+      |                   |
+      |                   |
+      ---------------------
+    (0,HEIGHT)          (WIDTH,HEIGHT)
+
+
+-----------------------------------------------------------------------------
+Example : Drawing a Rectangle on a Canvas
+-----------------------------------------------------------------------------
+
+(1) Drawing a Simple Rectangle on a Canvas (note we are making a class that extends from
+    JPanel not JFrame, so its more direct to draw to)
+
+
+	import java.awt.*;
+	import java.swing.*;
+
+	public class GraphEx extends JPanel {
+	
+	    public GraphEx() {
+	    }
+
+	    // draw a green rectangle
+	    public void paint(Graphics g ) {
+	       super.paint(g);
+	       g.setColor(Color.green);
+	       // draw a rectangle starting in the top left corner
+	       // that is 50 pixels wide and 50 pixels high
+	       g.drawRectangle(0,0,50,50); 
+	    }
+
+	    static public void RunEx() {
+	       JFrame frame = new JFrame();
+	       frame.setSize(400,400);
+	       frame.setLocation(200,200);
+	       frame.add( new GraphEx());
+	       frame.setVisible(true);
+	    }
+
+
+	    public static void main( String [] args ) {
+	       RunEx();
+	    }
+
+	}
+
+  
+-----------------------------------------------------------------------------
+Some Graphics Methods
+-----------------------------------------------------------------------------
+
+	 *) setColor( Color C)
+	 *) Color getColor()
+
+	 *) drawLine( int x1 , int y1 , int x2, int y2 );
+
+	 *) drawRect( int xLocation , int yLocation , int width , int height )
+	 *) fillRect( int xLocation , int yLocation , int width , int height )
+
+	 *) drawOval( int xLocation , int yLocation , int width , int height )
+	 *) fillOval( int xLocation , int yLocation , int width , int height )
+	 
+	 *) drawArc( int xLocation , int yLocation , int width , int height ,
+	             int startAngle , int arcAngle )
+
+	 *) fillArc( int xLocation , int yLocation , int width , int height ,
+	             int startAngle , int arcAngle )
+
+         *) drawPolygon( int [] xPoints , int [] yPoints , int numVerticies);		     	  
+         *) fillPolygon( int [] xPoints , int [] yPoints , int numVerticies);		     	  
+
+         *) drawString( String S , int x , int y );
+	 *) setFont( Font f );      
+
+
+-----------------------------------------------
+Adding a Timer class
+-----------------------------------------------
+
+   We can make the graphics a little more animated by adding a timer class ...
+   There's more than one Timer class for this we will be using the Timer in 
+   javax.swing package.
+
+   Timer(int delayInMilliseconds , ActionListener );
+
+
+   *) invoking a timer 
+
+   import javax.swing.*;
+
+   public class TimerEx {
+
+       private Timer timer;
+       private final int TimerDelay = 100; // 100 millisecond delay
+       
+       public TimerEx() {
+           timer = new Timer( TimerDelay, new TimerListener() );
+	   timer.start();
+       }
+   
+       private TimerListener implements ActionListener {
+
+	   public void actionPerformed( ActionEvent e ) {
+           }
+
+       }
+
+   }
+
+
+Example of a Ball bouncing using a Timer ...
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+import java.util.Random;
+
+public class Ball extends JPanel {
+
+    private Timer timer;
+    private int timeDelayMS;
+    private int count ;
+    private int bDim;
+    private int x,y;
+    private boolean debug ;
+    private Random rand;
+    private boolean up;
+
+    public Ball() {
+	init();
+	timer.start();
+    }
+
+    
+    public void paintComponent(Graphics g ) {
+	super.paintComponent(g);
+	g.setColor(Color.red);
+	g.fillOval(x,y,bDim,bDim);
+    }
+
+
+    private void init() {
+	timeDelayMS = 75;
+	timer = new Timer( timeDelayMS , new TimerListener() );
+	bDim=50;
+	count = 0;
+	x=100;
+	y=100;
+	debug=false;
+	rand = new Random();
+	up = true;
+    }
+
+
+    private void setY() {
+	if ( up ) {
+	    up = false;
+	    y +=20;
+	} else {
+	    up = true;
+	    y -= 20;
+	}
+    }
+
+    private void setX() {
+	x += 10;
+	if ( x > 499 ) x=0;
+    }
+
+    private void randBounce() {
+	int w = getWidth();
+	int h = getHeight();
+	x = rand.nextInt(w);
+	y = rand.nextInt(h);
+    }
+
+    private void bounce() {
+	if ( debug && count++ == 10 ) {
+	    System.out.println( "Bounce ....");
+	    count=0; 
+	}
+	setY();
+	setX();
+	repaint();
+    }
+
+    private class TimerListener implements ActionListener {
+	public void actionPerformed( ActionEvent e ) {
+	    bounce();
+	}
+    }
+
+    static public void BounceBall() {
+	JFrame frame = new JFrame();
+	frame.setSize(500,500);
+	frame.setLocation(1550,200);
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.add( new Ball());
+	frame.setVisible(true);
+    }
+
+    static public void main(String [] args ) {
+	BounceBall();
+    }
+
+}
+

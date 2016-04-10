@@ -1,0 +1,75 @@
+Loading Images In Java
+
+We are going to concentrate on images with common file extensions 
+
+   .xbm
+   .jpg
+   .gif
+
+The simpelest way to load an image is to create an ImageIcon and then set 
+the icon into a JLabel ...
+
+here is some Example code to display an image ...
+
+     import java.awt.image.*;
+     import javax.swing.*;
+
+     // loading the image into an ImageIcon ...
+     //
+     String fileLocation = "/home/john/CMP-129/Images/flagup.xbm";
+     ImageIcon image = new ImageIcon(fileLocation);
+     
+     // now place image on a label
+     JPanel panel = new JPanel();
+     JLabel label = new JLabel();
+     panel.set(label);
+     label.setIcon(image);
+
+
+As Images get lager you may need to scale them down, otherwise they may be
+too large to display in the label. To scale an image 
+
+    1) read it into memory using BufferedImage
+    2) create an AffineTransformation
+    3) create an AffineTransformationOp
+    4) filter which will create an new BufferedImage
+    5) display new scaled image 
+
+Reading an image into memory ...
+
+   import javax.imageio.*;
+   import java.awt.image.*;
+   import java.io.*;
+
+
+    // read an image into memory ...
+    public static BufferedImage readImage(String fileName) {	
+	System.out.println("reading image " + fileName);
+	BufferedImage img = null;
+	try {
+	    img = ImageIO.read( new File(fileName));
+	} catch( IOException e) {
+	    System.out.println(e);
+	}
+	return img;
+    }
+
+
+   // create a scaled image 
+    public static BufferedImage getScaledImage(BufferedImage image, int width, int height) { 
+	int imageWidth  = image.getWidth();
+	int imageHeight = image.getHeight();
+	
+	double scaleX = (double)width/imageWidth;
+	double scaleY = (double)height/imageHeight;
+	AffineTransform scaleTransform = AffineTransform.getScaleInstance(scaleX, scaleY);
+	AffineTransformOp bilinearScaleOp = new AffineTransformOp(scaleTransform, 
+								  AffineTransformOp.TYPE_BILINEAR);
+	
+	return bilinearScaleOp.filter(image,
+				      new BufferedImage(width, height, image.getType()));
+    }
+
+
+
+

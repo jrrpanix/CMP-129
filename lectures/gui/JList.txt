@@ -1,0 +1,161 @@
+
+JList has changed from when it was written in the book to a Generic
+
+the new form is 
+
+    JList<YourClass>
+
+to find JList import :
+
+   import javax.swing.*;
+
+to make a list of months for example :
+
+   String [] months =  {"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"};
+   JList<String> monthList = new JList<String>( months);
+
+to get what is selected from a JList<> implement the interface ListSelectionListener
+this is found in
+
+     import javax.swing.event.*;
+
+
+implementation of the ListSelectionListener interface looks like this 
+
+    private class ListL implements ListSelectionListener {
+	public void valueChanged( ListSelectionEvent e ) {
+	    String sel = (String)monthList.getSelectedValue();
+	    System.out.println( "You selected " + sel );
+	    // Insert Code here to Display Selected Month
+	}
+    }
+
+
+a class outline for a JList and ListSelectionListener would look like this
+
+  import javax.swing.*;
+  import java.awt.*;
+  import javax.swing.event.*;
+
+  public class ListEx extends JFrame {
+
+    private String [] months =  {"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"};<
+    private JTextField    monthSel;
+    private JList<String> monthList;
+
+    public ListEx() {
+    }
+
+
+    private class ListL implements ListSelectionListener {
+	public void valueChanged( ListSelectionEvent e ) {
+	    String sel = (String)monthList.getSelectedValue();
+	    monthSel.setText(sel);
+	}
+    }
+
+
+  }
+
+
+adding a scroll bar to the list :
+
+       we can use the method selVisibleRowCount in JList to set the number of Visible Rows :
+       
+
+       we can then put the JList into a JScrollPane ...
+
+    private void initList() {
+	JPanel lp = new JPanel();
+	lp.setLayout( new BorderLayout());
+	monthl = new JList<String>(months);
+	monthl.setSelectionMode( ListSelectionModel.SINGLE_SELECTION);
+	monthl.addListSelectionListener( new ListL());
+	monthl.setVisibleRowCount(5);   <-------------- ADDED HERE !
+	JScrollPane scroll = new JScrollPane(monthl); <--- JScrollPane for month list 
+	lp.add(scroll,BorderLayout.CENTER);
+	mSel = new JTextField(10);
+	mSel.setEditable(false);
+	lp.add(mSel,BorderLayout.PAGE_END);
+	add(lp);
+    }
+
+
+
+
+simple code to display a list of months and get the selection :
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+
+public class ListEx extends JFrame {
+
+    private String [] months =  {"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"};<
+    private JTextField mSel;
+    private JList<String> monthl;
+
+    public ListEx() {
+	initFrame();
+	initList();
+	pack();
+	setVisible(true);
+    }
+
+    public ListEx( boolean useScroll ) {
+	initFrame();
+	initListScrollPane();
+	pack();
+	setVisible(true);
+    }
+
+    private void initFrame() {
+	setTitle( "List Example");
+	setSize( 550, 400 );
+	setLocation( 200,200);
+	setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+
+    private void initList() {
+	JPanel lp = new JPanel();
+	lp.setLayout( new BorderLayout());
+	monthl = new JList<String>(months);
+	monthl.setSelectionMode( ListSelectionModel.SINGLE_SELECTION);
+	monthl.addListSelectionListener( new ListL());
+	lp.add(monthl,BorderLayout.CENTER);
+	mSel = new JTextField(10);
+	mSel.setEditable(false);
+	lp.add(mSel,BorderLayout.PAGE_END);
+	add(lp);
+    }
+
+    private void initListScrollPane() {
+	JPanel lp = new JPanel();
+	lp.setLayout( new BorderLayout());
+	monthl = new JList<String>(months);
+	monthl.setSelectionMode( ListSelectionModel.SINGLE_SELECTION);
+	monthl.addListSelectionListener( new ListL());
+	monthl.setVisibleRowCount(5);
+	JScrollPane scroll = new JScrollPane(monthl);
+	lp.add(scroll,BorderLayout.CENTER);
+	mSel = new JTextField(10);
+	mSel.setEditable(false);
+	lp.add(mSel,BorderLayout.PAGE_END);
+	add(lp);
+    }
+
+    private class ListL implements ListSelectionListener {
+	public void valueChanged( ListSelectionEvent e ) {
+	    String sel = (String)monthl.getSelectedValue();
+	    mSel.setText(sel);
+	}
+    }
+
+    public static void main( String [] args ){
+	new ListEx();
+    }
+					     
+
+}
+
