@@ -8,8 +8,8 @@ Question 1)
 
 
    public static int findSmallestIndex(int [] X , int p ) {
-      int minIndex = X[p];		   
-      for( int i = p+1 ; i < Z.length ; i++) {
+      int minIndex = p;		   
+      for( int i = p+1 ; i < X.length ; i++) {
 	  if ( X[i] < X[minIndex] ) {
     	     minIndex = i;
           }
