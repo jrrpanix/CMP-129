@@ -11,7 +11,7 @@ Question 1)
       int minIndex = X[p];		   
       for( int i = p+1 ; i < Z.length ; i++) {
 	  if ( X[i] < X[minIndex] ) {
-    	     minIndex = X[i];
+    	     minIndex = i;
           }
        }
       return minIndex;
