@@ -1,0 +1,119 @@
+
+1) Create a subclass of JFRAME thats 400x400 , will exit on close and will appear at coordinates 500 and 200.
+
+public class SimpleFrame extends JFrame {
+
+    public SimpleFrame() {
+      super("Question 1");
+      setSize(400,400);
+      setLocation(500,200);
+      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      setVisible(true);
+   }
+
+}
+
+
+2) Create an interface which has two JButtons "Upper" and "Lower" using a GridLayout
+
+package gui;
+
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class GridEx extends JFrame{
+
+    public GridEx() {
+	
+	setSize(200,200);
+	setLocation(200,500);
+	setDefaultCloseOperation(EXIT_ON_CLOSE);
+	build();
+	setVisible(true);
+    }
+
+    private void build() {
+	JPanel panel = new JPanel();
+	panel.setLayout(new GridLayout(2,1));
+	panel.add(new JButton("Upper"));
+	panel.add(new JButton("Lower"));
+	add(panel);
+    }
+
+    public static void main(String [] args ) {
+	new GridEx();
+    }
+}
+
+3) Create in interface which takes input from a JTextField that in Feet and when a button is pressed converts
+  it to Meters and then displays the result in a JLABEL
+
+  Feet : ----------------  CalcButton  -----------
+
+
+package gui;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class FeetTo extends JFrame {
+
+    private JTextField _input;
+    private JButton    _calc;
+    private JLabel     _result;
+    
+    public FeetTo() {
+	
+	setSize(400,400);
+	setLocation(200,500);
+	setDefaultCloseOperation(EXIT_ON_CLOSE);
+	build();
+	setVisible(true);
+    }
+    
+    private void build() {
+	JPanel panel = new JPanel();
+	panel.add(new JLabel("Feet"));
+	_input = new JTextField(10);
+	panel.add(_input);
+	_calc = new JButton("Calc");
+	_calc.addActionListener(new ButtonPressed());
+	panel.add(_calc);
+	_result = new JLabel("      ");
+	panel.add(_result);
+	add(panel);
+    }
+    
+    private class ButtonPressed implements ActionListener {
+
+	@Override
+	    public void actionPerformed(ActionEvent e) {
+	    String input = _input.getText();
+	    double output =0;
+	    try {
+		output = Double.parseDouble(_input.getText()) * 0.3048;
+	    }catch (Exception ex) {
+		output = 0;
+		_input.setText("");
+	    }
+	    _result.setText(Double.toString(output));
+	}
+	
+    }
+    
+    public static void main(String [] args) {
+	new FeetTo();
+    }
+    
+}
+
+
