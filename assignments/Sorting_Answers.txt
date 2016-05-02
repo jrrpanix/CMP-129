@@ -1,0 +1,45 @@
+
+
+Question 1)
+
+   write the code which finds the location of teh smallest value
+   in array X , from position p to the end of the array and return
+   the index
+
+
+   public static int findSmallestIndex(int [] X , int p ) {
+      int minIndex = X[p];		   
+      for( int i = p+1 ; i < Z.length ; i++) {
+	  if ( X[i] < X[minIndex] ) {
+    	     minIndex = X[i];
+          }
+       }
+      return minIndex;
+   }
+
+
+Question 2)
+
+   write the code to swap the contents of the values in array X 
+   at postion i and j
+
+  public static void swap( int [] X , int i , int j ) {
+       int tmp = X[i];
+       X[i]= X[j];
+       X[j] = tmp;
+  }
+
+
+
+Question 3)
+
+   write the selection sort algorithm using findSmallestIndex and swap
+
+
+  public static void sort (int [] X ) {
+
+      for( int i = 0; i < X.length -1 ; i++ ) {
+           swap(X,i,findSmallestIndex(i));
+      }
+  }
+
