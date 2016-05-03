@@ -92,7 +92,7 @@ Final Exam Solutions
 
    (2) Catch Exception 
 
-   void readFile( String fileName ) throws Exception {
+   void readFile( String fileName ) {
         try {
           File f = new File(fileName);
           Scanner scan = new Scanner(f);
