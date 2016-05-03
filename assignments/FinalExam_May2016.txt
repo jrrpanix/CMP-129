@@ -1,0 +1,199 @@
+Course     CMP-129
+Date       May 2016
+Instructor J Reynolds
+
+Final Exam (180 pts total)
+
+
+1) (10pts) Create an array of String called X, that's initialized with "A","B","C".
+
+2) (10pts) Create an array of int called X, that's size 500
+
+
+3) (10pts) For the array declaration int [] X = {5,12,3,1};
+
+
+            What is X[0] ?
+
+
+            What is X[3] ?
+
+
+            What is X[-1] ?
+
+4) (10pts) Write a static function to "findString" to find the index of the first occurrence of a String variable
+    called "pattern" in an String array, String [] Z, have it return -1 if it does not find the variable,
+    make the search case insensitive, so the findString treats "ABC" and "abc" exactly the same.
+
+   
+
+    static public int findString( String [] Z , String pattern ) {
+
+    }
+
+
+4) (10pts) Override the toString method for the following class Employee, have it return the variables in the
+   class separated by a ":".
+ 
+  public class Employee {
+      public String _lastName;
+      public String _firstName;
+      public int    _id;
+      public String toString() {
+      }
+   }
+
+6) (10pts) For the following class implement the equals method
+
+   public class Point {
+      public int _x;
+      public int _y;
+      public boolean equals(Point point) {
+      }
+
+
+7) (10pts) The following code does not compile , fix the code so that it compiles . 
+   void readFile( String fileName ) {
+        File f = new File(fileName);
+        Scanner scan = new Scanner(f);
+        scan.close()
+    }
+
+
+8) (10pts) What is the output if main is executed?
+
+    public class ExceptionTest    {
+         public static void main( String []  args ) {
+               try {
+                        System.out.println("A");
+                        System.out.println( Integer.parseInt( "11" ) );
+                        System.out.println( Double.parseDouble( "XYZ" ) );
+                        System.out.println("B");
+                  }   catch( NumberFormatException e ) {
+                        System.out.println("C");
+                  }   catch( Exception e ) {
+                        System.out.println("D");
+                  }   finally {
+                       System.out.println("E");
+                  }
+                      System.out.println("F");
+                 }
+            }
+
+
+9) (10pts) Create a class call "SimpleFrame" which extends from JFrame, has width 200 , height 500 , is at location 200, 300 and the default close operation is to exit Make it visible afterits constructed.  Give it the title "Final Exam" .
+
+10) (10pts) Write code that creates a 3x3 grid of JButtons with labels from 1-9
+
+11) (10pts) Implement the interface ActionListener for the JButtons created in the previous question and print out the name of the button, when actionPerformed is invoked.
+
+
+12) (10pts) Create a class called Room which has 3 member variables the length, the width and the height of the Room.
+
+13) (10pts) For the class Room created in the previous question implement the method "volume" which returns the volume of the room.
+
+14) (10pts) Create an abstract class called  "Vehicle" which has two methods the "miles per gallon" (call the method mpg) and the "number of wheels" (call the method numWheels).
+
+15) (10pts) Create a subclass of Vehicle called Motorcycle that is not abstract .
+
+16) (10pts) In the paint method below draw a filled in Red Circle in the center of the display.
+
+package gui;
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Draw extends JPanel {
+
+  public Draw() {
+    JLabel label = new JLabel("Draw Some Sutff");
+    add(label);
+  }
+  @Override
+  public void paint(Graphics g) {
+   // TODO Auto-generated method stub
+    super.paint(g);
+   // Code goes here 
+  }
+   static void create() {
+     JFrame f = new JFrame("Draw");
+     f.setSize(500,500);
+     f.setLocation(500,200);
+     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     f.add(new Draw());
+     f.setVisible(true);
+  }
+   public static void main(String [] args) {
+     create();
+  }
+}
+
+17) (20 pts)
+
+// We are going to modify the code from the previous question to make the ball bounce.
+// To make it bounce 
+// 1) Add a Timer (Timer has 2 arguments the time frequency it fires in Milliseconds and the ActionListener it calls upon firing)
+// Timer timer = new Timer(<the delay> , new <class implemented from Action Listener>
+// 2) make sure you call timer.start()
+// 3) Create a class which implements ActionListener called "Bounce"
+// 4) This class just needs to call "repaint()" in actionPerformed()
+// 5) in the paint(Graphics g) method
+//     change the sign of _dy and drawArc with the new x and y coordinates
+
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+public class Draw extends JPanel {
+ private int _x;
+ private int _y;
+ private int _dy;
+ 
+ public Draw() {
+  JLabel label = new JLabel("Draw Some Sutff");
+  add(label);
+  _dy=40;
+                // You will need to add a Timer here that will repaint the window
+ 
+ }
+ 
+ @Override
+ public void paint(Graphics g) {
+  // TODO Auto-generated method stub
+  super.paint(g);
+  System.out.println(getWidth() + " " + getHeight());
+  g.setColor(Color.RED);
+  int w = getWidth()/2;
+  int h = getHeight()/2;
+         // Code here for new ball position
+                // use fillOval             //
+ }
+ 
+ class Bounce implements ActionListener {
+  @Override
+  public void actionPerformed(ActionEvent e) {
+   repaint();
+  }
+  
+ }
+ 
+ static void create() {
+  JFrame f = new JFrame("Draw");
+  f.setSize(500,500);
+  f.setLocation(500,200);
+  f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  f.add(new Draw());
+  f.setVisible(true);
+ }
+ 
+ public static void main(String [] args) {
+  create();
+ }
+}
