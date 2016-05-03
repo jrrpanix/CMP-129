@@ -1,0 +1,355 @@
+Final Exam Solutions
+
+
+1) (10pts) Create an array of String called X, that's initialized with "A","B","C".
+
+
+    String [] X = { "A", "B", "C"};
+
+
+
+2) (10pts) Create an array of int called X, that's size 500
+
+  
+    int [] X = new int[500];
+
+
+3) (10pts) For the array declaration int [] X = {5,12,3,1};
+
+
+            What is X[0] ?
+ 
+           X[0] = 5
+
+
+            What is X[3] ?
+
+           X[3] = 1
+
+            What is X[-1] ?
+
+           Does not exist , Out of Bounds Error in Java
+
+4) (10pts) Write a static function to "findString" to find the index of the first occurrence of a String variable
+    called "pattern" in an String array, String [] Z, have it return -1 if it does not find the variable,
+    make the search case insensitive, so the findString treats "ABC" and "abc" exactly the same.
+
+   
+
+    static public int findString( String [] Z , String pattern ) {
+
+          String lowerPattern = pattern.toLowerCase();
+          for( int i =0; i < Z.length ; i++ )
+               if ( Z[i].toLowerCase().equals(lowerPattern)) return i;    
+          return -1;
+    }
+
+
+5) (10pts) Override the toString method for the following class Employee, have it return the variables in the
+   class separated by a ":".
+ 
+  public class Employee {
+      public String _lastName;
+      public String _firstName;
+      public int    _id;
+
+
+      public String toString() {
+         return "Employee:"+_lastName+":"+_firstName+":"+_id;
+      }
+
+   }
+
+
+6) (10pts) For the following class implement the equals method
+
+   public class Point {
+      public int _x;
+      public int _y;
+
+      public boolean equals(Point point) {
+          return _x == point._x && _y == point._y;
+      }
+
+
+7) (10pts) The following code does not compile , fix the code so that it compiles . 
+
+   void readFile( String fileName ) {
+        File f = new File(fileName);
+        Scanner scan = new Scanner(f);
+        scan.close()
+    }
+
+   Answer 2 ways to Fix 
+
+   (1) Put a throws on the method
+
+   void readFile( String fileName ) throws Exception {
+        File f = new File(fileName);
+        Scanner scan = new Scanner(f);
+        scan.close()
+    }
+
+   (2) Catch Exception 
+
+   void readFile( String fileName ) throws Exception {
+        try {
+          File f = new File(fileName);
+          Scanner scan = new Scanner(f);
+          scan.close()
+        } catch (Exception e ) {
+        }
+    }
+
+8) (10pts) What is the output if main is executed?
+
+    public class ExceptionTest    {
+         public static void main( String []  args ) {
+               try {
+                        System.out.println("A");
+                        System.out.println( Integer.parseInt( "11" ) );
+                        System.out.println( Double.parseDouble( "XYZ" ) );
+                        System.out.println("B");
+                  }   catch( NumberFormatException e ) {
+                        System.out.println("C");
+                  }   catch( Exception e ) {
+                        System.out.println("D");
+                  }   finally {
+                       System.out.println("E");
+                  }
+                      System.out.println("F");
+                 }
+            }
+
+Answer:
+
+	A
+	11
+	C
+	E
+	F
+    
+
+9) (10pts) Create a class call "SimpleFrame" which extends from JFrame, has width 200 , height 500 , is at location 200, 300 and the default close operation is to exit Make it visible afterits constructed.  Give it the title "Final Exam" .
+
+
+    public class SimpleFrame extends JFrame {
+
+       public SimpleFrame() {
+          super("Final Exam");
+          setSize(200,500);
+          setLocation(200,200);
+          setDefaultCloseOperation(EXIT_ON_CLOSE);
+          setVisible(true);
+      }
+   }
+
+
+10) (10pts) Write code that creates a 3x3 grid of JButtons with labels from 1-9
+
+      
+        void createButtons() {
+            String [] buttons = { "1","2","3",
+                                  "4","5","6",
+                                  "7","8","9" };
+
+             JPanel panel = new JPanel();
+             panel.setLayout(new GridLayout(3,3));
+             for(int i = 0; i < buttons.length;i++) 
+                panel.add(new JButton(buttons[i]));
+             add(panel);
+         }
+
+
+11) (10pts) Implement the interface ActionListener for the JButtons created in the previous question and print out the name of the button, when actionPerformed is invoked.
+
+
+        class ButtonPressed implements ActionListener {
+
+	    @Override
+	    public void actionPerformed(ActionEvent e) {
+		System.out.println(e.getActionCommand());
+            }
+
+        }
+
+
+12) (10pts) Create a class called Room which has 3 member variables the length, the width and the height of the Room.
+
+     public class Room {
+
+          public double length;
+          public double width;
+          public double height;
+
+     }
+
+
+13) (10pts) For the class Room created in the previous question implement the method "volume" which returns the volume of the room.
+
+     public class Room {
+
+          public double length;
+          public double width;
+          public double height;
+
+       public double volume() {
+          return lenght*width*height;
+       }
+
+     }
+
+
+14) (10pts) Create an abstract class called  "Vehicle" which has two methods the "miles per gallon" (call the method mpg) and the "number of wheels" (call the method numWheels).
+ 
+     public abstract class Vehicle {
+
+         public abstract double mpg();
+         public abstract int numWheels();
+     }
+
+
+15) (10pts) Create a subclass of Vehicle called Motorcycle that is not abstract .
+
+     public class Motorcycle extends Vehicle {
+
+         public double mpg() { return 50.0; }
+         public int numWheels() { return 2; }
+
+     }
+
+
+16) (10pts) In the paint method below draw a filled in Red Circle in the center of the display.
+
+package gui;
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Draw extends JPanel {
+
+  public Draw() {
+    JLabel label = new JLabel("Draw Some Sutff");
+    add(label);
+  }
+  @Override
+  public void paint(Graphics g) {
+   // TODO Auto-generated method stub
+    super.paint(g);
+
+    //---------------------------------
+    // Solution Code addede here
+    //---------------------------------
+    int x = g.getWidth() /2;
+    int y = g.getHeight() /2;
+    g.setColor(Color.RED);
+    g.fillOlval(x,y,20,20);
+     
+  }
+
+   static void create() {
+     JFrame f = new JFrame("Draw");
+     f.setSize(500,500);
+     f.setLocation(500,200);
+     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     f.add(new Draw());
+     f.setVisible(true);
+  }
+
+   public static void main(String [] args) {
+     create();
+  }
+}
+
+
+17) (20 pts)
+
+// We are going to modify the code from the previous question to make the ball bounce.
+// To make it bounce 
+// 1) Add a Timer (Timer has 2 arguments the time frequency it fires in Milliseconds and the ActionListener it calls upon firing)
+// Timer timer = new Timer(<the delay> , new <class implemented from Action Listener>
+// 2) make sure you call timer.start()
+// 3) Create a class which implements ActionListener called "Bounce"
+// 4) This class just needs to call "repaint()" in actionPerformed()
+// 5) in the paint(Graphics g) method
+//     change the sign of _dy and /* fillOval */ with the new x and y coordinates
+
+package gui;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
+public class Draw extends JPanel {
+
+    private int _x;
+    private int _y;
+    private int _dy;
+    
+    public Draw() {
+	JLabel label = new JLabel("Draw Some Sutff");
+	add(label);
+       //---------------------------
+       // solution
+       //---------------------------
+	_dy=40;
+	Timer timer =new Timer(500,new Bounce());
+	timer.start();
+    }
+    
+    @Override
+	public void paint(Graphics g) {
+	// TODO Auto-generated method stub
+	super.paint(g);
+
+        //---------------------------
+        // Solution       
+        //---------------------------
+	g.setColor(Color.RED);
+	int w = getWidth()/2;
+	int h = getHeight()/2;
+	if ( w ==0 ) return;
+	if ( _x == 0) {
+	    _x=w;
+	    _y=h;
+	} else {
+	    _dy=-_dy;
+	    _y += _dy;
+	}
+	g.fillOval(_x,_y,20,20);
+    }
+    
+   //---------------------------
+   // Solution
+   //---------------------------
+    class Bounce implements ActionListener {
+
+	@Override
+	    public void actionPerformed(ActionEvent e) {
+	    repaint();
+	}
+	
+    }
+    
+    static void create() {
+	JFrame f = new JFrame("Draw");
+	f.setSize(500,500);
+	f.setLocation(500,200);
+	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	f.add(new Draw());
+	f.setVisible(true);
+    }
+    
+    public static void main(String [] args) {
+	create();
+    }
+}
+
